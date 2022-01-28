@@ -14,9 +14,17 @@ int main(void)
     {
         for(int j=0; j<h; j++)
         {
-            printf()
+
         }
         printf(" ");
         printf(" ");
+    }
+}
+
+void space(int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        
     }
 }
