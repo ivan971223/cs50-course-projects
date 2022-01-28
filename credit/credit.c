@@ -14,7 +14,7 @@ int main(void)
 
     while (i < 1)
     {
-        for(int i=0; i<)
+        
         double divided_num = num / 10.00;
         long temp_num = divided_num;
         int digit = (divided_num - temp_num)*10;
@@ -24,4 +24,14 @@ int main(void)
         printf("%i\n",digit);
         i++;
     }
+}
+
+int get_digit_num(num)
+{
+    int digit_num;
+    while(num>0)
+    {
+
+    }
+
 }
