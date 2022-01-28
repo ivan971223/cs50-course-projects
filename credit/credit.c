@@ -30,7 +30,7 @@ int main(void)
         double divided_num = temp_num / 10.00;
         temp_num = divided_num;
         int digit = round((divided_num - temp_num) * 10);
-        printf("the last digit is:%i\n", digit);
+        // printf("the last digit is:%i\n", digit);
         if (i % 2 == 1)
         {
             if(digit*2>9)
@@ -46,6 +46,7 @@ int main(void)
         }
         // printf("float number is: %f\n", divided_num);
         // printf("integer number is: %li\n", temp_num);
+        printf("checksum: %i\n", checksum);
     }
 
 
