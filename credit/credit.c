@@ -15,8 +15,8 @@ int main(void)
     } while (num < 0);
 
     int digit_num = get_digit_num(num);
-    printf("digit number is %i\n",digit_num);
-    
+    printf("digit number is %i\n", digit_num);
+
     if (digit_num < 13 || digit_num > 16 || digit_num == 14)
     {
         printf("INVALID\n");
@@ -27,17 +27,16 @@ int main(void)
     for (int i = 0; i < digit_num; i++)
     {
 
+        double divided_num = temp_num / 10.00;
+        temp_num = divided_num;
+        int digit = (divided_num - temp_num) * 10;
+        printf("the last digit is:%i\n", digit);
         if (i % 2 == 1)
         {
-            double divided_num = temp_num / 10.00;
-            temp_num = divided_num;
-            int digit = (divided_num - temp_num) * 10;
-            printf("%i\n", digit);
             checksum += digit;
         }
         //printf("%f\n", divided_num);
         printf("%li\n", temp_num);
-
     }
     printf("%i\n", checksum);
 }
