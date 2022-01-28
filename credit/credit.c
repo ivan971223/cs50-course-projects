@@ -14,11 +14,11 @@ int main(void)
     } while (num < 0);
 
     int digit = get_digit_num(num);
-    if (digit != 13 || digit != 15 || digit != 16)
+    if (digit < 13 || digit > 16 || digit==14)
     {
         printf("INVALID");
     }
-    
+
     // while (i < 1)
     // {
 
