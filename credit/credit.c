@@ -20,18 +20,21 @@ int main(void)
         printf("INVALID\n");
     }
 
+    long temp_num = num;
+
     for (int i = 0; i < digit_num; i++)
     {
+
         if (i % 2 == 1)
         {
-            double divided_num = num / 10.00;
-            long temp_num = divided_num;
+            double divided_num = temp_num / 10.00;
+            temp_num = divided_num;
             int digit = (divided_num - temp_num) * 10;
             printf("%i\n", digit);
             checksum += digit;
         }
-        // printf("%f\n", divided_num);
-        // printf("%li\n", temp_num);
+        //printf("%f\n", divided_num);
+        printf("%li\n", temp_num);
 
     }
     printf("%i\n", checksum);
