@@ -14,7 +14,7 @@ int main(void)
 
     while (i < 1)
     {
-        
+
         double divided_num = num / 10.00;
         long temp_num = divided_num;
         int digit = (divided_num - temp_num)*10;
