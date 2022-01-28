@@ -20,6 +20,7 @@ int main(void)
     if (digit_num < 13 || digit_num > 16 || digit_num == 14)
     {
         printf("INVALID\n");
+        return 0;
     }
 
     long temp_num = num;
@@ -43,7 +44,7 @@ int main(void)
             {
                 checksum += digit_prod;
             }
-            printf("add digit %i\n", digit);
+            // printf("add digit %i\n", digit);
         }
         else
         {
@@ -56,14 +57,14 @@ int main(void)
     double final_checksum = checksum / 10.0;
     int temp_checksum = (int)final_checksum;
     int sum_digit = (final_checksum - temp_checksum) * 10;
-    printf("%i",sum_digit);
+    // printf("%i",sum_digit);
     if (sum_digit == 0)
     {
-        printf("VISA");
+        printf("VISA\n");
     }
     else
     {
-        printf("INVALID");
+        printf("INVALID\n");
     }
 }
 
