@@ -30,8 +30,8 @@ int main(void)
             printf("%i\n", digit);
             checksum += digit;
         }
-        printf("%f\n", divided_num);
-        printf("%li\n", temp_num);
+        // printf("%f\n", divided_num);
+        // printf("%li\n", temp_num);
 
     }
 }
