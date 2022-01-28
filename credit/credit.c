@@ -64,9 +64,9 @@ int main(void)
     double final_checksum = checksum / 10.0;
     int temp_checksum = (int)final_checksum;
     int sum_digit = (int)((final_checksum - temp_checksum) * 10);
-    printf("%f",final_checksum);
-    printf("%i",temp_checksum);
-    printf("%i",sum_digit);
+    printf("%f\n",final_checksum);
+    printf("%i\n",temp_checksum);
+    printf("%i\n",sum_digit);
     if (sum_digit == 0 && first_two>=40 && first_two<50)
     {
         printf("VISA\n");
