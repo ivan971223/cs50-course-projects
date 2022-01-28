@@ -27,7 +27,7 @@ int main(void)
     for (int i = 0; i < digit_num-2; i++)
     {
         first_two /= 10;
-        printf("first_two: %f",first_two);
+        // printf("first_two: %f",first_two);
     }
     first_two = round(first_two);
 
@@ -65,15 +65,19 @@ int main(void)
     int temp_checksum = (int)final_checksum;
     int sum_digit = (final_checksum - temp_checksum) * 10;
     // printf("%i",sum_digit);
-    if (sum_digit == 0 && first_two>=40 %% first_two<50)
+    if (sum_digit == 0 && first_two>=40 && first_two<50)
     {
         printf("VISA\n");
     }
-    else if (sum_digit == 0 && first_two>=51 %% first_two<=55)
+    else if (sum_digit == 0 && first_two>=51 && first_two<=55)
     {
         printf("MASTERCARD\n");
     }
-    else if (sum_digit == 0 && (first_two==34 || first_two==37)
+    else if (sum_digit == 0 && (first_two==34 || first_two==37))
+    {
+        printf("AMEX\n");
+    }
+    else
     {
         printf("INVALID\n");
     }
