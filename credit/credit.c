@@ -27,10 +27,10 @@ int main(void)
     for (int i = 0; i < digit_num-2; i++)
     {
         first_two /= 10;
-        // printf("first_two: %f",first_two);
+
     }
     first_two = round(first_two);
-
+    printf("first_two: %f",first_two);
     long temp_num = num;
     for (int i = 0; i < digit_num; i++)
     {
