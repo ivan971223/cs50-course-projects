@@ -33,7 +33,15 @@ int main(void)
         printf("the last digit is:%i\n", digit);
         if (i % 2 == 1)
         {
-            checksum += digit*2;
+            if(digit>9)
+            {
+                checksum += 1;
+                checksum += digit-10;
+            }
+            else
+            {
+                checksum += digit*2;
+            }
             printf("add digit %i\n",digit);
         }
         // printf("float number is: %f\n", divided_num);
