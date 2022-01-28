@@ -29,15 +29,15 @@ int main(void)
         first_two /= 10;
 
     }
-    first_two = round(first_two);
-    printf("first_two: %f",first_two);
+    first_two = (int)first_two;
+    // printf("first_two: %f",first_two);
     long temp_num = num;
     for (int i = 0; i < digit_num; i++)
     {
 
         double divided_num = temp_num / 10.00;
         temp_num = divided_num;
-        int digit = round((divided_num - temp_num) * 10);
+        int digit = (int)((divided_num - temp_num) * 10);
         // printf("the last digit is:%i\n", digit);
         if (i % 2 == 1)
         {
