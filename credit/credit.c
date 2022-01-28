@@ -33,12 +33,13 @@ int main(void)
         printf("the last digit is:%i\n", digit);
         if (i % 2 == 1)
         {
-            checksum += digit;
+            checksum += digit*2;
         }
         printf("float number is: %f\n", divided_num);
         printf("integer number is: %li\n", temp_num);
     }
-    printf("%i\n", checksum);
+
+    printf("checksum: %i\n", checksum);
 }
 
 int get_digit_num(long num)
