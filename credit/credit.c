@@ -34,9 +34,10 @@ int main(void)
         if (i % 2 == 1)
         {
             checksum += digit*2;
+            printf("add digit %i\n",digit);
         }
-        printf("float number is: %f\n", divided_num);
-        printf("integer number is: %li\n", temp_num);
+        // printf("float number is: %f\n", divided_num);
+        // printf("integer number is: %li\n", temp_num);
     }
 
     printf("checksum: %i\n", checksum);
