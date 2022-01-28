@@ -72,7 +72,7 @@ int get_digit_num(long num)
     int digit_num = 0;
     if (num == 0)
     {
-        printf("INVALID");
+        return 0;
     }
     while (num > 0)
     {
