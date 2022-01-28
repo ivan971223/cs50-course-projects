@@ -11,6 +11,8 @@ int main(void)
     }
     while (num >= 0);
 
-    for(int i=0; i;i++)
-
+    while(num>0)
+    {
+        num/10
+    }
 }
