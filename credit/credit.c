@@ -15,6 +15,8 @@ int main(void)
     } while (num < 0);
 
     int digit_num = get_digit_num(num);
+    printf("digit number is %i\n",digit_num);
+    
     if (digit_num < 13 || digit_num > 16 || digit_num == 14)
     {
         printf("INVALID\n");
