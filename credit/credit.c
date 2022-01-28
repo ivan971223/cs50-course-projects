@@ -35,8 +35,8 @@ int main(void)
         {
             checksum += digit;
         }
-        //printf("%f\n", divided_num);
-        printf("%li\n", temp_num);
+        printf("float number is: %f\n", divided_num);
+        printf("integer number is: %li\n", temp_num);
     }
     printf("%i\n", checksum);
 }
