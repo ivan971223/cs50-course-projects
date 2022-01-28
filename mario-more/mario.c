@@ -21,10 +21,18 @@ int main(void)
     }
 }
 
-void space(int n)
+void add_space(int n)
 {
     for(int i=0; i<n; i++)
     {
-        
+        printf(" ")
+    }
+}
+
+void add_brick(int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        printf("#")
     }
 }
