@@ -31,7 +31,7 @@ int get_digit_num(num)
     int digit_num;
     while(num>0)
     {
-
+        
     }
 
 }
