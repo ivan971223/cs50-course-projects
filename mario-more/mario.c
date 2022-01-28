@@ -20,7 +20,6 @@ int main(void)
         printf(" ");
         printf(" ");
         add_brick(i);
-        add_space(h - i);
         printf("\n");
 
     }
