@@ -3,9 +3,14 @@
 
 int main(void)
 {
+    long num;
+
     do
     {
-        long card_num = get_long("Number: ");
+        num = get_long("Number: ");
     }
-    while();
+    while (num >= 0);
+
+    for(int i=0; i;i++)
+
 }
