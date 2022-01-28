@@ -15,7 +15,7 @@ int main(void)
     } while (num < 0);
 
     int digit_num = get_digit_num(num);
-    printf("digit number is %i\n", digit_num);
+    // printf("digit number is %i\n", digit_num);
 
     if (digit_num < 13 || digit_num > 16 || digit_num == 14)
     {
@@ -33,23 +33,33 @@ int main(void)
         // printf("the last digit is:%i\n", digit);
         if (i % 2 == 1)
         {
-            if(digit*2>9)
+            int digit_prod = digit * 2;
+            if (digit_prod > 9)
             {
                 checksum += 1;
-                checksum += digit-10;
+                checksum += digit_prod - 10;
             }
             else
             {
-                checksum += digit*2;
+                checksum += digit_prod;
             }
-            printf("add digit %i\n",digit);
+            printf("add digit %i\n", digit);
+        }
+        else
+        {
+            checksum += digit;
         }
         // printf("float number is: %f\n", divided_num);
         // printf("integer number is: %li\n", temp_num);
-        printf("checksum: %i\n", checksum);
+        // printf("checksum: %i\n", checksum);
     }
-
-
+    double final_checksum = checksum / 10.0;
+    int temp_checksum = int(final_checksum)
+    if (temp_checksum==0 && (digit_num == 13 || digit_num==16))
+    {
+        printf("VISA")
+    }
+    else if (temp_checksum==0 && digit_num == )
 }
 
 int get_digit_num(long num)
