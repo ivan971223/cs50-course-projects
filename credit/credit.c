@@ -8,11 +8,14 @@ int main(void)
     do
     {
         num = get_long("Number: ");
-    }
-    while (num >= 0);
+    } while (num >= 0);
+    int i = 0;
 
-    while(num>0)
+    while (i < 1)
     {
-        num/10
+        float divided = num / 100;
+        printf("%d",divided);
+
+        i++;
     }
 }
