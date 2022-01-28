@@ -14,7 +14,9 @@ int main(void)
     {
         for(int j=0; j<h; j++)
         {
-            printf("  ")
+            printf()
         }
+        printf(" ");
+        printf(" ");
     }
 }
