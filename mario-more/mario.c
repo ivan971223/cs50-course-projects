@@ -7,37 +7,33 @@ int main(void)
     do
     {
         h = get_int("Height: ");
-    }
-    while (h < 1 || h > 8);
+    } while (h < 1 || h > 8);
 
-    for(int i=1; i<=h; i++)
+    for (int i = 1; i <= h; i++)
     {
-        for(int x=1; x<h; x++)
-        {
-            add_space(h-i)
-            add_brick(i)
-        }
-        printf(" ");
-        printf(" ");
-        for(int y=0; y<h; y++)
-        {
 
-        }
+        add_space(h - i);
+        add_brick(i);
+        printf(" ");
+        printf(" ");
+        add_brick(i);
+        add_space(h - i);
+
     }
 }
 
 void add_space(int n)
 {
-    for(int i=0; i<n; i++)
+    for (int i = 0; i < n; i++)
     {
-        printf(" ")
+        printf(" ");
     }
 }
 
 void add_brick(int n)
 {
-    for(int i=0; i<n; i++)
+    for (int i = 0; i < n; i++)
     {
-        printf("#")
+        printf("#");
     }
 }
