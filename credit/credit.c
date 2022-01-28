@@ -8,13 +8,13 @@ int main(void)
     do
     {
         num = get_long("Number: ");
-    } while (num >= 0);
+    } while (num < 0);
     int i = 0;
 
     while (i < 1)
     {
-        float divided = num / 100;
-        printf("%d",divided);
+        double divided = num / 100.00;
+        printf("%f\n",divided);
 
         i++;
     }
