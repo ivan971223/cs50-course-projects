@@ -24,10 +24,9 @@ int main(void)
     }
     long temp = num;
     double first_two = temp;
-    for (int i = 0; i < digit_num-2; i++)
+    for (int i = 0; i < digit_num - 2; i++)
     {
         first_two /= 10;
-
     }
     first_two = (int)first_two;
     // printf("first_two: %f",first_two);
@@ -62,20 +61,20 @@ int main(void)
         printf("checksum: %i\n", checksum);
     }
     double final_checksum = checksum / 10.0;
-    double temp_checksum = (int)final_checksum;
-    int sum_digit = (int)((final_checksum - temp_checksum) * 10);
-    printf("%f\n",final_checksum);
-    printf("%i\n",temp_checksum);
-    printf("%i\n",sum_digit);
-    if (sum_digit == 0 && first_two>=40 && first_two<50)
+    int temp_checksum = (int)final_checksum;
+    int sum_digit = (int)(final_checksum * 10 - temp_checksum * 10);
+    printf("%f\n", final_checksum);
+    printf("%i\n", temp_checksum);
+    printf("%i\n", sum_digit);
+    if (sum_digit == 0 && first_two >= 40 && first_two < 50)
     {
         printf("VISA\n");
     }
-    else if (sum_digit == 0 && first_two>=51 && first_two<=55)
+    else if (sum_digit == 0 && first_two >= 51 && first_two <= 55)
     {
         printf("MASTERCARD\n");
     }
-    else if (sum_digit == 0 && (first_two==34 || first_two==37))
+    else if (sum_digit == 0 && (first_two == 34 || first_two == 37))
     {
         printf("AMEX\n");
     }
