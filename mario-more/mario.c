@@ -10,7 +10,8 @@ int main(void)
     do
     {
         h = get_int("Height: ");
-    } while (h < 1 || h > 8);
+    }
+    while (h < 1 || h > 8);
 
     for (int i = 1; i <= h; i++)
     {
