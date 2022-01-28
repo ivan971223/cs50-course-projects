@@ -10,16 +10,16 @@ int main(void)
     }
     while (h < 1 || h > 8);
 
-    for(int i=0; i<h; i++)
+    for(int i=1; i<=h; i++)
     {
-        for(int x=1; x<h; y++)
+        for(int x=1; x<h; x++)
         {
-            add_space(h-x)
+            add_space(h-i)
             add_brick(i)
         }
         printf(" ");
         printf(" ");
-        for(int j=0; j<h; j++)
+        for(int y=0; y<h; y++)
         {
 
         }
