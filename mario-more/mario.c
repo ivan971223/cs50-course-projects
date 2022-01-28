@@ -1,6 +1,9 @@
 #include <cs50.h>
 #include <stdio.h>
 
+void add_space(int n);
+void add_brick(int n);
+
 int main(void)
 {
     int h;
