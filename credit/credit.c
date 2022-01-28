@@ -24,7 +24,7 @@ int main(void)
 
     long temp_num = num;
 
-    for (int i = 0; i < digit_num - 1; i++)
+    for (int i = 0; i < digit_num; i++)
     {
 
         double divided_num = temp_num / 10.00;
