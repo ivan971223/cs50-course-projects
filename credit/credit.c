@@ -37,7 +37,7 @@ int main(void)
 
         double divided_num = temp_num / 10.00;
         temp_num = divided_num;
-        int digit = (int)((divided_num - temp_num) * 10);
+        int digit = round((divided_num - temp_num) * 10);
         // printf("the last digit is:%i\n", digit);
         if (i % 2 == 1)
         {
