@@ -54,7 +54,7 @@ int main(void)
         // printf("checksum: %i\n", checksum);
     }
     double final_checksum = checksum / 10.0;
-    int temp_checksum = int(final_checksum);
+    int temp_checksum = (int)final_checksum;
     int sum_digit = (final_checksum - temp_checksum) * 10;
     printf("%i",sum_digit);
     if (sum_digit == 0)
