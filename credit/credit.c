@@ -59,12 +59,14 @@ int main(void)
         }
         // printf("float number is: %f\n", divided_num);
         // printf("integer number is: %li\n", temp_num);
-        // printf("checksum: %i\n", checksum);
+        printf("checksum: %i\n", checksum);
     }
     double final_checksum = checksum / 10.0;
     int temp_checksum = (int)final_checksum;
-    int sum_digit = (final_checksum - temp_checksum) * 10;
-    // printf("%i",sum_digit);
+    int sum_digit = (int)((final_checksum - temp_checksum) * 10);
+    printf("%f",final_checksum);
+    printf("%i",temp_checksum);
+    printf("%i",sum_digit);
     if (sum_digit == 0 && first_two>=40 && first_two<50)
     {
         printf("VISA\n");
