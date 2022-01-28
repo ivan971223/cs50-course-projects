@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <cs50.h>
+#include <math.h>
 
 int main(void)
 {
@@ -13,9 +14,14 @@ int main(void)
 
     while (i < 1)
     {
-        double divided = num / 100.00;
-        printf("%f\n",divided);
+        for(int i=0; i<)
+        double divided_num = num / 10.00;
+        long temp_num = divided_num;
+        int digit = (divided_num - temp_num)*10;
 
+        printf("%f\n",divided_num);
+        printf("%li\n",temp_num);
+        printf("%i\n",digit);
         i++;
     }
 }
