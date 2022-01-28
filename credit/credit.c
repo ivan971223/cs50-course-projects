@@ -12,7 +12,8 @@ int main(void)
     do
     {
         num = get_long("Number: ");
-    } while (num < 0);
+    }
+    while (num < 0);
 
     int digit_num = get_digit_num(num);
     // printf("digit number is %i\n", digit_num);
