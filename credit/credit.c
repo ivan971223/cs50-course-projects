@@ -14,13 +14,13 @@ int main(void)
         num = get_long("Number: ");
     } while (num < 0);
 
-    int digit = get_digit_num(num);
-    if (digit < 13 || digit > 16 || digit == 14)
+    int digit_num = get_digit_num(num);
+    if (digit_num < 13 || digit_num > 16 || digit_num == 14)
     {
         printf("INVALID\n");
     }
 
-    for (int i = 0; i < digit; i++)
+    for (int i = 0; i < digit_num; i++)
     {
         if (i % 2 == 1)
         {
@@ -34,6 +34,7 @@ int main(void)
         // printf("%li\n", temp_num);
 
     }
+    printf("%i\n", checksum);
 }
 
 int get_digit_num(long num)
