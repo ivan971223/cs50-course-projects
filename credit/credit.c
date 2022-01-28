@@ -22,9 +22,11 @@ int main(void)
         printf("INVALID\n");
         return 0;
     }
+    long temp = num;
+    double first_two = temp / (10*(digit_num-2));
+    printf("first_two: %f",first_two);
 
     long temp_num = num;
-
     for (int i = 0; i < digit_num; i++)
     {
 
