@@ -33,7 +33,7 @@ int main(void)
         printf("the last digit is:%i\n", digit);
         if (i % 2 == 1)
         {
-            if(digit>9)
+            if(digit*2>9)
             {
                 checksum += 1;
                 checksum += digit-10;
@@ -48,7 +48,7 @@ int main(void)
         // printf("integer number is: %li\n", temp_num);
     }
 
-    printf("checksum: %i\n", checksum);
+
 }
 
 int get_digit_num(long num)
