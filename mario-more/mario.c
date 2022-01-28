@@ -12,12 +12,17 @@ int main(void)
 
     for(int i=0; i<h; i++)
     {
+        for(int x=1; x<h; y++)
+        {
+            add_space(h-x)
+            add_brick(i)
+        }
+        printf(" ");
+        printf(" ");
         for(int j=0; j<h; j++)
         {
 
         }
-        printf(" ");
-        printf(" ");
     }
 }
 
