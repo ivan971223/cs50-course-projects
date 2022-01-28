@@ -21,6 +21,7 @@ int main(void)
         printf(" ");
         add_brick(i);
         add_space(h - i);
+        printf("\n");
 
     }
 }
