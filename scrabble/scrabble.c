@@ -24,8 +24,13 @@ int main(void)
 int compute_score(string word)
 {
     // TODO: Compute and return score for string
+    int score_sum = 0;
     for(int i=0, n=strlen(word); i<n; i++)
     {
-        word[i].toupper
+        char upperchar = toupper(word[i]);
+        int num = (int) word[i];
+        int point = points[num-65];
+        score_sum += point;
     }
+    return score_sum;
 }
