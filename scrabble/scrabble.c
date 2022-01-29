@@ -40,10 +40,11 @@ int compute_score(string word)
     for(int i=0, n=strlen(word); i<n; i++)
     {
         char upperchar = toupper(word[i]);
-        printf("%c",upperchar);
-        if(word[i]>='A' && word[i]<='Z')
+        //printf("%c",upperchar);
+        if(upperchar>='A' && upperchar<='Z')
         {
-            int num = (int) word[i];
+            int num = (int) upperchar;
+
             int point = POINTS[num-65];
             score_sum += point;
         }
