@@ -19,6 +19,10 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
+    if(score1>score2)
+    {
+        printf("")
+    }
 }
 
 int compute_score(string word)
@@ -27,11 +31,13 @@ int compute_score(string word)
     int score_sum = 0;
     for(int i=0, n=strlen(word); i<n; i++)
     {
-        if(word[i])
-        char upperchar = toupper(word[i]);
-        int num = (int) word[i];
-        int point = points[num-65];
-        score_sum += point;
+        if(word[i]>='A' && word[i]<='Z')
+        {
+            char upperchar = toupper(word[i]);
+            int num = (int) word[i];
+            int point = points[num-65];
+            score_sum += point;
+        }
     }
     return score_sum;
 }
