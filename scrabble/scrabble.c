@@ -27,6 +27,7 @@ int compute_score(string word)
     int score_sum = 0;
     for(int i=0, n=strlen(word); i<n; i++)
     {
+        if(word[i])
         char upperchar = toupper(word[i]);
         int num = (int) word[i];
         int point = points[num-65];
