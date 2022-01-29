@@ -39,9 +39,9 @@ int compute_score(string word)
     int score_sum = 0;
     for(int i=0, n=strlen(word); i<n; i++)
     {
+        char upperchar = toupper(word[i]);
         if(word[i]>='A' && word[i]<='Z')
         {
-            char upperchar = toupper(word[i]);
             int num = (int) word[i];
             int point = POINTS[num-65];
             score_sum += point;
