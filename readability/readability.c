@@ -21,8 +21,8 @@ int main(void)
     int num_sentences = count_sentences(text);
     float L = (float)num_letters / (float)num_words * 100.00;
     float S = (float)num_sentences / (float)num_words * 100.00;
-    //printf("L:%f\n", L);
-    //printf("S:%f\n", S);
+    printf("L:%f\n", L);
+    printf("S:%f\n", S);
     int index = round(0.0588 * L - 0.296 * S - 15.8);
     //printf("%i\n", index);
     if (index < 1)
