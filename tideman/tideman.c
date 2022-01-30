@@ -107,7 +107,7 @@ bool vote(int rank, string name, int ranks[])
         }
         else
         {
-            ranks[i] = rank;
+            ranks[rank] = i;
         }
     }
 
