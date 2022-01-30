@@ -12,9 +12,9 @@ int main(void)
 {
     string text = get_string("Text:");
     //printf("Text: %s\n", text);
-    // printf("%i letters\n", count_letters(text));
-    // printf("%i words\n", count_words(text));
-    // printf("%i sentences\n", count_sentences(text));
+    printf("%i letters\n", count_letters(text));
+    printf("%i words\n", count_words(text));
+    printf("%i sentences\n", count_sentences(text));
 
     int num_letters = count_letters(text);
     int num_words = count_words(text);
