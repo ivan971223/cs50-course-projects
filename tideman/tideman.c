@@ -119,7 +119,8 @@ void record_preferences(int ranks[])
     {
         for (int j = 1; j < candidate_count; j++)
         {
-            preferences[i][j] 
+            if(ranks[i])
+            preferences[i][j]
         }
     }
     return;
