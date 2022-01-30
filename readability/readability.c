@@ -3,20 +3,25 @@
 #include <stdio.h>
 #include <string.h>
 
-int count_letters(string text)
+int count_letters(string text);
 
 int main(void)
 {
     string text = get_string("Text:");
     printf("Text: %s\n", text);
-
+    printf("%i letters", count_letters(text));
 }
 
 int count_letters(string text)
 {
     int len = strlen(text);
-    for (int i=0; i<len; i++)
+    int letter_count = 0;
+    for (int i = 0; i < len; i++)
     {
-        if(text[i]>=
+        if ((text[i] >= 'A' && text[i] <= 'Z') || (text[i] >= 'a' && text[i] <= 'z'))
+        {
+            letter_count += 1;
+        }
     }
+    return letter_count;
 }
