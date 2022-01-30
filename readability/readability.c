@@ -14,5 +14,5 @@ int main(void)
 
 int count_letters(string text)
 {
-    
+    for
 }
