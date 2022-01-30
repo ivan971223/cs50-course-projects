@@ -100,7 +100,16 @@ int main(int argc, string argv[])
 bool vote(int rank, string name, int ranks[])
 {
     // TODO
-    return false;
+    for(int i=0; i<candidate_count; i++)
+    {
+        if(strcmp(name,candidates[i].name)！=0)
+        {
+            return false;
+        }
+    }
+    
+
+    return true;
 }
 
 // Update preferences given one voter's ranks
