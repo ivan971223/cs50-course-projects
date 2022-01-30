@@ -111,6 +111,7 @@ bool vote(int rank, string name, int ranks[])
             return true;
         }
     }
+    return true;
 }
 
 // Update preferences given one voter's ranks
