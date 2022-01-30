@@ -117,7 +117,16 @@ void record_preferences(int ranks[])
     // TODO
     for (int n=0; n<candidate_count; n++)
     {
-        if(strcmp(ranks[0]
+        str A_name = ranks[n];
+        int A_index = 0;
+        for(int i =0; i<candidate_count; i++)
+        {
+            if(strcmp(A_name,candidates[i])==0)
+            {
+                A_index = i;
+            }
+        }
+
     }
     return;
 }
