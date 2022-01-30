@@ -127,7 +127,10 @@ void record_preferences(int ranks[])
             {
                 continue;
             }
-            if(ranks[])
+            for (int n=0; n<candidate_count; n++)
+            {
+                if(ranks[n]==name)
+            }
             preferences[i][j]
         }
     }
