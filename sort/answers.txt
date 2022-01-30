@@ -8,4 +8,4 @@ How do you know?: There is insignificant time difference in sorting between sort
 
 sort3 uses: Selective Sort
 
-How do you know?: 
+How do you know?: There is insignificant time difference in sorting between all lists as both the best and worst scenario has a complexity of O(n^2).
