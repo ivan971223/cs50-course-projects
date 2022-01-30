@@ -117,8 +117,12 @@ void record_preferences(int ranks[])
     // TODO
     for (int i = 0; i < candidate_count; i++)
     {
+        string candidate_A = candidates[i].name;
+
         for (int j = 0; j < candidate_count; j++)
         {
+            string candidate_B = candidates[j].name;
+
             if(i==j)
             {
                 continue;
