@@ -107,7 +107,7 @@ bool vote(int rank, string name, int ranks[])
             return false;
         }
     }
-    
+    ranks[rank] = name;
 
     return true;
 }
