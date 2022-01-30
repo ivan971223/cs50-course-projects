@@ -1,11 +1,11 @@
-sort1 uses: TODO
+sort1 uses: Bubble Sort
 
-How do you know?: TODO
+How do you know?: There is a huge time difference in sorting between sorted list(of Ω(n) time complexity) and reversed list (of O(n^2) time complexity).
 
-sort2 uses: TODO
+sort2 uses: Merge Sort
 
-How do you know?: TODO
+How do you know?: There is insignificant time difference in sorting between sorted list and reversed list as both the best and worst scenario has a complexity of O(n log (n)). In addition, it has the fastest sorting time among all sorting methods.
 
-sort3 uses: TODO
+sort3 uses: Selective Sort
 
-How do you know?: TODO
+How do you know?: 
