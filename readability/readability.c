@@ -12,17 +12,17 @@ int main(void)
 {
     string text = get_string("Text:");
     //printf("Text: %s\n", text);
-    printf("%i letters\n", count_letters(text));
-    printf("%i words\n", count_words(text));
-    printf("%i sentences\n", count_sentences(text));
+    //printf("%i letters\n", count_letters(text));
+    //printf("%i words\n", count_words(text));
+    //printf("%i sentences\n", count_sentences(text));
 
     int num_letters = count_letters(text);
     int num_words = count_words(text);
     int num_sentences = count_sentences(text);
     float L = (float)num_letters / (float)num_words * 100.00;
     float S = (float)num_sentences / (float)num_words * 100.00;
-    printf("L:%f\n", L);
-    printf("S:%f\n", S);
+    //printf("L:%f\n", L);
+    //printf("S:%f\n", S);
     int index = round(0.0588 * L - 0.296 * S - 15.8);
     //printf("%i\n", index);
     if (index < 1)
@@ -56,7 +56,7 @@ int count_letters(string text)
 int count_words(string text)
 {
     int len = strlen(text);
-    int word_count = 0;
+    int word_count = 1;
     for (int i = 0; i < len; i++)
     {
         if (text[i] == ' ')
