@@ -165,7 +165,7 @@ void sort_pairs(void)
             }
         }
 
-        pairs[j] = temp[i];
+        
     }
     return;
 }
