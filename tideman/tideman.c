@@ -182,7 +182,7 @@ void sort_pairs(void)
 }
 bool traceback()
 {
-    if 
+    if locked[pairs[i].winner][pairs[n]]
         return;
 
 }
