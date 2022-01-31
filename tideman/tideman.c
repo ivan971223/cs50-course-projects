@@ -89,7 +89,7 @@ int main(int argc, string argv[])
     }
 
     add_pairs();
-    //sort_pairs();
+    sort_pairs();
     // lock_pairs();
     // print_winner();
     return 0;
@@ -164,10 +164,12 @@ void sort_pairs(void)
             {
                 temp_pair = pairs[j];
                 temp_index = j;
+
             }
         }
-        pairs[temp_index] = pairs[i];
-        pairs[i] = temp_pair;
+        printf("%i",temp_index);
+        //pairs[temp_index] = pairs[i];
+        // pairs[i] = temp_pair;
     }
     return;
 }
