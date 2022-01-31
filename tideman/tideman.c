@@ -89,7 +89,7 @@ int main(int argc, string argv[])
     }
 
     add_pairs();
-    // sort_pairs();
+    sort_pairs();
     // lock_pairs();
     // print_winner();
     return 0;
@@ -156,16 +156,18 @@ void sort_pairs(void)
     {
         int max = preferences[pairs[i].winner][pairs[i].loser];
         pair temp_pair;
+        int temp_index;
         for (int j = i; j < pair_count - 1; j++)
         {
             int options = preferences[pairs[j].winner][pairs[j].loser];
             if (options > max)
             {
                 temp_pair = pairs[j];
+                temp_index = j;
             }
         }
-
-        
+        pairs[temp_index] = pairs[i];
+        pairs[i] = temp_pair;
     }
     return;
 }
