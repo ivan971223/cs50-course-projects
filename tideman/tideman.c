@@ -158,9 +158,9 @@ void sort_pairs(void)
         for (int j = i; j < pair_count - 1; j++)
         {
             int options = preferences[pairs[j].winner][pairs[j].loser];
-            if (selection > max)
+            if (options > max)
             {
-                max = selection;
+                max = options;
             }
         }
         pairs[i] =
