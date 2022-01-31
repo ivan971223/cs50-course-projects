@@ -125,6 +125,10 @@ void record_preferences(int ranks[])
             preferences[ranks[i]][ranks[i + 1]] = 1;
         }
     }
+    for (int i = 0; i < candidate_count - 1; i++)
+    {
+        printf(preferences[ranks[i]][ranks[i + 1]])
+    }
     return;
 }
 
