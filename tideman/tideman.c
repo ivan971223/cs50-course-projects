@@ -152,7 +152,12 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
-    
+    void merge_sort(pairs[])
+    {
+        
+    }
+    if
+        return;
     return;
 }
 
