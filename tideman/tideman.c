@@ -162,6 +162,7 @@ void sort_pairs(void)
                 max = pairs[j];
             }
         }
+        pairs[i] = max;
     }
     return;
 }
