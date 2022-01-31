@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.html": "jinja-html",
+        "random": "c",
+        "limits": "c",
+        "algorithm": "c"
+    }
+}

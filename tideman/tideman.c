@@ -152,6 +152,19 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
+    for (int i = 0; i < pair_count; i++)
+    {
+        int max = preferences[pairs[i].winner][pairs[i].loser];
+        for (int j = i; j < pair_count - 1; j++)
+        {
+            int options = preferences[pairs[j].winner][pairs[j].loser];
+            if (selection > max)
+            {
+                max = selection;
+            }
+        }
+        pairs[i] =
+    }
     return;
 }
 
