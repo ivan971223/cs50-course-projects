@@ -152,6 +152,7 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
+    for (int i =0; )
     for (int i = 0; i < pair_count - 1; i++)
     {
         int max = pairs[i];
