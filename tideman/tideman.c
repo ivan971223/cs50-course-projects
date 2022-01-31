@@ -160,6 +160,7 @@ void sort_pairs(void)
             if (pairs[j] > max)
             {
                 max = pairs[j];
+                pairs[j] = pairs[i];
             }
         }
         pairs[i] = max;
