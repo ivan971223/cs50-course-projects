@@ -182,11 +182,12 @@ void sort_pairs(void)
 }
 bool traceback(int winner)
 {
+    if()
 
     for (int i = 0; i < candidate_count; i++)
-        if (locked[i][loser] == true)
+        if (locked[i][winner] == true)
         {
-            return traceback(i)
+            return traceback(i);
         }
 
 }
