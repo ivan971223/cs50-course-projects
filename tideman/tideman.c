@@ -227,12 +227,12 @@ void print_winner(void)
     for (int i = 0; i < candidate_count; i++)
     {
         bool isWin = true;
-        int j = 0;
-        for (; j < candidate_count; j++)
+        for (int j = 0; j < candidate_count; j++)
         {
             if (locked[j][i] == true)
             {
                 isWin = false;
+                break;
             }
         }
         if (isWin == true)
