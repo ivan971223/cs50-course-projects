@@ -223,12 +223,15 @@ void lock_pairs(void)
 void print_winner(void)
 {
     // TODO
+    bool isWin;
+
     for (int i = 0; i < candidate_count; i++)
     {
         if (locked[i][pairs[i].loser] == false)
         {
-            printf("%s", candidates[pairs[i].loser]);
+            isWin = 
         }
     }
+    printf("%s", candidates[pairs[i].loser]);
     return;
 }
