@@ -173,11 +173,11 @@ void sort_pairs(void)
         pairs[temp_index] = pairs[i];
         pairs[i] = temp_pair;
     }
-    for (int i = 0; i < pair_count; i++)
-    {
-        printf("%i%i", pairs[i].winner, pairs[i].loser);
-        printf("score:%i\n", preferences[pairs[i].winner][pairs[i].loser]);
-    }
+    // for (int i = 0; i < pair_count; i++)
+    // {
+    //     printf("%i%i", pairs[i].winner, pairs[i].loser);
+    //     printf("score:%i\n", preferences[pairs[i].winner][pairs[i].loser]);
+    // }
     return;
 }
 bool traceback(int winner, int loop_start)
@@ -190,7 +190,7 @@ bool traceback(int winner, int loop_start)
     for (int i = 0; i < candidate_count; i++)
         if (locked[i][winner] == true)
         {
-            return traceback(i);
+            return traceback(i, loop_start);
         }
 
     return true;
@@ -208,6 +208,10 @@ void lock_pairs(void)
                 locked[pairs[i].winner][pairs[i].loser] = true;
             }
         }
+    }
+    for (int i = 0; i < pair_count; i++)
+    {
+        printf("%i%i", locked[pairs[i].winner], locked[pairs[i].loser]);
     }
     return;
 }
