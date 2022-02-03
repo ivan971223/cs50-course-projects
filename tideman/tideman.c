@@ -230,14 +230,14 @@ void print_winner(void)
         int j = 0;
         for (; j < candidate_count; j++)
         {
-            if (locked[i][j] == true)
+            if (locked[j][i] == true)
             {
                 isWin = false;
             }
         }
         if (isWin == true)
         {
-            printf("%s", candidates[j]);
+            printf("%s", candidates[i]);
             return;
         }
     }
