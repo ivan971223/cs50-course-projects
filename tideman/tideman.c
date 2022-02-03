@@ -90,7 +90,7 @@ int main(int argc, string argv[])
 
     add_pairs();
     sort_pairs();
-    // lock_pairs();
+    lock_pairs();
     // print_winner();
     return 0;
 }
@@ -192,6 +192,8 @@ bool traceback(int winner, int loop_start)
         {
             return traceback(i);
         }
+
+    return true;
 }
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
@@ -207,7 +209,6 @@ void lock_pairs(void)
             }
         }
     }
-    locked[pairs[i].winner][pairs[i].loser] = true;
     return;
 }
 
