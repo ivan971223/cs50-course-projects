@@ -180,10 +180,10 @@ void sort_pairs(void)
     }
     return;
 }
-bool traceback()
+bool traceback(int)
 {
     if locked
-        [pairs[i].winner][pairs[n]] return;
+        return;
 }
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
@@ -191,9 +191,9 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        if (locked[pairs[i].winner][pairs[i].loser] == true)
+        if (locked[pairs[i].winner][pairs[i].loser] != true)
         {
-            
+            traceback(pairs[i].loser);
         }
         locked[pairs[i].winner][pairs[i].loser] = true;
     }
