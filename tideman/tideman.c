@@ -91,7 +91,7 @@ int main(int argc, string argv[])
     add_pairs();
     sort_pairs();
     lock_pairs();
-    // print_winner();
+    print_winner();
     return 0;
 }
 
@@ -209,13 +209,13 @@ void lock_pairs(void)
             }
         }
     }
-    for (int i = 0; i < pair_count; i++)
-    {
-        if (locked[pairs[i].winner][pairs[i].loser] == true)
-        {
-            printf("%i%i", pairs[i].winner, pairs[i].loser);
-        }
-    }
+    // for (int i = 0; i < pair_count; i++)
+    // {
+    //     if (locked[pairs[i].winner][pairs[i].loser] == true)
+    //     {
+    //         printf("%i%i", pairs[i].winner, pairs[i].loser);
+    //     }
+    // }
     return;
 }
 
@@ -225,9 +225,9 @@ void print_winner(void)
     // TODO
     for (int i = 0; i < candidate_count; i++)
     {
-        if (locked[pairs[i].winner][pairs[i].loser] == false)
+        if (locked[i][pairs[i].loser] == false)
         {
-            printf(candidates[i]);
+            printf("%s", candidates[pairs[i].loser]);
         }
     }
     return;
