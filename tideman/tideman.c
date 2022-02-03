@@ -184,7 +184,14 @@ bool traceback(int loser)
 {
     for (int i = 0; i < candidate_count; i++)
         if (locked[i][loser]==false)
-            return true;
+            {
+                return true;
+            }
+        else
+        {
+            traceback(i);
+        }
+
 }
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
