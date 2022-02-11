@@ -83,7 +83,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             int box_red = 0, box_green = 0, box_blue = 0, average_red, average_green, average_blue;
-            int count = 0;
 
             for (int m = i - 1; m <= i + 1; m++)
             {
@@ -94,7 +93,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         box_red += image[m][n].rgbtRed;
                         box_green += image[m][n].rgbtGreen;
                         box_blue += image[m][n].rgbtBlue;
-                        count += 1;
+
                     }
                 }
             }
