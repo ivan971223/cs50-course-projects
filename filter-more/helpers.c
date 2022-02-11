@@ -52,9 +52,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         {
             int box_red = 0, box_green = 0, box_blue = 0, average_red = 0, average_green = 0, average_blue = 0;
             int count = 0;
-            int arr_red[];
-            int arr_green[];
-            int arr_blue[];
+            RGBTRIPLE new_image[height][width];
+
             for (int m = i - 1, k = i + 1; m <= k; m++)
             {
                 for (int n = j - 1, f = j + 1; n <= f; n++)
@@ -73,14 +72,17 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             average_red = round(box_red / (float)count);
             average_green = round(box_green / (float)count);
             average_blue = round(box_blue / (float)count);
-            
+            new_image[i][j].rgbtRed = average_red;
+            new_image[i][j].rgbtGreen = average_green;
+            new_image[i][j].rgbtBlue = average_blue;
+
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
-                    image[i][j].rgbtRed = average_red;
-                    image[i][j].rgbtGreen = average_green;
-                    image[i][j].rgbtBlue = average_blue;
+                    image[i][j].rgbtRed = new_image[i][j].rgbtRed;
+                    image[i][j].rgbtGreen = new_image[i][j].rgbtGreen;
+                    image[i][j].rgbtBlue = new_image[i][j].rgbtBlue;
                     printf("%s\n", "---");
                 }
             }
