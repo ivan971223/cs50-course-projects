@@ -121,35 +121,35 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             new_image[i][j].rgbtRed = result_red;
             new_image[i][j].rgbtGreen = result_green;
             new_image[i][j].rgbtBlue = result_blue;
-            for (int i = 0; i < height; i++)
+        }
+    }
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            if (new_image[i][j].rgbtRed > 255)
             {
-                for (int j = 0; j < width; j++)
-                {
-                    if (result_red > 255)
-                    {
-                        image[i][j].rgbtRed = 255;
-                    }
-                    else
-                    {
-                        image[i][j].rgbtRed = new_image[i][j].rgbtRed;
-                    }
-                    if (result_green > 255)
-                    {
-                        image[i][j].rgbtGreen = 255;
-                    }
-                    else
-                    {
-                        image[i][j].rgbtGreen = new_image[i][j].rgbtGreen;
-                    }
-                    if (result_blue > 255)
-                    {
-                        image[i][j].rgbtBlue = 255;
-                    }
-                    else
-                    {
-                        image[i][j].rgbtBlue = new_image[i][j].rgbtBlue;
-                    }
-                }
+                image[i][j].rgbtRed = 255;
+            }
+            else
+            {
+                image[i][j].rgbtRed = new_image[i][j].rgbtRed;
+            }
+            if (new_image[i][j].rgbtGreen > 255)
+            {
+                image[i][j].rgbtGreen = 255;
+            }
+            else
+            {
+                image[i][j].rgbtGreen = new_image[i][j].rgbtGreen;
+            }
+            if (new_image[i][j].rgbtBlue > 255)
+            {
+                image[i][j].rgbtBlue = 255;
+            }
+            else
+            {
+                image[i][j].rgbtBlue = new_image[i][j].rgbtBlue;
             }
         }
     }
