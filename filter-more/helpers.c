@@ -59,8 +59,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 {
                     if (m >= 0 && n >= 0 && m <= height - 1 && n <= width - 1)
                     {
-                        printf("%i\n", m);
-                        printf("%i\n", n);
+                        printf("%i%i\n", m,n);
+                        printf("%i\n", image[m][n].rgbtRed);
                         box_red += image[m][n].rgbtRed;
                         box_green += image[m][n].rgbtGreen;
                         box_blue += image[m][n].rgbtBlue;
