@@ -103,9 +103,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            result_red = sqrt(red_Gx ^ 2 + red_Gy ^ 2);
-            result_green = sqrt(green_Gx ^ 2 + green_Gy ^ 2);
-            result_blue = sqrt(blue_Gx ^ 2 + blue_Gy ^ 2);
+            result_red = sqrt(red_Gx * red_Gx + red_Gy * red_Gy);
+            result_green = sqrt(green_Gx * green_Gx + green_Gy * green_Gy);
+            result_blue = sqrt(blue_Gx * blue_Gx + blue_Gy * blue_Gy);
 
             if (result_red > 255)
             {
