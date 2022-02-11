@@ -118,6 +118,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             result_red = round(sqrt(red_Gx * red_Gx + red_Gy * red_Gy));
             result_green = round(sqrt(green_Gx * green_Gx + green_Gy * green_Gy));
             result_blue = round(sqrt(blue_Gx * blue_Gx + blue_Gy * blue_Gy));
+            printf("%li\n",result_blue);
             new_image[i][j].rgbtRed = result_red;
             new_image[i][j].rgbtGreen = result_green;
             new_image[i][j].rgbtBlue = result_blue;
