@@ -52,7 +52,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         {
             int box_red = 0, box_green = 0, box_blue = 0, average_red = 0, average_green = 0, average_blue = 0;
             int count = 0;
-            RGBTRIPLE(*new_image)[width] = calloc(height, width * sizeof(RGBTRIPLE));
+            RGBTRIPLE(*new_image)
+            [width] = calloc(height, width * sizeof(RGBTRIPLE));
 
             for (int m = i - 1, k = i + 1; m <= k; m++)
             {
@@ -75,21 +76,20 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             new_image[i][j].rgbtRed = average_red;
             new_image[i][j].rgbtGreen = average_green;
             new_image[i][j].rgbtBlue = average_blue;
-
-            for (int i = 0; i < height; i++)
-            {
-                for (int j = 0; j < width; j++)
-                {
-                    image[i][j].rgbtRed = new_image[i][j].rgbtRed;
-                    image[i][j].rgbtGreen = new_image[i][j].rgbtGreen;
-                    image[i][j].rgbtBlue = new_image[i][j].rgbtBlue;
-                    printf("%s\n", "---");
-                }
-            }
-            free(new_image);
-            return;
         }
     }
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j].rgbtRed = new_image[i][j].rgbtRed;
+            image[i][j].rgbtGreen = new_image[i][j].rgbtGreen;
+            image[i][j].rgbtBlue = new_image[i][j].rgbtBlue;
+            printf("%s\n", "---");
+        }
+    }
+    free(new_image);
+    return;
 }
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
