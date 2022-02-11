@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     fwrite(header, sizeof(uint8_t), HEADER_SIZE, output);
 
     uint8_t k;
-    while (fread(&k, sizeof(uint8_t), 1, input))
+    while (fread(&k, sizeof(uint8_t), 1, output))
     {
         fprintf(file2, "%u\n", k);
     }
