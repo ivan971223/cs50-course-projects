@@ -86,7 +86,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtBlue = new_image[i][j].rgbtBlue;
         }
     }
-    free(new_image);
     return;
 }
 // Detect edges
