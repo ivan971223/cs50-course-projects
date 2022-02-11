@@ -55,11 +55,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int n = j - 1; n <= j + 1; n++)
                 {
-
-                    box_red += image[m][n].rgbtRed;
-                    box_green += image[m][n].rgbtGreen;
-                    box_blue += image[m][n].rgbtBlue;
-                    count += 1;
+                    if (m >= 0 && n >= 0)
+                    {
+                        printf("%i\n", m);
+                        printf("%i\n", n);
+                        box_red += image[m][n].rgbtRed;
+                        box_green += image[m][n].rgbtGreen;
+                        box_blue += image[m][n].rgbtBlue;
+                        count += 1;
+                    }
                 }
             }
             average_red = round(box_red / (float)count);
