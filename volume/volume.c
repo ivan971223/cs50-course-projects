@@ -47,12 +47,13 @@ int main(int argc, char *argv[])
     int i = 0;
     while (fread(&buffer, sizeof(int16_t), 1, input))
     {
-        printf("%i",buffer)
-        buffer *= factor;
         if (i > 21)
         {
+            buffer *= factor;
+            printf("%i",buffer);
             fwrite(&buffer, sizeof(int16_t), 1, input);
         }
+        i++;
     }
 
     // Close files
