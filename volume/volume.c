@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < HEADER_SIZE; i++)
     {
-        fwrite(header, sizeof(uint8_t), 1, output);
+        fwrite(&header, sizeof(uint8_t), 1, output);
         printf("%u", header[i]);
         fprintf(file, "%u\n", header[i]);
     }
