@@ -55,7 +55,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int box_red = 0, box_green = 0, box_blue = 0, average_red = 0, average_green = 0, average_blue = 0;
             int count = 0;
 
-
             for (int m = i - 1, k = i + 1; m <= k; m++)
             {
                 for (int n = j - 1, f = j + 1; n <= f; n++)
@@ -91,6 +90,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE new_image[height][width];
     int Gx[] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
     int Gy[] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
     for (int i = 0; i < height; i++)
@@ -118,30 +118,38 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             result_red = round(sqrt(red_Gx * red_Gx + red_Gy * red_Gy));
             result_green = round(sqrt(green_Gx * green_Gx + green_Gy * green_Gy));
             result_blue = round(sqrt(blue_Gx * blue_Gx + blue_Gy * blue_Gy));
-
-            if (result_red > 255)
+            new_image[i][j].rgbtRed = result_red;
+            new_image[i][j].rgbtGreen = result_green;
+            new_image[i][j].rgbtBlue = result_blue;
+            for (int i = 0; i < height; i++)
             {
-                image[i][j].rgbtRed = 255;
-            }
-            else
-            {
-                image[i][j].rgbtRed = result_red;
-            }
-            if (result_green > 255)
-            {
-                image[i][j].rgbtGreen = 255;
-            }
-            else
-            {
-                image[i][j].rgbtGreen = result_green;
-            }
-            if (result_blue > 255)
-            {
-                image[i][j].rgbtBlue = 255;
-            }
-            else
-            {
-                image[i][j].rgbtBlue = result_blue;
+                for (int j = 0; j < width; j++)
+                {
+                    if (result_red > 255)
+                    {
+                        image[i][j].rgbtRed = 255;
+                    }
+                    else
+                    {
+                        image[i][j].rgbtRed = new_image[i][j].rgbtRed;
+                    }
+                    if (result_green > 255)
+                    {
+                        image[i][j].rgbtGreen = 255;
+                    }
+                    else
+                    {
+                        image[i][j].rgbtGreen = new_image[i][j].rgbtGreen;
+                    }
+                    if (result_blue > 255)
+                    {
+                        image[i][j].rgbtBlue = 255;
+                    }
+                    else
+                    {
+                        image[i][j].rgbtBlue = new_image[i][j].rgbtBlue;
+                    }
+                }
             }
         }
     }
