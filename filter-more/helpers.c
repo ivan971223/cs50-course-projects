@@ -1,5 +1,6 @@
 #include "helpers.h"
 #include <stdio.h>
+#include <math.h>
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
@@ -87,25 +88,49 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int red_Gx = 0, green_Gx = 0, blue_Gx = 0, red_Gy = 0, green_Gy = 0, blue_Gy = 0;
             int result_red, result_green, result_blue;
 
-            for (int m = i - 1; m <= i + 1; m++)
+            for (int m = i - 1, k = 0; m <= i + 1; m++)
             {
-                for (int n = j - 1; n <= j + 1; n++)
+                for (int n = j - 1; n <= j + 1; n++, k++)
                 {
                     if (m >= 0 && n >= 0 && m <= height && n <= width)
                     {
-                        box_red += image[m][n].rgbtRed;
-                        box_green += image[m][n].rgbtGreen;
-                        box_blue += image[m][n].rgbtBlue;
+                        red_Gx += image[m][n].rgbtRed * Gx[k];
+                        red_Gy += image[m][n].rgbtRed * Gy[k];
+                        green_Gx += image[m][n].rgbtGreen * Gx[k];
+                        green_Gy += image[m][n].rgbtGreen * Gy[k];
+                        blue_Gx += image[m][n].rgbtBlue * Gx[k];
+                        blue_Gy += image[m][n].rgbtBlue * Gy[k];
                     }
                 }
             }
-            average_red = box_red / count;
-            average_green = box_green / count;
-            average_blue = box_blue / count;
+            result_red = sqrt(red_Gx ^ 2 + red_Gy ^ 2);
+            result_green = sqrt(green_Gx ^ 2 + green_Gy ^ 2);
+            result_blue = sqrt(blue_Gx ^ 2 + blue_Gy ^ 2);
 
-            image[i][j].rgbtRed = average_red;
-            image[i][j].rgbtGreen = average_green;
-            image[i][j].rgbtBlue = average_blue;
+            if (result_red > 255)
+            {
+                image[i][j].rgbtRed = 255;
+            }
+            else
+            {
+                image[i][j].rgbtRed = result_red;
+            }
+            if (result_green > 255)
+            {
+                image[i][j].rgbtGreen = 255;
+            }
+            else
+            {
+                image[i][j].rgbtGreen = result_green;
+            }
+            if (result_blue > 255)
+            {
+                image[i][j].rgbtBlue = 255;
+            }
+            else
+            {
+                image[i][j].rgbtBlue = result_blue;
+            }
         }
     }
     return;
