@@ -57,7 +57,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int n = j - 1; n <= j + 1; n++)
                 {
-                    if (m >= 0 && n >= 0)
+                    if (m >= 0 && n >= 0 && m <= height - 1 && n <= width - 1)
                     {
                         printf("%i\n", m);
                         printf("%i\n", n);
@@ -75,7 +75,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtRed = average_red;
             image[i][j].rgbtGreen = average_green;
             image[i][j].rgbtBlue = average_blue;
-            printf("%s\n","---");
+            printf("%s\n", "---");
         }
     }
     return;
