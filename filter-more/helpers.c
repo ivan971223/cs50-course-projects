@@ -52,7 +52,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         {
             int box_red = 0, box_green = 0, box_blue = 0, average_red = 0, average_green = 0, average_blue = 0;
             int count = 0;
-
+            int arr_red[];
+            int arr_green[];
+            int arr_blue[];
             for (int m = i - 1, k = i + 1; m <= k; m++)
             {
                 for (int n = j - 1, f = j + 1; n <= f; n++)
@@ -71,16 +73,21 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             average_red = round(box_red / (float)count);
             average_green = round(box_green / (float)count);
             average_blue = round(box_blue / (float)count);
-
-            image[i][j].rgbtRed = average_red;
-            image[i][j].rgbtGreen = average_green;
-            image[i][j].rgbtBlue = average_blue;
-            printf("%s\n", "---");
+            
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    image[i][j].rgbtRed = average_red;
+                    image[i][j].rgbtGreen = average_green;
+                    image[i][j].rgbtBlue = average_blue;
+                    printf("%s\n", "---");
+                }
+            }
+            return;
         }
     }
-    return;
 }
-
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
