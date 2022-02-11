@@ -86,7 +86,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     printf("%s\n", "---");
                 }
             }
-            free(new_image)
+            free(new_image);
             return;
         }
     }
