@@ -36,9 +36,9 @@ int main(int argc, char *argv[])
     // TODO: Copy header from input file to output file
     uint8_t header[HEADER_SIZE];
     fread(header, sizeof(uint8_t), HEADER_SIZE, input);
-    for(int i =0; i<HEADER_SIZE; i++)
+    for (int i = 0; i < HEADER_SIZE; i++)
     {
-        printf("%u",header[i]);
+        printf("%u", header[i]);
     }
     fwrite(header, sizeof(uint8_t), HEADER_SIZE, output);
 
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
         if (i > 21)
         {
             buffer *= factor;
-            printf("%i",buffer);
+            printf("%i", buffer);
             fwrite(&buffer, sizeof(int16_t), 1, output);
         }
         i++;
