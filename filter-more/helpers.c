@@ -32,9 +32,9 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         }
         for (int j = 0; j < width; j++)
         {
-            image[i][j].rgbtRed = average;
-            image[i][j].rgbtGreen = average;
-            image[i][j].rgbtBlue = average;
+            image[i][j].rgbtRed = r_red[j];
+            image[i][j].rgbtGreen = r_green[j];
+            image[i][j].rgbtBlue = r_blue[j];
         }
     }
     return;
