@@ -6,6 +6,7 @@
 
 // Number of bytes in .wav header
 const int HEADER_SIZE = 44;
+uint8_t header[HEADER_SIZE];
 
 int main(int argc, char *argv[])
 {
