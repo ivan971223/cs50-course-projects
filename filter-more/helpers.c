@@ -61,6 +61,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                         box_green += image[m][n].rgbtGreen;
                         box_blue += image[m][n].rgbtBlue;
                         count += 1;
+                        printf("%i%i\n",m, n);
                     }
                 }
             }
