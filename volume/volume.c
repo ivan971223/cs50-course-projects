@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     fread(header, sizeof(uint8_t), HEADER_SIZE, input);
     for(int i =0; i<HEADER_SIZE; i++)
     {
-        printf("%")
+        printf("%u",header[i]);
     }
     fwrite(header, sizeof(uint8_t), HEADER_SIZE, output);
 
@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
     int i = 0;
     while (fread(&buffer, sizeof(int16_t), 1, input))
     {
+        printf("%i",buffer)
         buffer *= factor;
         if (i > 21)
         {
