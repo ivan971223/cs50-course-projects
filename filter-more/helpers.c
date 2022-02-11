@@ -64,9 +64,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            average_red = box_red / count;
-            average_green = box_green / count;
-            average_blue = box_blue / count;
+            average_red = round(box_red / count);
+            average_green = round(box_green / count);
+            average_blue = round(box_blue / count);
 
             image[i][j].rgbtRed = average_red;
             image[i][j].rgbtGreen = average_green;
@@ -103,9 +103,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            result_red = sqrt(red_Gx * red_Gx + red_Gy * red_Gy);
-            result_green = sqrt(green_Gx * green_Gx + green_Gy * green_Gy);
-            result_blue = sqrt(blue_Gx * blue_Gx + blue_Gy * blue_Gy);
+            result_red = round(sqrt(red_Gx * red_Gx + red_Gy * red_Gy));
+            result_green = round(sqrt(green_Gx * green_Gx + green_Gy * green_Gy));
+            result_blue = round(sqrt(blue_Gx * blue_Gx + blue_Gy * blue_Gy));
 
             if (result_red > 255)
             {
