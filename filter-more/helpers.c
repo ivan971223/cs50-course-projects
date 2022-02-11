@@ -98,7 +98,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             int red_Gx = 0, green_Gx = 0, blue_Gx = 0, red_Gy = 0, green_Gy = 0, blue_Gy = 0;
-            int result_red, result_green, result_blue;
+            long result_red, result_green, result_blue;
 
             for (int m = i - 1, k = 0; m <= i + 1; m++)
             {
