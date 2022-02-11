@@ -37,15 +37,16 @@ int main(int argc, char *argv[])
     // TODO: Copy header from input file to output file
     uint8_t header[HEADER_SIZE];
     fread(header, sizeof(uint8_t), HEADER_SIZE, input);
+
     for (int i = 0; i < HEADER_SIZE; i++)
     {
-        fwrite(&header[i], sizeof(uint8_t), 1, output);
+        fwrite(header, sizeof(uint8_t), 1, output);
         printf("%u", header[i]);
         fprintf(file, "%u\n", header[i]);
     }
 
     uint8_t k;
-    while (fread(&k, sizeof(uint8_t), 1, input))
+    while (fread(&k, sizeof(uint8_t), 1, output))
     {
         fprintf(file2, "%u\n", k);
     }
