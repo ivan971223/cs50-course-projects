@@ -39,10 +39,10 @@ int main(int argc, char *argv[])
     fread(header, sizeof(uint8_t), HEADER_SIZE, input);
     for (int i = 0; i < HEADER_SIZE; i++)
     {
+        fwrite(header, sizeof(uint8_t), 1, output);
         printf("%u", header[i]);
         fprintf(file, "%u\n", header[i]);
     }
-    fwrite(header, sizeof(uint8_t), HEADER_SIZE, output);
 
     uint8_t k;
     while (fread(&k, sizeof(uint8_t), 1, output))
