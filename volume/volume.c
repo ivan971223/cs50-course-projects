@@ -36,11 +36,7 @@ int main(int argc, char *argv[])
     // TODO: Copy header from input file to output file
     uint8_t header[HEADER_SIZE];
     fread(header, sizeof(uint8_t), HEADER_SIZE, input);
-    for (int i = 0; i < HEADER_SIZE; i++)
-    {
-        printf("%c", header[i]);
-    }
-
+    fprintf(output,)
     // TODO: Read samples from input file and write updated data to output file
 
     // Close files
