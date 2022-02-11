@@ -54,7 +54,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int n = j - 1; n <= j + 1; n++)
                 {
-                    if (m >= 0 && n >= 0)
+                    if (m >= 0 && n >= 0 && m <= height && n <= width)
                     {
                         box_red += image[m][n].rgbtRed;
                         box_green += image[m][n].rgbtGreen;
@@ -78,22 +78,24 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    int Gx[] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
+    int Gy[] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            int box_red = 0, box_green = 0, box_blue = 0, average_red, average_green, average_blue;
+            int red_Gx = 0, green_Gx = 0, blue_Gx = 0, red_Gy = 0, green_Gy = 0, blue_Gy = 0;
+            int result_red, result_green, result_blue;
 
             for (int m = i - 1; m <= i + 1; m++)
             {
                 for (int n = j - 1; n <= j + 1; n++)
                 {
-                    if (m >= 0 && n >= 0)
+                    if (m >= 0 && n >= 0 && m <= height && n <= width)
                     {
                         box_red += image[m][n].rgbtRed;
                         box_green += image[m][n].rgbtGreen;
                         box_blue += image[m][n].rgbtBlue;
-
                     }
                 }
             }
