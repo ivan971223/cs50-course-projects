@@ -47,7 +47,16 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            
+            image[i][j-1]
+            image[i][j+1]
+            image[i][j]
+            image[i-1][j-1]
+            image[i-1][j+1]
+            image[i-1][j]
+            image[i-1][j]
+            image[i-1][j]
+            image[i-1][j]
+
             image[i][j].rgbtRed = average;
             image[i][j].rgbtGreen = average;
             image[i][j].rgbtBlue = average;
