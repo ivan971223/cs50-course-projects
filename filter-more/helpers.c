@@ -1,4 +1,5 @@
 #include "helpers.h"
+#include <getopt.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
