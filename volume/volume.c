@@ -32,30 +32,37 @@ int main(int argc, char *argv[])
     }
 
     float factor = atof(argv[3]);
-
+    FILE *file = fopen("1.txt", "a");
+    FILE *file2 = fopen("2.txt", "a");
     // TODO: Copy header from input file to output file
     uint8_t header[HEADER_SIZE];
     fread(header, sizeof(uint8_t), HEADER_SIZE, input);
     for (int i = 0; i < HEADER_SIZE; i++)
     {
         printf("%u", header[i]);
+        fprintf(file, "%u\n", header[i]);
     }
     fwrite(header, sizeof(uint8_t), HEADER_SIZE, output);
 
-    // TODO: Read samples from input file and write updated data to output file
-    int16_t buffer;
-    int i = 0;
-    while (fread(&buffer, sizeof(int16_t), 1, input))
+    uint8_t k;
+    while (fread(&k, sizeof(uint8_t), 1, input))
     {
-        if (i > 21)
-        {
-            buffer *= factor;
-            printf("%u\n", buffer);
-            fwrite(&buffer, sizeof(int16_t), 1, output);
-        }
-        i++;
+        fprintf(file2, "%u\n", k);
     }
-    
+    // TODO: Read samples from input file and write updated data to output file
+    // int16_t buffer;
+    // int i = 0;
+    // while (fread(&buffer, sizeof(int16_t), 1, input))
+    // {
+    //     if (i > 21)
+    //     {
+    //         buffer *= factor;
+    //         printf("%u\n", buffer);
+    //         fwrite(&buffer, sizeof(int16_t), 1, output);
+    //     }
+    //     i++;
+    // }
+
     // Close files
     fclose(input);
     fclose(output);
