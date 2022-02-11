@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     int i = 0;
     while (fread(&buffer, sizeof(int16_t), 1, input))
     {
-        *buffer *= factor;
+        buffer *= factor;
         if (i > 21)
         {
             fwrite(&buffer, sizeof(int16_t), 1, input);
