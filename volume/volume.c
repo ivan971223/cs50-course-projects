@@ -49,7 +49,8 @@ int main(int argc, char *argv[])
     {
         if (i > 21)
         {
-            // buffer *= factor;
+            printf("%u\n", buffer);
+            buffer *= factor;
             printf("%u\n", buffer);
             fwrite(&buffer, sizeof(int16_t), 1, output);
         }
