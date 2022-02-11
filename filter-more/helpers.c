@@ -45,7 +45,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
-{
+{   FILE *file = fopen("1.txt", "a");
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -61,6 +61,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     {
                         printf("%i\n", m);
                         printf("%i\n", n);
+                        fwrite(&m, sizeof(int),1,file);
                         box_red += image[m][n].rgbtRed;
                         box_green += image[m][n].rgbtGreen;
                         box_blue += image[m][n].rgbtBlue;
