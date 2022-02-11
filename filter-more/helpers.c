@@ -104,7 +104,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int n = j - 1; n <= j + 1; n++, k++)
                 {
-                    if (m >= 0 && n >= 0 && m <= height && n <= width)
+                    if (m >= 0 && n >= 0 && m <= height-1 && n <= width-1)
                     {
                         red_Gx += image[m][n].rgbtRed * Gx[k];
                         red_Gy += image[m][n].rgbtRed * Gy[k];
