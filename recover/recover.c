@@ -5,6 +5,7 @@
 int main(int argc, char *argv[])
 {
     int BLOCK_SIZE = 512;
+    int i = 0;
     BYTE buffer[];
 
     if (argc != 2)
@@ -22,6 +23,19 @@ int main(int argc, char *argv[])
 
     while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
-        fwrite()
+
+        if (i < 10)
+        {
+            sprintf(name, "00%i.jpg", i);
+        }
+        else if (i >= 10 && i <= 99)
+        {
+            sprintf(name, "0%i.jpg", i);
+        }
+        else
+        {
+            sprintf(name, "%i.jpg", i);
+        }
+        fwrite(buffer, 1, BLOCK_SIZE, name);
     }
 }
