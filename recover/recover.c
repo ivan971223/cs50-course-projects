@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     int BLOCK_SIZE = 512;
     int i = 0;
     BYTE *buffer = malloc(BLOCK_SIZE);
-    char *name = NULL;
+    char *name = malloc(8);
 
     if (argc != 2)
     {
@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
         // fclose(jpg);
         // free(buffer);
     }
+    free(name);
     fclose(file);
 
 }
