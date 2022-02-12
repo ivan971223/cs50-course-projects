@@ -24,10 +24,10 @@ int main(int argc, char *argv[])
         printf("The file is not readable.");
         return 1;
     }
-
+    FILE *jpg = NULL;
     while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
-        FILE *jpg = NULL;
+
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff)
         {
             if (n >= 1)
@@ -49,14 +49,15 @@ int main(int argc, char *argv[])
             }
             jpg = fopen(name, "a");
         }
+
         if (jpg != NULL)
         {
             fwrite(buffer, 1, BLOCK_SIZE, jpg);
-            fclose(jpg);
         }
 
 
     }
     free(name);
+    fclose(jpg);
     fclose(file);
 }
