@@ -52,9 +52,10 @@ int main(int argc, char *argv[])
         if (jpg != NULL)
         {
             fwrite(buffer, 1, BLOCK_SIZE, jpg);
+            fclose(jpg);
         }
 
-        fclose(jpg);
+
     }
     free(name);
     fclose(file);
