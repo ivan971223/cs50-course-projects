@@ -8,8 +8,9 @@ int main(int argc, char *argv[])
 {
     int BLOCK_SIZE = 512;
     int i = 0;
-    BYTE buffer[];
-
+    BYTE buffer[100000000];
+    char *name;
+    
     if (argc != 2)
     {
         printf("take exact one argument only");
