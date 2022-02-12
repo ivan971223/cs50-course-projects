@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     int i = 0;
     BYTE buffer[100000000];
     char *name;
-    
+
     if (argc != 2)
     {
         printf("take exact one argument only");
@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
         {
             sprintf(name, "%i.jpg", i);
         }
-        fwrite(buffer, 1, BLOCK_SIZE, name);
+        File *jpg = fopen(name, "a");
+        fwrite(buffer, 1, BLOCK_SIZE, jpg);
     }
 }
