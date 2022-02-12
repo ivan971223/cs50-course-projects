@@ -34,23 +34,25 @@ int main(int argc, char *argv[])
                 i++;
             }
             n++;
+            if (i < 10)
+            {
+                sprintf(name, "00%i.jpg", i);
+            }
+            else if (i >= 10 && i <= 99)
+            {
+                sprintf(name, "0%i.jpg", i);
+            }
+            else
+            {
+                sprintf(name, "%i.jpg", i);
+            }
+            FILE *jpg = fopen(name, "a");
         }
-        if (i < 10)
+        if (fopen(name, "a") != NULL)
         {
-            sprintf(name, "00%i.jpg", i);
+            fwrite(buffer, 1, BLOCK_SIZE, jpg);
         }
-        else if (i >= 10 && i <= 99)
-        {
-            sprintf(name, "0%i.jpg", i);
-        }
-        else
-        {
-            sprintf(name, "%i.jpg", i);
-        }
-        FILE *jpg = fopen(name, "a");
-        fwrite(buffer, 1, BLOCK_SIZE, jpg);
         fclose(jpg);
-
     }
     free(name);
     fclose(file);
