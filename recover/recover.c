@@ -39,10 +39,10 @@ int main(int argc, char *argv[])
         {
             sprintf(name, "%i.jpg", i);
         }
-        FILE *jpg = fopen(name, "a");
-        fwrite(buffer, 1, BLOCK_SIZE, jpg);
-        fclose(jpg);
-        free(buffer);
+        // FILE *jpg = fopen(name, "a");
+        // fwrite(buffer, 1, BLOCK_SIZE, jpg);
+        // fclose(jpg);
+        // free(buffer);
     }
     fclose(file);
 
