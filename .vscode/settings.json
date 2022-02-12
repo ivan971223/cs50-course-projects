@@ -3,6 +3,7 @@
         "*.html": "jinja-html",
         "random": "c",
         "limits": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "stdint.h": "c"
     }
 }
