@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
 {
     int BLOCK_SIZE = 512;
     int i = 0;
+    int n = 0;
     BYTE buffer[512];
     char *name = malloc(8);
 
@@ -28,7 +29,11 @@ int main(int argc, char *argv[])
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff)
         {
-            i++;
+            if (n >= 1)
+            {
+                i++;
+            }
+            n++;
         }
         if (i < 10)
         {
