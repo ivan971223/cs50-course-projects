@@ -41,5 +41,8 @@ int main(int argc, char *argv[])
         }
         FILE *jpg = fopen(name, "a");
         fwrite(buffer, 1, BLOCK_SIZE, jpg);
+        fclose(jpg);
     }
+    fclose(file);
+
 }
