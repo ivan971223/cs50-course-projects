@@ -54,8 +54,6 @@ int main(int argc, char *argv[])
         {
             fwrite(buffer, 1, BLOCK_SIZE, jpg);
         }
-
-
     }
     free(name);
     fclose(jpg);
