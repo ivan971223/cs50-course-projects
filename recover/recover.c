@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     int BLOCK_SIZE = 512;
     int i = 0;
-    BYTE *buffer = malloc(BLOCK_SIZE);
+    BYTE buffer[512];
     char *name = malloc(8);
 
     if (argc != 2)
@@ -39,10 +39,9 @@ int main(int argc, char *argv[])
         {
             sprintf(name, "%i.jpg", i);
         }
-        // FILE *jpg = fopen(name, "a");
-        // fwrite(buffer, 1, BLOCK_SIZE, jpg);
-        // fclose(jpg);
-        // free(buffer);
+        FILE *jpg = fopen(name, "a");
+        fwrite(buffer, 1, BLOCK_SIZE, jpg);
+        fclose(jpg);
     }
     free(name);
     fclose(file);
