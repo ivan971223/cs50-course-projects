@@ -4,6 +4,9 @@
 
 int main(int argc, char *argv[])
 {
+    int BLOCK_SIZE = 512;
+    buffer;
+
     if (argc != 2)
     {
         printf("take exact one argument only");
@@ -15,5 +18,10 @@ int main(int argc, char *argv[])
     {
         printf("The file is not readable.");
         return 1;
+    }
+
+    while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
+    {
+
     }
 }
