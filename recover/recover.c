@@ -46,12 +46,10 @@ int main(int argc, char *argv[])
             {
                 sprintf(name, "%i.jpg", i);
             }
-            FILE *jpg = fopen(name, "a");
         }
-        if (fopen(name, "a") != NULL)
-        {
-            fwrite(buffer, 1, BLOCK_SIZE, jpg);
-        }
+
+        FILE *jpg = fopen(name, "a");
+        fwrite(buffer, 1, BLOCK_SIZE, jpg);
         fclose(jpg);
     }
     free(name);
