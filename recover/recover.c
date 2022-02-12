@@ -8,8 +8,8 @@ int main(int argc, char *argv[])
 {
     int BLOCK_SIZE = 512;
     int i = 0;
-    BYTE buffer[100000000];
-    char *name;
+    BYTE buffer[1000];
+    char *name = NULL;
 
     if (argc != 2)
     {
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
         {
             sprintf(name, "%i.jpg", i);
         }
-        File *jpg = fopen(name, "a");
+        FILE *jpg = fopen(name, "a");
         fwrite(buffer, 1, BLOCK_SIZE, jpg);
     }
 }
