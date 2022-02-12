@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
                 i++;
             }
             n++;
-        }
+
         if (i < 10)
         {
             sprintf(name, "00%i.jpg", i);
@@ -50,6 +50,7 @@ int main(int argc, char *argv[])
         FILE *jpg = fopen(name, "a");
         fwrite(buffer, 1, BLOCK_SIZE, jpg);
         fclose(jpg);
+        
     }
     free(name);
     fclose(file);
