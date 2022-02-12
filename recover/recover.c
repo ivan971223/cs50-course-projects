@@ -5,7 +5,7 @@
 int main(int argc, char *argv[])
 {
     int BLOCK_SIZE = 512;
-    buffer;
+    BYTE buffer;
 
     if (argc != 2)
     {
