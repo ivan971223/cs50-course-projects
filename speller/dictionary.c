@@ -39,7 +39,11 @@ bool load(const char *dictionary)
     // TODO
     while(dictionary[i])
     {
-        char *s = 
+        if(dictionary[i] == "\n")
+        {
+            continue;
+        }
+        char *s =
 
     }
     return false;
