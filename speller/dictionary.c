@@ -49,6 +49,7 @@ bool load(const char *dictionary)
         }
     }
     // allocate memory for each string and node
+    malloc(sizeof(node));
     while (dictionary[i] != '\0')
     {
         char *tmp[LENGTH + 1];
