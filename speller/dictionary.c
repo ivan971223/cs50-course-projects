@@ -33,7 +33,7 @@ unsigned int hash(const char *word)
     int hash = 0;
     for (int i = 0; i < strlen(word); i++)
     {
-        hash += word[i]
+        hash += (int)word[i];
     }
 }
 
