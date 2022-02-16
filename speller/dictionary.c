@@ -40,12 +40,12 @@ bool load(const char *dictionary)
     {
         if(i<26)
         {
-            table[i]->word[0] = 
+            table[i]->word[0] =
         }
 
     }
     // allocate memory for each string and node
-    while (dictionary[i] != NULL)
+    while (dictionary[i] != '\0')
     {
         char *tmp[LENGTH + 1];
         int j = 0;
