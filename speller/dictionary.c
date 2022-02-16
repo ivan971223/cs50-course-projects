@@ -69,7 +69,7 @@ bool load(const char *dictionary)
             {
                 if (table[m] == str[0])
                 {
-                    for (node *n = table[m]; n->next != NULL; n = n->next)
+                    for (node *n = table[m]; n != NULL; n = n->next)
                     {
                         if (n->next == NULL)
                         {
