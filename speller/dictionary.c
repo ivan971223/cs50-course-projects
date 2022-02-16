@@ -73,7 +73,7 @@ bool load(const char *dictionary)
                     {
                         if (n->next == NULL)
                         {
-                            n = tmp;
+                            n->next = tmp;
                         }
                     }
                 }
