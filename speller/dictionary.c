@@ -144,6 +144,7 @@ bool load(const char *dictionary)
                             if (n->next == NULL)
                             {
                                 n->next = tmp;
+                                return;
                             }
                         }
                     }
@@ -160,6 +161,7 @@ bool load(const char *dictionary)
                             if (n->next == NULL)
                             {
                                 n->next = tmp;
+                                return;
                             }
                         }
                     }
