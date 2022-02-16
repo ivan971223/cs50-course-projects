@@ -36,20 +36,20 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    //check dictionary is null or not
+    // check dictionary is null or not
     if (dictionary == NULL)
     {
         return false;
     }
 
-    //assign character key to the hash table array
-    //from a-z
+    // assign character key to the hash table array
+    // from a-z
     for (int i = 0; i < 26; i++)
     {
         table[i]->word[0] = 'a' + i;
         table[i]->next = NULL;
     }
-    //from aa-zz
+    // from aa-zz
     for (int j = 26, m = 0; m < 26; j++, m++)
     {
         for (int n = 0; n < 26; n++, j++)
@@ -60,25 +60,25 @@ bool load(const char *dictionary)
         }
     }
 
-    //loop through each char
-    while (dictionary[i] != '\0')       //check condition if char not equal to null
+    // loop through each char
+    while (dictionary[i] != '\0') // check condition if char not equal to null
     {
         // allocate memory for temporary node and store string and set next as a null pointer
         node *tmp = malloc(sizeof(node));
-        char *str[LENGTH + 1];
+        char *str = malloc(LENGTH + 1);
         int j = 0;
 
-        //assign word to tmp node
+        // assign word to tmp node
         while (dictionary[i] != "\n")
         {
             str[j] = dictionary[i];
             tmp->word[j] = dictionary[i];
             j++;
         }
-        //assign next to null
+        // assign next to null
         tmp->next = NULL;
 
-        //check string len
+        // check string len
         if (strlen(str) == 1)
         {
             for (int m = 0; m < 26; m++)
@@ -112,6 +112,7 @@ bool load(const char *dictionary)
             }
         }
         free(tmp);
+        free(str);
     }
     return true;
 }
