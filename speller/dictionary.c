@@ -10,11 +10,10 @@ typedef struct node
 {
     char word[LENGTH + 1];
     struct node *next;
-}
-node;
+} node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 26*26 + 26;
+const unsigned int N = 26 * 26 + 26;
 
 // Hash table
 node *table[N];
@@ -37,14 +36,14 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    while(true)
+    while (dictionary[i] != NULL)
     {
-        if(dictionary[i] == "\n")
-        {
-            continue;
-        }
         char *tmp[LENGTH + 1];
-
+        int j = 0;
+        while (dictionary[i] != "\n")
+        {
+            tmp[j] = dictionary[i];
+        }
     }
     return false;
 }
