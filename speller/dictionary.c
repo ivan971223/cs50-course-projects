@@ -9,6 +9,7 @@
 typedef struct node
 {
     char word[LENGTH + 1];
+    unsigned int hash;
     struct node *next;
 } node;
 
@@ -27,7 +28,7 @@ bool check(const char *word)
     {
         tmp[i] = tolower(word[i]);
     }
-    
+
     return false;
 }
 
@@ -88,6 +89,8 @@ bool load(const char *dictionary)
             tmp->word[j] = dictionary[i];
             j++;
         }
+        int hash = hash(str);
+        tmp->hash = hash;
         // assign next to null
         tmp->next = NULL;
 
