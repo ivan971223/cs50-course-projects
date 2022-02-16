@@ -36,13 +36,13 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < 26; i++)
     {
-        if(i<26)
-        {
-            table[i]->word[0] =
-        }
-
+        table[i]->word[0] = 'a' + i;
+    }
+    for (int i = 0; i < N - 26; i++)
+    {
+        table[i]->word[0] =
     }
     // allocate memory for each string and node
     while (dictionary[i] != '\0')
