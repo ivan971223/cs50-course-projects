@@ -59,7 +59,7 @@ bool load(const char *dictionary)
         int j = 0;
         while (dictionary[i] != "\n")
         {
-            str[j] = dictionary[i];
+            tmp->word[j] = dictionary[i];
             j++;
         }
         if (strlen(str) == 1)
