@@ -62,13 +62,14 @@ bool load(const char *dictionary)
             tmp->word[j] = dictionary[i];
             j++;
         }
+        tmp->next = NULL;
         if (strlen(str) == 1)
         {
-            for (int j = 0; j < 26; j++)
+            for (int m = 0; m < 26; m++)
             {
-                if (table[j] == str[0])
+                if (table[m] == str[0])
                 {
-                    while (table[j]->next != NULL)
+                    for (node *n = table[m]; n->next != NULL; n = n->next)
                     {
                         
                     }
