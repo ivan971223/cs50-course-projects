@@ -113,8 +113,8 @@ bool load(const char *dictionary)
             table[j]->next = NULL;
         }
     }
+
     int i = 0;
-    int j = 0;
     node *tmp = malloc(sizeof(node));
     char *str = malloc(LENGTH + 1);
     // loop through each char
@@ -129,6 +129,7 @@ bool load(const char *dictionary)
             free(str);
             node *tmp = malloc(sizeof(node));
             char *str = malloc(LENGTH + 1);
+            int j = 0;
         }
         else
         {
