@@ -23,18 +23,18 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    char *tmp[LENGTH];
+    char *str[LENGTH];
 
     int len = strlen(word);
     for (int i = 0;; i < len; i++)
     {
         if (word[i] >= "A" && word[i] <= "Z")
         {
-            tmp[i] = tolower(word[i]);
+            str[i] = tolower(word[i]);
         }
         else
         {
-            tmp[i] = word[i];
+            str[i] = word[i];
         }
     }
 
@@ -45,7 +45,7 @@ bool check(const char *word)
 
         for (int k = 0; k < 26; k++)
         {
-            if (table[k] == tmp[0])
+            if (table[k] == str[0])
             {
                 for (node *n = table[k]; n != NULL; n = n->next)
                 {
@@ -56,15 +56,22 @@ bool check(const char *word)
                 }
             }
         }
-        node *n = table[i];
-        while (n != NULL)
-        {
-            size++;
-            n = n->next;
-        }
     }
     else
     {
+        for (int k = 26; k < N; k++)
+        {
+            if (table[k]->word[0] == str[0] && table[k]->word[1] == str[1])
+            {
+                for (node *n = table[k]; n != NULL; n = n->next)
+                {
+                    if((n->hash) == word_hash)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
     }
 
     return false;
