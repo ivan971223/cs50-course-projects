@@ -2,7 +2,7 @@
 
 #include <ctype.h>
 #include <stdbool.h>
-
+#include <string.h>
 #include "dictionary.h"
 
 // Represents a node in a hash table
@@ -36,7 +36,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    // check dictionary is null or not
+    // check dictionary is empty or not
     if (dictionary == NULL)
     {
         return false;
