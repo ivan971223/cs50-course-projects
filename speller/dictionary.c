@@ -28,9 +28,13 @@ bool check(const char *word)
     int len = strlen(word);
     for (int i = 0;; i < len; i++)
     {
-        if (word[i] >= "A" || word[i] <= "Z")
+        if (word[i] >= "A" && word[i] <= "Z")
         {
             tmp[i] = tolower(word[i]);
+        }
+        else
+        {
+            tmp[i] = word[i];
         }
     }
 
@@ -67,7 +71,16 @@ unsigned int hash(const char *word)
     int hash = 0;
     for (int i = 0; i < strlen(word); i++)
     {
-        int num = tolower(word[i]);
+        int num;
+        if (word[i] >= "A" && word[i] <= "Z")
+        {
+            num = tolower(word[i]);
+        }
+        else
+        {
+            num = word[i];
+        }
+
         hash += num * (num - i);
     }
     return hash;
