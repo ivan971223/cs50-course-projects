@@ -30,9 +30,10 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     // return toupper(word[0]) - 'A';
+    int hash = 0;
     for (int i = 0; i < strlen(word); i++)
     {
-        
+        hash += word[i]
     }
 }
 
