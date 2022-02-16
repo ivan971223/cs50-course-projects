@@ -52,13 +52,28 @@ bool load(const char *dictionary)
 
     while (dictionary[i] != '\0')
     {
-        
+        node *tmp = malloc(sizeof(node));
         char *str[LENGTH + 1];
         int j = 0;
         while (dictionary[i] != "\n")
         {
             str[j] = dictionary[i];
             j++;
+        }
+        if (strlen(str) == 1)
+        {
+            for (int j = 0; j < 26; j++)
+            {
+                if (table[j] == str[0])
+                {
+                    while (table[j]->next != NULL)
+                    {
+                    }
+                }
+            }
+        }
+        else
+        {
         }
     }
     return false;
