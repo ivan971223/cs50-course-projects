@@ -127,7 +127,7 @@ bool load(const char *dictionary)
         if (dictionary[i] == "\n")
         {
             j = 0;
-            int hash = hash(str);
+            unsigned int hash = hash(str);
             tmp->hash = hash;
             // assign next to null
             tmp->next = NULL;
