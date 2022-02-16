@@ -129,7 +129,7 @@ unsigned int size(void)
 {
     // TODO
     int size = 0;
-    if (table[0] == NULL)
+    if (table == NULL)
     {
         return 0;
     }
