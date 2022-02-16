@@ -51,7 +51,6 @@ bool load(const char *dictionary)
         }
     }
 
-
     while (dictionary[i] != '\0')
     {
         // allocate memory for temporary node and store string and set next as a null pointer
@@ -69,7 +68,7 @@ bool load(const char *dictionary)
         {
             for (int m = 0; m < 26; m++)
             {
-                if (table[m] == str[0])
+                if (table[m]->word[0] == str[0])
                 {
                     for (node *n = table[m]; n != NULL; n = n->next)
                     {
@@ -83,9 +82,23 @@ bool load(const char *dictionary)
         }
         else
         {
+            for (int m = 26; m < N; m++)
+            {
+                if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
+                {
+                    for (node *n = table[m]; n != NULL; n = n->next)
+                    {
+                        if (n->next == NULL)
+                        {
+                            n->next = tmp;
+                        }
+                    }
+                }
+            }
         }
+        free(tmp);
     }
-    return false;
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
