@@ -70,6 +70,7 @@ bool load(const char *dictionary)
                 {
                     while (table[j]->next != NULL)
                     {
+                        
                     }
                 }
             }
