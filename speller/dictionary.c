@@ -28,6 +28,18 @@ bool check(const char *word)
     {
         tmp[i] = tolower(word[i]);
     }
+    
+    int word_hash = hash(word);
+
+    for (int i = 0, ; i < N; i++)
+    {
+        node *n = table[i];
+        while (n != NULL)
+        {
+            size++;
+            n = n->next;
+        }
+    }
 
     return false;
 }
