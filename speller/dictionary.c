@@ -28,7 +28,10 @@ bool check(const char *word)
     int len = strlen(word);
     for (int i = 0;; i < len; i++)
     {
-        tmp[i] = tolower(word[i]);
+        if (word[i] >= "A" || word[i] <= "Z")
+        {
+            tmp[i] = tolower(word[i]);
+        }
     }
 
     int word_hash = hash(word);
@@ -40,7 +43,6 @@ bool check(const char *word)
         {
             if (table[k] == tmp[k])
             {
-                
             }
         }
         node *n = table[i];
@@ -52,7 +54,6 @@ bool check(const char *word)
     }
     else
     {
-
     }
 
     return false;
