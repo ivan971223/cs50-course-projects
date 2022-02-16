@@ -43,7 +43,7 @@ bool load(const char *dictionary)
         {
             continue;
         }
-        char *s =
+        char *tmp[];
 
     }
     return false;
