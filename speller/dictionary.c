@@ -34,7 +34,7 @@ unsigned int hash(const char *word)
     for (int i = 0; i < strlen(word); i++)
     {
         int num = tolower(word[i]);
-        hash += num*(num-i);
+        hash += num * (num - i);
     }
     return hash;
 }
@@ -128,7 +128,18 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
-    return 0;
+    int size = 0;
+    if 
+    for (int i = 0, ; i < N; i++)
+    {
+        node *n = table[i];
+        while (n != NULL)
+        {
+            size++;
+            n = n->next;
+        }
+    }
+    return size;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
