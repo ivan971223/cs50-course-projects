@@ -71,6 +71,7 @@ bool load(const char *dictionary)
         //assign word to tmp node
         while (dictionary[i] != "\n")
         {
+            str[j] = dictionary[i];
             tmp->word[j] = dictionary[i];
             j++;
         }
