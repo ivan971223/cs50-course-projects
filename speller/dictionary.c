@@ -114,16 +114,23 @@ bool load(const char *dictionary)
         }
     }
     int i = 0;
+    int j = 0;
+    node *tmp = malloc(sizeof(node));
+    char *str = malloc(LENGTH + 1);
     // loop through each char
     while (dictionary[i] != '\0') // check condition if char not equal to null
     {
         // allocate memory for temporary node and store string and set next as a null pointer
-        node *tmp = malloc(sizeof(node));
-        char *str = malloc(LENGTH + 1);
-        int j = 0;
 
         // assign word to tmp node
-        while (dictionary[i] != "\n")
+        if (dictionary[i] == "\n")
+        {
+            free(tmp);
+            free(str);
+            node *tmp = malloc(sizeof(node));
+            char *str = malloc(LENGTH + 1);
+        }
+        else
         {
             str[j] = dictionary[i];
             tmp->word[j] = dictionary[i];
