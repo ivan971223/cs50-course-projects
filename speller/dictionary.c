@@ -22,6 +22,12 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+    char *tmp[LENGTH];
+    for (int i = 0; i < strlen(word); i++)
+    {
+        tmp[i] = tolower(word[i]);
+    }
+    
     return false;
 }
 
