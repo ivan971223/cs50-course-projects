@@ -129,7 +129,11 @@ unsigned int size(void)
 {
     // TODO
     int size = 0;
-    if 
+    if (table == NULL)
+    {
+        return 0;
+    }
+    
     for (int i = 0, ; i < N; i++)
     {
         node *n = table[i];
