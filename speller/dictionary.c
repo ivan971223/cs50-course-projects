@@ -126,7 +126,7 @@ bool load(const char *dictionary)
         // assign word to tmp node
         if (dictionary[i] == "\n")
         {
-            j = 0;
+
             unsigned int hash = hash(str);
             tmp->hash = hash;
             // assign next to null
@@ -171,6 +171,7 @@ bool load(const char *dictionary)
             free(str);
             node *tmp = malloc(sizeof(node));
             char *str = malloc(LENGTH + 1);
+            j = 0;
         }
         else
         {
@@ -180,6 +181,8 @@ bool load(const char *dictionary)
         }
         i++;
     }
+    free(tmp);
+    free(str);
     return true;
 }
 
