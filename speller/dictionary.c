@@ -37,7 +37,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    while(dictionary[0])
+    while(dictionary[i])
     {
         char *s = 
 
