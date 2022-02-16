@@ -125,44 +125,45 @@ bool load(const char *dictionary)
         // assign word to tmp node
         if (dictionary[i] == "\n")
         {
+            int j = 0;
             int hash = hash(str);
-        tmp->hash = hash;
-        // assign next to null
-        tmp->next = NULL;
+            tmp->hash = hash;
+            // assign next to null
+            tmp->next = NULL;
 
-        // check string len
-        if (strlen(str) == 1)
-        {
-            for (int m = 0; m < 26; m++)
+            // check string len
+            if (strlen(str) == 1)
             {
-                if (table[m]->word[0] == str[0])
+                for (int m = 0; m < 26; m++)
                 {
-                    for (node *n = table[m]; n != NULL; n = n->next)
+                    if (table[m]->word[0] == str[0])
                     {
-                        if (n->next == NULL)
+                        for (node *n = table[m]; n != NULL; n = n->next)
                         {
-                            n->next = tmp;
+                            if (n->next == NULL)
+                            {
+                                n->next = tmp;
+                            }
                         }
                     }
                 }
             }
-        }
-        else
-        {
-            for (int m = 26; m < N; m++)
+            else
             {
-                if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
+                for (int m = 26; m < N; m++)
                 {
-                    for (node *n = table[m]; n != NULL; n = n->next)
+                    if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
                     {
-                        if (n->next == NULL)
+                        for (node *n = table[m]; n != NULL; n = n->next)
                         {
-                            n->next = tmp;
+                            if (n->next == NULL)
+                            {
+                                n->next = tmp;
+                            }
                         }
                     }
                 }
             }
-        }
             free(tmp);
             free(str);
             node *tmp = malloc(sizeof(node));
@@ -175,8 +176,7 @@ bool load(const char *dictionary)
             tmp->word[j] = dictionary[i];
             j++;
         }
-
-
+        i++;
     }
     return true;
 }
