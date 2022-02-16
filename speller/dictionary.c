@@ -113,7 +113,7 @@ bool load(const char *dictionary)
             table[j]->next = NULL;
         }
     }
-
+    int i = 0;
     // loop through each char
     while (dictionary[i] != '\0') // check condition if char not equal to null
     {
