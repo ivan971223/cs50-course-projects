@@ -42,11 +42,18 @@ bool check(const char *word)
 
     if (len == 1)
     {
-        int k = 0;
-        for (; k < 26; k++)
+
+        for (int k = 0; k < 26; k++)
         {
-            if (table[k] == tmp[k])
+            if (table[k] == tmp[0])
             {
+                for (node *n = table[k]; n != NULL; n = n->next)
+                {
+                    if((n->hash) == word_hash)
+                    {
+                        return true;
+                    }
+                }
             }
         }
         node *n = table[i];
