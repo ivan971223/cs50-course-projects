@@ -24,21 +24,35 @@ bool check(const char *word)
 {
     // TODO
     char *tmp[LENGTH];
-    for (int i = 0; i < strlen(word); i++)
+
+    int len = strlen(word);
+    for (int i = 0;; i < len; i++)
     {
         tmp[i] = tolower(word[i]);
     }
-    
+
     int word_hash = hash(word);
 
-    for (int i = 0, ; i < N; i++)
+    if (len == 1)
     {
+        int k = 0;
+        for (; k < 26; k++)
+        {
+            if (table[k] == tmp[k])
+            {
+                
+            }
+        }
         node *n = table[i];
         while (n != NULL)
         {
             size++;
             n = n->next;
         }
+    }
+    else
+    {
+
     }
 
     return false;
