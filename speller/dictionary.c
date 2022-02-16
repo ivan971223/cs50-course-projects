@@ -38,7 +38,11 @@ bool load(const char *dictionary)
     // TODO
     for (int i = 0; i < N; i++)
     {
-        table[i]->word = 
+        if(i<26)
+        {
+            table[i]->word[0] = 
+        }
+
     }
     // allocate memory for each string and node
     while (dictionary[i] != NULL)
