@@ -33,8 +33,10 @@ unsigned int hash(const char *word)
     int hash = 0;
     for (int i = 0; i < strlen(word); i++)
     {
-        hash += (int)word[i];
+        int num = tolower(word[i]);
+        hash += num*(num-i);
     }
+    return hash;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
