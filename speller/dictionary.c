@@ -56,6 +56,7 @@ bool load(const char *dictionary)
         while (dictionary[i] != "\n")
         {
             tmp[j] = dictionary[i];
+            j++;
         }
     }
     return false;
