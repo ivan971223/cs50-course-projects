@@ -175,8 +175,7 @@ bool load(const char *dictionary)
                 }
             }
         }
-        free(tmp);
-        free(str);
+
     }
     return true;
 }
