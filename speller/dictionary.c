@@ -125,19 +125,7 @@ bool load(const char *dictionary)
         // assign word to tmp node
         if (dictionary[i] == "\n")
         {
-            free(tmp);
-            free(str);
-            node *tmp = malloc(sizeof(node));
-            char *str = malloc(LENGTH + 1);
-            int j = 0;
-        }
-        else
-        {
-            str[j] = dictionary[i];
-            tmp->word[j] = dictionary[i];
-            j++;
-        }
-        int hash = hash(str);
+            int hash = hash(str);
         tmp->hash = hash;
         // assign next to null
         tmp->next = NULL;
@@ -175,6 +163,19 @@ bool load(const char *dictionary)
                 }
             }
         }
+            free(tmp);
+            free(str);
+            node *tmp = malloc(sizeof(node));
+            char *str = malloc(LENGTH + 1);
+            int j = 0;
+        }
+        else
+        {
+            str[j] = dictionary[i];
+            tmp->word[j] = dictionary[i];
+            j++;
+        }
+
 
     }
     return true;
