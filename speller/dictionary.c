@@ -120,15 +120,14 @@ bool load(const char *dictionary)
         // allocate memory for temporary node and store string and set next as a null pointer
         node *tmp = malloc(sizeof(node));
         char *str = malloc(LENGTH + 1);
-        int i=0;
         int j = 0;
 
         // assign word to tmp node
-        if (dictionary[i] != "\n")
+        while (dictionary[i] != "\n")
         {
             str[j] = dictionary[i];
             tmp->word[j] = dictionary[i];
-
+            j++;
         }
         int hash = hash(str);
         tmp->hash = hash;
