@@ -50,10 +50,11 @@ bool load(const char *dictionary)
             table[j]->next = NULL;
         }
     }
-    // allocate memory for each string and node
+
 
     while (dictionary[i] != '\0')
     {
+        // allocate memory for temporary node and store string and set next as a null pointer
         node *tmp = malloc(sizeof(node));
         char *str[LENGTH + 1];
         int j = 0;
@@ -63,6 +64,7 @@ bool load(const char *dictionary)
             j++;
         }
         tmp->next = NULL;
+
         if (strlen(str) == 1)
         {
             for (int m = 0; m < 26; m++)
