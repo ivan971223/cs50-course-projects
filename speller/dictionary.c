@@ -38,7 +38,7 @@ bool load(const char *dictionary)
     // TODO
     for (int i = 0; i < N; i++)
     {
-        table
+        table[i]->word = 
     }
     // allocate memory for each string and node
     while (dictionary[i] != NULL)
