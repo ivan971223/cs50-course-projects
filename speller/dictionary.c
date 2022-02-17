@@ -162,9 +162,9 @@ bool load(const char *dictionary)
 
     int i = 0;
     int j = 0;
-    node *tmp = malloc(sizeof(node));
-    char *str = malloc(LENGTH + 1);
 
+    char *str = malloc(LENGTH + 1);
+    node *tmp = malloc(sizeof(node));
     // loop through each char
     while (fread(&c, sizeof(char), 1, file))
     {
@@ -207,22 +207,21 @@ bool load(const char *dictionary)
                 }
             }
             i = 0;
+            tmp = malloc(sizeof(node));
         }
         i++;
-
-        // check string len
     }
     free(tmp);
 
-    // for (int f = 0; f < N; f++)
-    // {
-    //     node *n = table[f]->next;
-    //     // printf("%i", f);
-    //     for (; n != NULL; n = n->next)
-    //     {
-    //         printf("%c", n->word[0]);
-    //     }
-    // }
+    for (int f = 0; f < N; f++)
+    {
+        node *n = table[f]->next;
+        // printf("%i", f);
+        for (; n != NULL; n = n->next)
+        {
+            printf("%c", n->word[0]);
+        }
+    }
     return true;
 }
 
