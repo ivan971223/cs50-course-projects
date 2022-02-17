@@ -26,7 +26,7 @@ bool check(const char *word)
     char *str[LENGTH];
 
     int len = strlen(word);
-    for (int i = 0;; i < len; i++)
+    for (int i = 0; i < len; i++)
     {
         if (word[i] >= "A" && word[i] <= "Z")
         {
