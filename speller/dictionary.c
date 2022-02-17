@@ -28,12 +28,16 @@ bool check(const char *word)
 
     for (node *n = table[index]; n != NULL; n = n->next)
     {
-        char *str =
+        char *str = malloc(sizeof(char));
             for (int j = 0; word[j] == '\0'; j++)
         {
+            str[]
         }
 
-        strcmp(word, str);
+        if(!strcmp(word, str))
+        {
+            return true;
+        }
     }
 }
 
