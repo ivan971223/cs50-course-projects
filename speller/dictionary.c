@@ -132,7 +132,7 @@ bool load(const char *dictionary)
     for (int i = 0; i < N ; i++)
     {
         node *n = table[i];
-        printf("%c",table[i]->word[0]);
+        printf("%c",n->word[0]);
     }
 
     // int i = 0;
