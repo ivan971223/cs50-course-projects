@@ -181,6 +181,7 @@ bool load(const char *dictionary)
             {
                 for (int m = 0; m < 26; m++)
                 {
+                    printf("%c",table[m]->word[0]);
                     if (table[m]->word[0] == tmp->word[0])
                     {
                         // for (node *n = table[m]; n != NULL; n = n->next)
@@ -190,8 +191,8 @@ bool load(const char *dictionary)
                         //         n->next = tmp;
                         //     }
                         // }
-                        printf("found");
-                        printf("%c",table[m]->word[0]);
+                        printf("yes");
+
                     }
                 }
             }
