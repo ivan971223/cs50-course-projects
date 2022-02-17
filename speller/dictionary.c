@@ -131,6 +131,10 @@ bool load(const char *dictionary)
             table[j]->next = NULL;
         }
     }
+    for (int i = 0; i < N : i++)
+    {
+        
+    }
 
     int i = 0;
     int j = 0;
@@ -213,7 +217,7 @@ unsigned int size(void)
         return 0;
     }
 
-    for (int i = 0 ; i < N; i++)
+    for (int i = 0; i < N; i++)
     {
         node *n = table[i];
         while (n->next != NULL)
@@ -243,5 +247,6 @@ bool unload(void)
         node *n = table[i];
         free_memory(n);
     }
+    free(table);
     return false;
 }
