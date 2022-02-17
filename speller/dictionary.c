@@ -24,24 +24,24 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    int index = hash(word);
+    unsigned int index = hash(word);
 
     for (node *n = table[index]; n != NULL; n = n->next)
     {
-        char *str = malloc(sizeof(char));
-            for (int j = 0; word[j] == '\0'; j++)
+        char *str = malloc(LENGTH + 1);
+        for (int j = 0; n->word[j] == '\0'; j++)
         {
-            str[]
+            str[j] = n->word[j];
         }
 
-        if(!strcmp(word, str))
+        if (!strcmp(word, str))
         {
             return true;
         }
+        free(str);
     }
-}
 
-return false;
+    return false;
 }
 
 // Hashes word to a number
