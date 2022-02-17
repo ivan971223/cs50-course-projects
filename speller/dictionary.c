@@ -25,7 +25,7 @@ bool check(const char *word)
 {
     // TODO
     unsigned int index = hash(word);
-    printf("%u",index);
+    printf("%u", index);
     for (node *n = table[index]; n != NULL; n = n->next)
     {
         char *str = malloc(LENGTH + 1);
@@ -33,9 +33,9 @@ bool check(const char *word)
         {
             str[j] = n->word[j];
         }
-        printf("%s",str);
+        printf("%s", str);
 
-        if (!strcmp(word, str))
+        if (strcmp(word, str) == 0)
         {
             return true;
         }
