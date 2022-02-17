@@ -170,6 +170,7 @@ bool load(const char *dictionary)
         // allocate memory for temporary node and store string and set next as a null pointer
         if (c != '\n')
         {
+            printf("i:%i",i);
             tmp->word[i] = c;
             len++;
         }
