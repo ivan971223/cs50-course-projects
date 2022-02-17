@@ -205,7 +205,7 @@ unsigned int size(void)
 {
     // TODO
     int size = 0;
-    if (table == NULL)
+    if (table[0] == NULL)
     {
         return 0;
     }
