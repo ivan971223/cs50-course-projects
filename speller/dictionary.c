@@ -216,7 +216,15 @@ unsigned int size(void)
     for (int i = 0; i < N; i++)
     {
         node *n = malloc(sizeof(node));
-        n = table[i]->next;
+        if (table[i]->next != NULL)
+        {
+            n = table[i]->next;
+        }
+        else
+        {
+            continue;
+        }
+
         while (n != NULL)
         {
             size++;
