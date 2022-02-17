@@ -104,6 +104,7 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
+    printf("%c",dictionary[0]);
     // TODO
     // check dictionary is empty or not
     if (dictionary == NULL)
@@ -217,7 +218,6 @@ bool load(const char *dictionary)
         }
         else
         {
-            printf("%c",dictionary[0]);
             str[j] = dictionary[i];
             tmp->word[j] = dictionary[i];
             j++;
