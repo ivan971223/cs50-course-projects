@@ -129,11 +129,13 @@ bool load(const char *dictionary)
             table[j]->next = NULL;
         }
     }
+    printf("done");
     for (int i = 0; i < N ; i++)
     {
         node *n = table[i];
         printf("%c",n->word[0]);
     }
+
 
     // int i = 0;
     // int j = 0;
