@@ -162,7 +162,7 @@ bool load(const char *dictionary)
     node *tmp = malloc(sizeof(node));
     char *str = malloc(LENGTH + 1);
 
-    //loop through each char
+    // loop through each char
     while (dictionary[i] != '\0') // check condition if char not equal to null
     {
         // allocate memory for temporary node and store string and set next as a null pointer
@@ -225,13 +225,13 @@ bool load(const char *dictionary)
     }
     free(tmp);
     free(str);
-    for(int f=0; f<N; f++)
+    for (int f = 0; f < N; f++)
     {
         node *n = table[f]->next;
-        printf("%i",f);
-        for(;n!=NULL;n=n->next)
+        printf("%i", f);
+        for (; n != NULL; n = n->next)
         {
-            printf("%c",n->word[0]);
+            printf("%c", n->word[0]);
         }
     }
     return true;
