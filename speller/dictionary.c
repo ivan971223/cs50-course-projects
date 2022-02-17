@@ -182,6 +182,7 @@ bool load(const char *dictionary)
             {
                 for (int m = 0; m < 26; m++)
                 {
+                    printf("%c",tmp->word[0]);
 
                     if (table[m]->word[0] == tmp->word[0])
                     {
