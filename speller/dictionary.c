@@ -247,7 +247,7 @@ bool unload(void)
     // TODO
     for (int i = 0; i < N; i++)
     {
-        node *n = table[i];
+        node *n = table[i]->next;
         free_memory(n);
     }
     return false;
