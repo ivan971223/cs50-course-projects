@@ -175,10 +175,10 @@ bool load(const char *dictionary)
         {
             tmp->next = NULL;
             i = 0;
+            free(tmp);
         }
-        printf("%c\n", c);
         i++;
-        
+
         // check string len
         // if (strlen(str) == 1)
         // {
