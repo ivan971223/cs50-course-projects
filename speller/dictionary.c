@@ -217,7 +217,7 @@ unsigned int size(void)
     {
         node *n = malloc(sizeof(node));
         n = table[i];
-        while (n != NULL)
+        while (n->next != NULL)
         {
             size++;
             n = n->next;
