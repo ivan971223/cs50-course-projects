@@ -120,6 +120,7 @@ bool load(const char *dictionary)
         tmp->word[0] = 'a' + i;
         tmp->next = NULL;
         table[i] = tmp;
+        printf("%c",table[j]->word[0]);
         free(tmp);
     }
     // from aa-zz
@@ -133,14 +134,15 @@ bool load(const char *dictionary)
             tmp->word[1] = 'a' + n;
             tmp->next = NULL;
             table[j] = tmp;
+            printf("%c",table[j]->word[0]);
             free(tmp);
         }
     }
-    for (int i = 0; i < N; i++)
-    {
-        node *n = table[i];
-        printf("%c", n->word[0]);
-    }
+    // for (int i = 0; i < N; i++)
+    // {
+    //     node *n = table[i];
+    //     printf("%c", n->word[0]);
+    // }
 
     // int i = 0;
     // int j = 0;
