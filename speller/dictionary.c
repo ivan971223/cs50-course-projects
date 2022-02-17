@@ -215,7 +215,7 @@ unsigned int size(void)
 
     for (int i = 0 ; i < N; i++)
     {
-        node *n = table[i]->next;
+        node *n = table[i];
         while (n != NULL)
         {
             size++;
