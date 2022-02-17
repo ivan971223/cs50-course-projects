@@ -164,17 +164,15 @@ bool load(const char *dictionary)
     int i = 0;
     int len = 0;
     tmp = malloc(sizeof(node));
-    // loop through each char
+
     while (fread(&c, sizeof(char), 1, file))
     {
-        // allocate memory for temporary node and store string and set next as a null pointer
         if (c != '\n')
         {
             printf("i:%i",i);
             tmp->word[i] = c;
             len++;
         }
-        // assign word to tmp node
         else
         {
             printf("\nnext word:");
