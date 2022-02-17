@@ -84,7 +84,7 @@ unsigned int hash(const char *word)
     // TODO: Improve this hash function
     // return toupper(word[0]) - 'A';
     int hash = 0;
-    for (int i = 0; i < strlen(word); i++)
+    for (int i = 0; i < 2; i++)
     {
         int num;
         if (word[i] >= 'A' && word[i] <= 'Z')
@@ -96,7 +96,7 @@ unsigned int hash(const char *word)
             num = word[i];
         }
 
-        hash += num * (num - i);
+        hash  =
     }
     return hash;
 }
