@@ -49,7 +49,7 @@ bool check(const char *word)
             {
                 for (node *n = table[k]; n != NULL; n = n->next)
                 {
-                    if((n->hash) == word_hash)
+                    if ((n->hash) == word_hash)
                     {
                         return true;
                     }
@@ -65,7 +65,7 @@ bool check(const char *word)
             {
                 for (node *n = table[k]; n != NULL; n = n->next)
                 {
-                    if((n->hash) == word_hash)
+                    if ((n->hash) == word_hash)
                     {
                         return true;
                     }
@@ -222,9 +222,23 @@ unsigned int size(void)
     return size;
 }
 
+void free(node *n)
+{
+    if()
+    {
+        return;
+    }
+    free(n->next);
+
+}
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
     // TODO
+    for (int i = 0, ; i < N; i++)
+    {
+        node *n = table[i];
+        free(n);
+    }
     return false;
 }
