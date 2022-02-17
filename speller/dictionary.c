@@ -26,21 +26,21 @@ bool check(const char *word)
     // TODO
     unsigned int index = hash(word);
     printf("%u",index);
-    // for (node *n = table[index]; n != NULL; n = n->next)
-    // {
-    //     char *str = malloc(LENGTH + 1);
-    //     for (int j = 0; n->word[j] == '\0'; j++)
-    //     {
-    //         str[j] = n->word[j];
-    //     }
-    //     printf("%s",str);
+    for (node *n = table[index]; n != NULL; n = n->next)
+    {
+        char *str = malloc(LENGTH + 1);
+        for (int j = 0; n->word[j] == '\0'; j++)
+        {
+            str[j] = n->word[j];
+        }
+        printf("%s",str);
 
-    //     if (!strcmp(word, str))
-    //     {
-    //         return true;
-    //     }
-    //     free(str);
-    // }
+        if (!strcmp(word, str))
+        {
+            return true;
+        }
+        free(str);
+    }
 
     return false;
 }
@@ -66,15 +66,16 @@ unsigned int hash(const char *word)
     }
     if (strlen(word) == 1 || !(str[1] >= 'a' && str[1] <= 'z'))
     {
-        int dec = word[0] - 97;
+        int dec = str[0] - 97;
         hash = dec;
     }
     else
     {
-        int dec1 = word[0] - 97 + 1; // a=1, z=26
-        int dec2 = word[1] - 97 + 1;
+        int dec1 = str[0] - 97 + 1; // a=1, z=26
+        int dec2 = str[1] - 97 + 1;
         hash = dec1 * 26 + dec2 - 1;
     }
+    free(str);
     return hash;
 }
 
