@@ -24,22 +24,23 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    unsigned int index = hash(word);
+    int index = hash(word);
     printf("%i",index);
-    for (node *n = table[index]; n != NULL; n = n->next)
-    {
-        char *str = malloc(LENGTH + 1);
-        for (int j = 0; n->word[j] == '\0'; j++)
-        {
-            str[j] = n->word[j];
-        }
+    // for (node *n = table[index]; n != NULL; n = n->next)
+    // {
+    //     char *str = malloc(LENGTH + 1);
+    //     for (int j = 0; n->word[j] == '\0'; j++)
+    //     {
+    //         str[j] = n->word[j];
+    //     }
+    //     printf("%s",str);
 
-        if (!strcmp(word, str))
-        {
-            return true;
-        }
-        free(str);
-    }
+    //     if (!strcmp(word, str))
+    //     {
+    //         return true;
+    //     }
+    //     free(str);
+    // }
 
     return false;
 }
