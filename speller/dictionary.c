@@ -184,13 +184,13 @@ bool load(const char *dictionary)
                     if (table[m]->word[0] == tmp->word[0])
                     {
                         for (node *n = table[m]; n != NULL; n = n->next)
-                        {
-
-                            if (n->next == NULL)
                             {
-                                printf("onj");
-                                n->next = tmp;
-                            }
+                                printf("%c",table[m]->word[0]);
+                            // if (n->next == NULL)
+                            // {
+                            //     printf("onj");
+                            //     n->next = tmp;
+                            // }
                         }
                     }
                 }
