@@ -89,11 +89,11 @@ unsigned int hash(const char *word)
         int num;
         if (word[i] >= 'A' && word[i] <= 'Z')
         {
-            num = tolower(word[i]);
+            tolower(word[i]);
         }
         else
         {
-            num = word[i];
+            word[i];
         }
     }
     return hash;
