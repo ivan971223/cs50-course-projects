@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 
     // Prepare to report misspellings
     printf("\nMISSPELLED WORDS\n\n");
-
+    printf("hi");
     // Prepare to spell-check
     int index = 0, misspellings = 0, words = 0;
     char word[LENGTH + 1];
