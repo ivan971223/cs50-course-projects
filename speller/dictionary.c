@@ -161,6 +161,7 @@ bool load(const char *dictionary)
     }
 
     int i = 0;
+    int len = 0;
     char *str = malloc(LENGTH + 1);
     node *tmp = malloc(sizeof(node));
     // loop through each char
@@ -170,12 +171,13 @@ bool load(const char *dictionary)
         if (c != '\n')
         {
             tmp->word[i] = c;
+            len++;
         }
         // assign word to tmp node
         else
         {
             printf("\nnext word:");
-            for (int j = 0; tmp->word[j] != '\0'; j++)
+            for (int j = 0; j < len; j++)
             {
                 printf("%c", tmp->word[j]);
             }
@@ -213,6 +215,7 @@ bool load(const char *dictionary)
             //     }
             // }
             i = 0;
+            len = 0;
             tmp = malloc(sizeof(node));
         }
         i++;
