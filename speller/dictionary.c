@@ -171,8 +171,7 @@ bool load(const char *dictionary)
         // allocate memory for temporary node and store string and set next as a null pointer
 
         // assign word to tmp node
-        printf("%lu", strlen(&c));
-        printf("%c",c);
+        printf("%c\n",c);
         tmp->next = NULL;
 
         // check string len
