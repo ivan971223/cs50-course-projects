@@ -39,8 +39,7 @@ int main(int argc, char *argv[])
     getrusage(RUSAGE_SELF, &before);
     bool loaded = load(dictionary);
     getrusage(RUSAGE_SELF, &after);
-    unsigned int k = size();
-    printf("%i",k);
+
     // Exit if dictionary not loaded
     if (!loaded)
     {
