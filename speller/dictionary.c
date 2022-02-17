@@ -95,8 +95,6 @@ unsigned int hash(const char *word)
         {
             num = word[i];
         }
-
-        hash  =
     }
     return hash;
 }
