@@ -11,7 +11,6 @@
 typedef struct node
 {
     char word[LENGTH + 1];
-    unsigned int hash;
     struct node *next;
 } node;
 
@@ -26,56 +25,56 @@ bool check(const char *word)
 {
     // TODO
 
-    int len = strlen(word);
-    char *str = malloc(len + 1);
-    for (int i = 0; i < len; i++)
-    {
-        if (word[i] >= 'A' && word[i] <= 'Z')
-        {
-            str[i] = tolower(word[i]);
-        }
-        else
-        {
-            str[i] = word[i];
-        }
-    }
+    // int len = strlen(word);
+    // char *str = malloc(len + 1);
+    // for (int i = 0; i < len; i++)
+    // {
+    //     if (word[i] >= 'A' && word[i] <= 'Z')
+    //     {
+    //         str[i] = tolower(word[i]);
+    //     }
+    //     else
+    //     {
+    //         str[i] = word[i];
+    //     }
+    // }
 
-    int word_hash = hash(word);
+    // int word_hash = hash(word);
 
-    if (len == 1)
-    {
+    // if (len == 1)
+    // {
 
-        for (int k = 0; k < 26; k++)
-        {
-            if (table[k]->word[0] == str[0])
-            {
-                for (node *n = table[k]; n != NULL; n = n->next)
-                {
-                    if ((n->hash) == word_hash)
-                    {
-                        return true;
-                    }
-                }
-            }
-        }
-    }
-    else
-    {
-        for (int k = 26; k < N; k++)
-        {
-            if (table[k]->word[0] == str[0] && table[k]->word[1] == str[1])
-            {
-                for (node *n = table[k]; n != NULL; n = n->next)
-                {
-                    if ((n->hash) == word_hash)
-                    {
-                        return true;
-                    }
-                }
-            }
-        }
-    }
-    free(str);
+    //     for (int k = 0; k < 26; k++)
+    //     {
+    //         if (table[k]->word[0] == str[0])
+    //         {
+    //             for (node *n = table[k]; n != NULL; n = n->next)
+    //             {
+    //                 if ((n->hash) == word_hash)
+    //                 {
+    //                     return true;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    // else
+    // {
+    //     for (int k = 26; k < N; k++)
+    //     {
+    //         if (table[k]->word[0] == str[0] && table[k]->word[1] == str[1])
+    //         {
+    //             for (node *n = table[k]; n != NULL; n = n->next)
+    //             {
+    //                 if ((n->hash) == word_hash)
+    //                 {
+    //                     return true;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    // free(str);
     return false;
 }
 
@@ -85,20 +84,20 @@ unsigned int hash(const char *word)
     // TODO: Improve this hash function
     // return toupper(word[0]) - 'A';
     int hash = 0;
-    for (int i = 0; i < strlen(word); i++)
-    {
-        int num;
-        if (word[i] >= 'A' && word[i] <= 'Z')
-        {
-            num = tolower(word[i]);
-        }
-        else
-        {
-            num = word[i];
-        }
+    // for (int i = 0; i < strlen(word); i++)
+    // {
+    //     int num;
+    //     if (word[i] >= 'A' && word[i] <= 'Z')
+    //     {
+    //         num = tolower(word[i]);
+    //     }
+    //     else
+    //     {
+    //         num = word[i];
+    //     }
 
-        hash += num * (num - i);
-    }
+    //     hash += num * (num - i);
+    // }
     return hash;
 }
 
