@@ -161,8 +161,6 @@ bool load(const char *dictionary)
     }
 
     int i = 0;
-    int j = 0;
-
     char *str = malloc(LENGTH + 1);
     node *tmp = malloc(sizeof(node));
     // loop through each char
@@ -173,39 +171,45 @@ bool load(const char *dictionary)
         // assign word to tmp node
         if (c == '\n')
         {
+
+            printf("\nnext word:");
+            for(int j=0; tmp->word[j]!='\0'; j++)
+            {
+                printf("%c",tmp->word[j]);
+            }
             tmp->next = NULL;
-            if (strlen(str) == 1)
-            {
-                for (int m = 0; m < 26; m++)
-                {
-                    if (table[m]->word[0] == str[0])
-                    {
-                        for (node *n = table[m]; n != NULL; n = n->next)
-                        {
-                            if (n->next == NULL)
-                            {
-                                n->next = tmp;
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                for (int m = 26; m < N; m++)
-                {
-                    if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
-                    {
-                        for (node *n = table[m]; n != NULL; n = n->next)
-                        {
-                            if (n->next == NULL)
-                            {
-                                n->next = tmp;
-                            }
-                        }
-                    }
-                }
-            }
+            // if (strlen(str) == 1)
+            // {
+            //     for (int m = 0; m < 26; m++)
+            //     {
+            //         if (table[m]->word[0] == str[0])
+            //         {
+            //             for (node *n = table[m]; n != NULL; n = n->next)
+            //             {
+            //                 if (n->next == NULL)
+            //                 {
+            //                     n->next = tmp;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            // else
+            // {
+            //     for (int m = 26; m < N; m++)
+            //     {
+            //         if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
+            //         {
+            //             for (node *n = table[m]; n != NULL; n = n->next)
+            //             {
+            //                 if (n->next == NULL)
+            //                 {
+            //                     n->next = tmp;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
             i = 0;
             tmp = malloc(sizeof(node));
         }
