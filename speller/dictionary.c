@@ -116,8 +116,9 @@ bool load(const char *dictionary)
     // from a-z
     for (int i = 0; i < 26; i++)
     {
-        table[i]->word[0] = 'a' + i;
-        table[i]->next = NULL;
+        printf("%i",i);
+        // table[i]->word[0] = 'a' + i;
+        // table[i]->next = NULL;
     }
     // from aa-zz
     for (int j = 26, m = 0; m < 26; j++, m++)
