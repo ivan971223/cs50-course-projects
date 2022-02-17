@@ -99,8 +99,8 @@ unsigned int hash(const char *word)
     }
     if (strlen(word) == 1 || !(str[1] >= 'a' && str[1] <= 'z'))
     {
-        int dec = word[0];
-        hash = dec - 97;
+        int dec = word[0]- 97;
+        hash = dec;
     }
     else
     {
