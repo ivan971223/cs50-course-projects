@@ -105,6 +105,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     FILE *file = fopen(dictionary, "r");
+    node *tmp;
     char c;
 
     // TODO
@@ -118,7 +119,7 @@ bool load(const char *dictionary)
     // from a-z
     for (int i = 0; i < 26; i++)
     {
-        node *tmp = malloc(sizeof(node));
+        tmp = malloc(sizeof(node));
         if (i == 0)
         {
             tmp->word[0] = 'a';
@@ -129,7 +130,6 @@ bool load(const char *dictionary)
         }
         tmp->next = NULL;
         table[i] = tmp;
-        free(tmp);
     }
     // from aa-zz
     for (int j = 26, m = 0; m < 26; m++)
@@ -137,7 +137,7 @@ bool load(const char *dictionary)
         for (int n = 0; n < 26; n++, j++)
         {
 
-            node *tmp = malloc(sizeof(node));
+            tmp = malloc(sizeof(node));
             if (m == 0)
             {
                 tmp->word[0] = 'a';
@@ -156,13 +156,14 @@ bool load(const char *dictionary)
             }
             tmp->next = NULL;
             table[j] = tmp;
-            free(tmp);
+
         }
     }
+    free(tmp);
 
     int i = 0;
     int len = 0;
-    node *tmp = malloc(sizeof(node));
+    tmp = malloc(sizeof(node));
     // loop through each char
     while (fread(&c, sizeof(char), 1, file))
     {
@@ -181,9 +182,10 @@ bool load(const char *dictionary)
             {
                 for (int m = 0; m < 26; m++)
                 {
-                    printf("%c",table[m]->word[0]);
+
                     if (table[m]->word[0] == tmp->word[0])
                     {
+                        printf("ta")
                         // for (node *n = table[m]; n != NULL; n = n->next)
                         // {
                         //     if (n->next == NULL)
@@ -198,6 +200,8 @@ bool load(const char *dictionary)
             {
                 for (int m = 26; m < N; m++)
                 {
+                    printf("%c",table[m]->word[0]);
+                    printf("%c",table[m]->word[1]);
                     if (table[m]->word[0] == tmp->word[0] && table[m]->word[1] == tmp->word[1])
                     {
                         // for (node *n = table[m]; n != NULL; n = n->next)
