@@ -183,8 +183,8 @@ bool load(const char *dictionary)
             }
             free(tmp);
             free(str);
-            node *tmp = malloc(sizeof(node));
-            char *str = malloc(LENGTH + 1);
+            tmp = malloc(sizeof(node));
+            str = malloc(LENGTH + 1);
             j = 0;
         }
         else
@@ -210,7 +210,7 @@ unsigned int size(void)
         return 0;
     }
 
-    for (int i = 0, ; i < N; i++)
+    for (int i = 0 ; i < N; i++)
     {
         node *n = table[i];
         while (n != NULL)
@@ -222,13 +222,14 @@ unsigned int size(void)
     return size;
 }
 
-void free(node *n)
+void free_memory(node *n)
 {
     if (n == NULL)
     {
         return;
     }
-    free(n->next);
+    free_memory(n->next);
+    free(n);
 }
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
@@ -237,7 +238,7 @@ bool unload(void)
     for (int i = 0; i < N; i++)
     {
         node *n = table[i];
-        free(n);
+        free_memory(n);
     }
     return false;
 }
