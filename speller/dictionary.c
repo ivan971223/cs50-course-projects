@@ -190,6 +190,7 @@ bool load(const char *dictionary)
                                 break;
                             }
                         }
+                        break;
                     }
                 }
             }
@@ -207,6 +208,7 @@ bool load(const char *dictionary)
                                 break;
                             }
                         }
+                        break;
                     }
                 }
             }
