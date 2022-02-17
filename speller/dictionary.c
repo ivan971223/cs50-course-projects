@@ -191,8 +191,6 @@ bool load(const char *dictionary)
                         //         n->next = tmp;
                         //     }
                         // }
-                        printf("yes");
-
                     }
                 }
             }
