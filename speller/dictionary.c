@@ -28,7 +28,7 @@ bool check(const char *word)
 
     for (node *n = table[index]; n != NULL; n = n->next)
     {
-        strcmp()
+        strcmp(word,n->word[0])
     }
 
 }
