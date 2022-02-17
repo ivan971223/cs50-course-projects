@@ -104,10 +104,8 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    for(int i=0, len=strlen(dictionary); i<len;i++)
-    {
-        printf("%c",dictionary[i]);
-    }
+    FILE *file = fopen(dictionary, "r");
+    char c;
 
     // TODO
     // check dictionary is empty or not
@@ -168,78 +166,61 @@ bool load(const char *dictionary)
     char *str = malloc(LENGTH + 1);
 
     // loop through each char
-    while (dictionary[i] != '\0') // check condition if char not equal to null
+    while (fread(&c, sizeof(char), 1, file))
     {
         // allocate memory for temporary node and store string and set next as a null pointer
 
         // assign word to tmp node
-        if (dictionary[i] == '\n')
+        printf("%lu", strlen(&c));
+        printf("%c",c);
+        tmp->next = NULL;
+
+        // check string len
+        if (strlen(str) == 1)
         {
-
-            // unsigned int hash_num = hash(str);
-            // tmp->hash = hash_num;
-            // assign next to null
-            tmp->next = NULL;
-
-            // check string len
-            if (strlen(str) == 1)
+            for (int m = 0; m < 26; m++)
             {
-                for (int m = 0; m < 26; m++)
+                if (table[m]->word[0] == str[0])
                 {
-                    if (table[m]->word[0] == str[0])
+                    for (node *n = table[m]; n != NULL; n = n->next)
                     {
-                        for (node *n = table[m]; n != NULL; n = n->next)
+                        if (n->next == NULL)
                         {
-                            if (n->next == NULL)
-                            {
-                                n->next = tmp;
-                            }
+                            n->next = tmp;
                         }
                     }
                 }
             }
-            // else
-            // {
-            //     for (int m = 26; m < N; m++)
-            //     {
-            //         if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
-            //         {
-            //             for (node *n = table[m]; n != NULL; n = n->next)
-            //             {
-            //                 if (n->next == NULL)
-            //                 {
-            //                     n->next = tmp;
-            //                 }
-            //             }
-            //         }
-            //     }
-            // }
-            free(tmp);
-            free(str);
-            tmp = malloc(sizeof(node));
-            str = malloc(LENGTH + 1);
-            j = 0;
         }
-        else
-        {
-            str[j] = dictionary[i];
-            tmp->word[j] = dictionary[i];
-            j++;
-        }
-        i++;
+        // else
+        // {
+        //     for (int m = 26; m < N; m++)
+        //     {
+        //         if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
+        //         {
+        //             for (node *n = table[m]; n != NULL; n = n->next)
+        //             {
+        //                 if (n->next == NULL)
+        //                 {
+        //                     n->next = tmp;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
     }
-    free(tmp);
-    free(str);
-    for (int f = 0; f < N; f++)
-    {
-        node *n = table[f]->next;
-        // printf("%i", f);
-        for (; n != NULL; n = n->next)
-        {
-            printf("%c", n->word[0]);
-        }
-    }
-    return true;
+
+
+// for (int f = 0; f < N; f++)
+// {
+//     node *n = table[f]->next;
+//     // printf("%i", f);
+//     for (; n != NULL; n = n->next)
+//     {
+//         printf("%c", n->word[0]);
+//     }
+// }
+return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
