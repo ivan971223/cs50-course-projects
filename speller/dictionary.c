@@ -183,13 +183,15 @@ bool load(const char *dictionary)
                 {
                     if (table[m]->word[0] == tmp->word[0])
                     {
-                        for (node *n = table[m]; n != NULL; n = n->next)
-                        {
-                            if (n->next == NULL)
-                            {
-                                n->next = tmp;
-                            }
-                        }
+                        // for (node *n = table[m]; n != NULL; n = n->next)
+                        // {
+                        //     if (n->next == NULL)
+                        //     {
+                        //         n->next = tmp;
+                        //     }
+                        // }
+                        printf("found");
+                        printf("%c",table[m]->word[0]);
                     }
                 }
             }
@@ -199,13 +201,16 @@ bool load(const char *dictionary)
                 {
                     if (table[m]->word[0] == tmp->word[0] && table[m]->word[1] == tmp->word[1])
                     {
-                        for (node *n = table[m]; n != NULL; n = n->next)
-                        {
-                            if (n->next == NULL)
-                            {
-                                n->next = tmp;
-                            }
-                        }
+                        // for (node *n = table[m]; n != NULL; n = n->next)
+                        // {
+                        //     if (n->next == NULL)
+                        //     {
+                        //         n->next = tmp;
+                        //     }
+                        // }
+                        printf("found");
+                        printf("%c",table[m]->word[0]);
+                        printf("%c",table[m]->word[1]);
                     }
                 }
             }
