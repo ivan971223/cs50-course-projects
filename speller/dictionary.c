@@ -162,7 +162,6 @@ bool load(const char *dictionary)
 
     int i = 0;
     int len = 0;
-    char *str = malloc(LENGTH + 1);
     node *tmp = malloc(sizeof(node));
     // loop through each char
     while (fread(&c, sizeof(char), 1, file))
@@ -182,7 +181,7 @@ bool load(const char *dictionary)
             {
                 for (int m = 0; m < 26; m++)
                 {
-                    if (table[m]->word[0] == str[0])
+                    if (table[m]->word[0] == tmp->word[0])
                     {
                         for (node *n = table[m]; n != NULL; n = n->next)
                         {
@@ -198,7 +197,7 @@ bool load(const char *dictionary)
             {
                 for (int m = 26; m < N; m++)
                 {
-                    if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
+                    if (table[m]->word[0] == tmp->word[0] && table[m]->word[1] == tmp->word[1])
                     {
                         for (node *n = table[m]; n != NULL; n = n->next)
                         {
