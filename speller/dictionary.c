@@ -222,6 +222,7 @@ unsigned int size(void)
             size++;
             n = n->next;
         }
+        free(n);
     }
     return size;
 }
