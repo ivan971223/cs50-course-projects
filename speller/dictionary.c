@@ -207,12 +207,12 @@ bool load(const char *dictionary)
                 }
             }
             i = 0;
-            free(tmp);
         }
         i++;
 
         // check string len
     }
+    free(tmp);
 
     // for (int f = 0; f < N; f++)
     // {
