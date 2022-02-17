@@ -169,28 +169,33 @@ bool load(const char *dictionary)
     while (fread(&c, sizeof(char), 1, file))
     {
         // allocate memory for temporary node and store string and set next as a null pointer
-
+        tmp->word[i] = c;
         // assign word to tmp node
-        printf("%c\n",c);
-        tmp->next = NULL;
-
-        // check string len
-        if (strlen(str) == 1)
+        if (c == '\n')
         {
-            for (int m = 0; m < 26; m++)
-            {
-                if (table[m]->word[0] == str[0])
-                {
-                    for (node *n = table[m]; n != NULL; n = n->next)
-                    {
-                        if (n->next == NULL)
-                        {
-                            n->next = tmp;
-                        }
-                    }
-                }
-            }
+            tmp->next = NULL;
+            i = 0;
         }
+        printf("%c\n", c);
+        i++;
+        
+        // check string len
+        // if (strlen(str) == 1)
+        // {
+        //     for (int m = 0; m < 26; m++)
+        //     {
+        //         if (table[m]->word[0] == str[0])
+        //         {
+        //             for (node *n = table[m]; n != NULL; n = n->next)
+        //             {
+        //                 if (n->next == NULL)
+        //                 {
+        //                     n->next = tmp;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
         // else
         // {
         //     for (int m = 26; m < N; m++)
@@ -209,17 +214,16 @@ bool load(const char *dictionary)
         // }
     }
 
-
-// for (int f = 0; f < N; f++)
-// {
-//     node *n = table[f]->next;
-//     // printf("%i", f);
-//     for (; n != NULL; n = n->next)
-//     {
-//         printf("%c", n->word[0]);
-//     }
-// }
-return true;
+    // for (int f = 0; f < N; f++)
+    // {
+    //     node *n = table[f]->next;
+    //     // printf("%i", f);
+    //     for (; n != NULL; n = n->next)
+    //     {
+    //         printf("%c", n->word[0]);
+    //     }
+    // }
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
