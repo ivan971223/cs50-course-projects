@@ -104,7 +104,11 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    printf("%c",dictionary[0]);
+    for(int i=0, len=strlen(dictionary); i<len;i++)
+    {
+        printf("%c",dictionary[i]);
+    }
+
     // TODO
     // check dictionary is empty or not
     if (dictionary == NULL)
