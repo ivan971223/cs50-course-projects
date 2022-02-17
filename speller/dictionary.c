@@ -117,11 +117,11 @@ bool load(const char *dictionary)
     {
         printf("%i\n", i);
         node *tmp = malloc(sizeof(node));
-
+        printf("%i",'a'+i);
         tmp->word[0] = 'a' + i;
         tmp->next = NULL;
         table[i] = tmp;
-        printf("%c",table[i]->word[0]);
+
         free(tmp);
     }
     // from aa-zz
