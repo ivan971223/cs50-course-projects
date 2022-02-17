@@ -217,6 +217,7 @@ bool load(const char *dictionary)
         }
         else
         {
+            printf("%c",dictionary[i]);
             str[j] = dictionary[i];
             tmp->word[j] = dictionary[i];
             j++;
