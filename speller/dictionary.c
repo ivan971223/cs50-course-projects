@@ -116,6 +116,7 @@ bool load(const char *dictionary)
     // from a-z
     for (int i = 0; i < 26; i++)
     {
+        table[i] = malloc(sizeof(node));
         table[i]->word[0] = 'a' + i;
         table[i]->next = NULL;
     }
@@ -124,79 +125,80 @@ bool load(const char *dictionary)
     {
         for (int n = 0; n < 26; n++, j++)
         {
+            table[j] = malloc(sizeof(node));
             table[j]->word[0] = 'a' + m;
             table[j]->word[1] = 'a' + n;
             table[j]->next = NULL;
         }
     }
 
-    // int i = 0;
-    // int j = 0;
-    // node *tmp = malloc(sizeof(node));
-    // char *str = malloc(LENGTH + 1);
+    int i = 0;
+    int j = 0;
+    node *tmp = malloc(sizeof(node));
+    char *str = malloc(LENGTH + 1);
     // loop through each char
-    // while (dictionary[i] != '\0') // check condition if char not equal to null
-    // {
-    //     // allocate memory for temporary node and store string and set next as a null pointer
+    while (dictionary[i] != '\0') // check condition if char not equal to null
+    {
+        // allocate memory for temporary node and store string and set next as a null pointer
 
-    //     // assign word to tmp node
-    //     if (dictionary[i] == '\n')
-    //     {
+        // assign word to tmp node
+        if (dictionary[i] == '\n')
+        {
 
-    //         unsigned int hash_num = hash(str);
-    //         tmp->hash = hash_num;
-    //         // assign next to null
-    //         tmp->next = NULL;
+            unsigned int hash_num = hash(str);
+            tmp->hash = hash_num;
+            // assign next to null
+            tmp->next = NULL;
 
-    //         // check string len
-    //         if (strlen(str) == 1)
-    //         {
-    //             for (int m = 0; m < 26; m++)
-    //             {
-    //                 if (table[m]->word[0] == str[0])
-    //                 {
-    //                     for (node *n = table[m]; n != NULL; n = n->next)
-    //                     {
-    //                         if (n->next == NULL)
-    //                         {
-    //                             n->next = tmp;
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         else
-    //         {
-    //             for (int m = 26; m < N; m++)
-    //             {
-    //                 if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
-    //                 {
-    //                     for (node *n = table[m]; n != NULL; n = n->next)
-    //                     {
-    //                         if (n->next == NULL)
-    //                         {
-    //                             n->next = tmp;
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         free(tmp);
-    //         free(str);
-    //         tmp = malloc(sizeof(node));
-    //         str = malloc(LENGTH + 1);
-    //         j = 0;
-    //     }
-    //     else
-    //     {
-    //         str[j] = dictionary[i];
-    //         tmp->word[j] = dictionary[i];
-    //         j++;
-    //     }
-    //     i++;
-    // }
-    // free(tmp);
-    // free(str);
+            // check string len
+            if (strlen(str) == 1)
+            {
+                for (int m = 0; m < 26; m++)
+                {
+                    if (table[m]->word[0] == str[0])
+                    {
+                        for (node *n = table[m]; n != NULL; n = n->next)
+                        {
+                            if (n->next == NULL)
+                            {
+                                n->next = tmp;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int m = 26; m < N; m++)
+                {
+                    if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
+                    {
+                        for (node *n = table[m]; n != NULL; n = n->next)
+                        {
+                            if (n->next == NULL)
+                            {
+                                n->next = tmp;
+                            }
+                        }
+                    }
+                }
+            }
+            free(tmp);
+            free(str);
+            tmp = malloc(sizeof(node));
+            str = malloc(LENGTH + 1);
+            j = 0;
+        }
+        else
+        {
+            str[j] = dictionary[i];
+            tmp->word[j] = dictionary[i];
+            j++;
+        }
+        i++;
+    }
+    free(tmp);
+    free(str);
     return true;
 }
 
