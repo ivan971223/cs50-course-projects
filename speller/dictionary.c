@@ -104,9 +104,9 @@ unsigned int hash(const char *word)
     }
     else
     {
-        int dec1 = word[0] - 97 + 1;
+        int dec1 = word[0] - 97 + 1;//a=1, z=26
         int dec2 = word[1] - 97 + 1;
-        hash = dec2 + dec1 * dec2 - 1;
+        hash = dec1 * 26 +dec2 - 1;
     }
     return hash;
 }
