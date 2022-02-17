@@ -174,44 +174,44 @@ bool load(const char *dictionary)
         if (c == '\n')
         {
             tmp->next = NULL;
+            if (strlen(str) == 1)
+            {
+                for (int m = 0; m < 26; m++)
+                {
+                    if (table[m]->word[0] == str[0])
+                    {
+                        for (node *n = table[m]; n != NULL; n = n->next)
+                        {
+                            if (n->next == NULL)
+                            {
+                                n->next = tmp;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int m = 26; m < N; m++)
+                {
+                    if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
+                    {
+                        for (node *n = table[m]; n != NULL; n = n->next)
+                        {
+                            if (n->next == NULL)
+                            {
+                                n->next = tmp;
+                            }
+                        }
+                    }
+                }
+            }
             i = 0;
             free(tmp);
         }
         i++;
 
         // check string len
-        // if (strlen(str) == 1)
-        // {
-        //     for (int m = 0; m < 26; m++)
-        //     {
-        //         if (table[m]->word[0] == str[0])
-        //         {
-        //             for (node *n = table[m]; n != NULL; n = n->next)
-        //             {
-        //                 if (n->next == NULL)
-        //                 {
-        //                     n->next = tmp;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-        // else
-        // {
-        //     for (int m = 26; m < N; m++)
-        //     {
-        //         if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
-        //         {
-        //             for (node *n = table[m]; n != NULL; n = n->next)
-        //             {
-        //                 if (n->next == NULL)
-        //                 {
-        //                     n->next = tmp;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
     }
 
     // for (int f = 0; f < N; f++)
