@@ -193,22 +193,22 @@ bool load(const char *dictionary)
                     }
                 }
             }
-            else
-            {
-                for (int m = 26; m < N; m++)
-                {
-                    if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
-                    {
-                        for (node *n = table[m]; n != NULL; n = n->next)
-                        {
-                            if (n->next == NULL)
-                            {
-                                n->next = tmp;
-                            }
-                        }
-                    }
-                }
-            }
+            // else
+            // {
+            //     for (int m = 26; m < N; m++)
+            //     {
+            //         if (table[m]->word[0] == str[0] && table[m]->word[1] == str[1])
+            //         {
+            //             for (node *n = table[m]; n != NULL; n = n->next)
+            //             {
+            //                 if (n->next == NULL)
+            //                 {
+            //                     n->next = tmp;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
             free(tmp);
             free(str);
             tmp = malloc(sizeof(node));
