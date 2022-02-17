@@ -185,9 +185,10 @@ bool load(const char *dictionary)
                     {
                         for (node *n = table[m]; n != NULL; n = n->next)
                         {
-                            printf("%c",table[m]->word[0]);
+
                             if (n->next == NULL)
                             {
+                                printf("onj");
                                 n->next = tmp;
                             }
                         }
