@@ -174,7 +174,6 @@ bool load(const char *dictionary)
         }
         else
         {
-            printf("\nnext word:");
             tmp->next = NULL;
             if (len == 1)
             {
@@ -220,15 +219,15 @@ bool load(const char *dictionary)
     }
     free(tmp);
 
-    // for (int f = 0; f < 5; f++)
-    // {
-    //     node *n = table[f]->next;
-    //     // printf("%i", f);
-    //     for (; n != NULL; n = n->next)
-    //     {
-    //         printf("%c", n->word[0]);
-    //     }
-    // }
+    for (int f = 0; f < N; f++)
+    {
+        node *n = table[f]->next;
+        // printf("%i", f);
+        for (; n != NULL; n = n->next)
+        {
+            printf("%c", n->word[0]);
+        }
+    }
     return true;
 }
 
