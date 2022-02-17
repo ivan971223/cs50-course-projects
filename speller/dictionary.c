@@ -47,7 +47,7 @@ bool check(const char *word)
 
         for (int k = 0; k < 26; k++)
         {
-            if (table[k] == str[0])
+            if (table[k]->word[0] == str[0])
             {
                 for (node *n = table[k]; n != NULL; n = n->next)
                 {
@@ -140,11 +140,11 @@ bool load(const char *dictionary)
         // allocate memory for temporary node and store string and set next as a null pointer
 
         // assign word to tmp node
-        if (dictionary[i] == "\n")
+        if (dictionary[i] == '\n')
         {
 
-            unsigned int hash = hash(str);
-            tmp->hash = hash;
+            unsigned int hash_num = hash(str);
+            tmp->hash = hash_num;
             // assign next to null
             tmp->next = NULL;
 
@@ -160,7 +160,6 @@ bool load(const char *dictionary)
                             if (n->next == NULL)
                             {
                                 n->next = tmp;
-                                return;
                             }
                         }
                     }
@@ -177,7 +176,6 @@ bool load(const char *dictionary)
                             if (n->next == NULL)
                             {
                                 n->next = tmp;
-                                return;
                             }
                         }
                     }
