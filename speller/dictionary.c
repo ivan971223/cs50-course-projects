@@ -227,7 +227,7 @@ bool load(const char *dictionary)
     free(str);
     for(int f=0; f<N; f++)
     {
-        node *n = table[f];
+        node *n = table[f]->next;
         printf("%i",f);
         for(;n!=NULL;n=n->next)
         {
