@@ -169,8 +169,8 @@ bool load(const char *dictionary)
     {
         if (c != '\n')
         {
-            printf("i:%i",i);
             tmp->word[i] = c;
+            i++;
             len++;
         }
         else
@@ -183,14 +183,13 @@ bool load(const char *dictionary)
                 {
                     if (table[m]->word[0] == tmp->word[0])
                     {
-                        printf("%c",table[m]->word[0]);
-                        // for (node *n = table[m]; n != NULL; n = n->next)
-                        // {
-                        //     if (n->next == NULL)
-                        //     {
-                        //         n->next = tmp;
-                        //     }
-                        // }
+                        for (node *n = table[m]; n != NULL; n = n->next)
+                        {
+                            if (n->next == NULL)
+                            {
+                                n->next = tmp;
+                            }
+                        }
                     }
                 }
             }
@@ -198,20 +197,15 @@ bool load(const char *dictionary)
             {
                 for (int m = 26; m < N; m++)
                 {
-                    printf("%c",table[m]->word[0]);
-                    printf("%c",table[m]->word[1]);
                     if (table[m]->word[0] == tmp->word[0] && table[m]->word[1] == tmp->word[1])
                     {
-                        // for (node *n = table[m]; n != NULL; n = n->next)
-                        // {
-                        //     if (n->next == NULL)
-                        //     {
-                        //         n->next = tmp;
-                        //     }
-                        // }
-                        printf("found");
-                        printf("%c",table[m]->word[0]);
-                        printf("%c",table[m]->word[1]);
+                        for (node *n = table[m]; n != NULL; n = n->next)
+                        {
+                            if (n->next == NULL)
+                            {
+                                n->next = tmp;
+                            }
+                        }
                     }
                 }
             }
@@ -220,19 +214,19 @@ bool load(const char *dictionary)
             len = 0;
             tmp = malloc(sizeof(node));
         }
-        i++;
+
     }
     free(tmp);
 
-    // for (int f = 0; f < N; f++)
-    // {
-    //     node *n = table[f]->next;
-    //     // printf("%i", f);
-    //     for (; n != NULL; n = n->next)
-    //     {
-    //         printf("%c", n->word[0]);
-    //     }
-    // }
+    for (int f = 0; f < 5; f++)
+    {
+        node *n = table[f]->next;
+        // printf("%i", f);
+        for (; n != NULL; n = n->next)
+        {
+            printf("%c", n->word[0]);
+        }
+    }
     return true;
 }
 
