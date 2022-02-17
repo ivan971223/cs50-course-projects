@@ -26,7 +26,7 @@ bool check(const char *word)
     // TODO
 
     int len = strlen(word);
-    char *str[len + 1];
+    char *str = malloc(len + 1);
     for (int i = 0; i < len; i++)
     {
         if (word[i] >= 'A' && word[i] <= 'Z')
@@ -74,7 +74,7 @@ bool check(const char *word)
             }
         }
     }
-
+    free(str);
     return false;
 }
 
