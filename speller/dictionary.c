@@ -28,7 +28,7 @@ bool check(const char *word)
     int len = strlen(word);
     for (int i = 0; i < len; i++)
     {
-        if (word[i] >= "A" && word[i] <= "Z")
+        if (word[i] >= 'A' && word[i] <= 'Z')
         {
             str[i] = tolower(word[i]);
         }
@@ -86,7 +86,7 @@ unsigned int hash(const char *word)
     for (int i = 0; i < strlen(word); i++)
     {
         int num;
-        if (word[i] >= "A" && word[i] <= "Z")
+        if (word[i] >= 'A' && word[i] <= 'Z')
         {
             num = tolower(word[i]);
         }
@@ -235,7 +235,7 @@ void free(node *n)
 bool unload(void)
 {
     // TODO
-    for (int i = 0, ; i < N; i++)
+    for (int i = 0; i < N; i++)
     {
         node *n = table[i];
         free(n);
