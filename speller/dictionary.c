@@ -156,7 +156,6 @@ bool load(const char *dictionary)
             }
             tmp->next = NULL;
             table[j] = tmp;
-
         }
     }
     free(tmp);
@@ -184,13 +183,12 @@ bool load(const char *dictionary)
                     if (table[m]->word[0] == tmp->word[0])
                     {
                         for (node *n = table[m]; n != NULL; n = n->next)
+                        {
+                            if (n->next == NULL)
                             {
-                                printf("%c",table[m]->word[0]);
-                            // if (n->next == NULL)
-                            // {
-                            //     printf("onj");
-                            //     n->next = tmp;
-                            // }
+                                n->next = tmp;
+                                break;
+                            }
                         }
                     }
                 }
@@ -206,29 +204,29 @@ bool load(const char *dictionary)
                             if (n->next == NULL)
                             {
                                 n->next = tmp;
+                                break;
                             }
                         }
                     }
                 }
             }
-            //reinitialize the variable and allocate memory for temporary pointer
+            // reinitialize the variable and allocate memory for temporary pointer
             i = 0;
             len = 0;
             tmp = malloc(sizeof(node));
         }
-
     }
     free(tmp);
 
-    for (int f = 0; f < 5; f++)
-    {
-        node *n = table[f]->next;
-        // printf("%i", f);
-        for (; n != NULL; n = n->next)
-        {
-            printf("%c", n->word[0]);
-        }
-    }
+    // for (int f = 0; f < 5; f++)
+    // {
+    //     node *n = table[f]->next;
+    //     // printf("%i", f);
+    //     for (; n != NULL; n = n->next)
+    //     {
+    //         printf("%c", n->word[0]);
+    //     }
+    // }
     return true;
 }
 
