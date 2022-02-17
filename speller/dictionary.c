@@ -131,7 +131,6 @@ bool load(const char *dictionary)
             // table[j]->next = NULL;
         }
     }
-    printf("done");
     for (int i = 0; i < N ; i++)
     {
         node *n = table[i];
