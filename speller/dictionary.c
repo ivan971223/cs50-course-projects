@@ -199,6 +199,7 @@ bool load(const char *dictionary)
     }
     free(tmp);
     free(str);
+    printf("done");
     return true;
 }
 
