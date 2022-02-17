@@ -117,27 +117,28 @@ bool load(const char *dictionary)
     {
         printf("%i\n", i);
         node *tmp = malloc(sizeof(node));
+        // printf("%c",'a'+i);
         tmp->word[0] = 'a' + i;
         tmp->next = NULL;
         table[i] = tmp;
-        printf("%c",table[j]->word[0]);
         free(tmp);
     }
     // from aa-zz
-    for (int j = 26, m = 0; m < 26; m++)
-    {
-        for (int n = 0; n < 26; n++, j++)
-        {
-            printf("%i\n", j);
-            node *tmp = malloc(sizeof(node));
-            tmp->word[0] = 'a' + m;
-            tmp->word[1] = 'a' + n;
-            tmp->next = NULL;
-            table[j] = tmp;
-            printf("%c",table[j]->word[0]);
-            free(tmp);
-        }
-    }
+    // for (int j = 26, m = 0; m < 26; m++)
+    // {
+    //     for (int n = 0; n < 26; n++, j++)
+    //     {
+    //         printf("%i\n", j);
+    //         node *tmp = malloc(sizeof(node));
+    //         tmp->word[0] = 'a' + m;
+    //         tmp->word[1] = 'a' + n;
+    //         tmp->next = NULL;
+    //         table[j] = tmp;
+    //         char x = table[j]->word[0];
+    //         printf("%c",x);
+    //         free(tmp);
+    //     }
+    // }
     // for (int i = 0; i < N; i++)
     // {
     //     node *n = table[i];
