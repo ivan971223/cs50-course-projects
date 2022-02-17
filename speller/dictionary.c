@@ -29,9 +29,12 @@ bool check(const char *word)
     for (node *n = table[index]; n != NULL; n = n->next)
     {
         char *str = 
-        strcmp(word,n->word[0])
-    }
+        for (int j = 0; word[j] == '\0'; j++)
+        {
+        }
 
+            strcmp(word, n->word[0])
+    }
 }
 
 return false;
