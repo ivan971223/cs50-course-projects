@@ -23,9 +23,9 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    char *str[LENGTH];
 
     int len = strlen(word);
+    char *str[len + 1];
     for (int i = 0; i < len; i++)
     {
         if (word[i] >= 'A' && word[i] <= 'Z')
@@ -224,12 +224,11 @@ unsigned int size(void)
 
 void free(node *n)
 {
-    if(n == NULL)
+    if (n == NULL)
     {
         return;
     }
     free(n->next);
-
 }
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
