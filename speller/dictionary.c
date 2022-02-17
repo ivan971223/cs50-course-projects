@@ -213,15 +213,15 @@ bool load(const char *dictionary)
     }
     free(tmp);
 
-    for (int f = 0; f < N; f++)
-    {
-        node *n = table[f]->next;
-        // printf("%i", f);
-        for (; n != NULL; n = n->next)
-        {
-            printf("%c", n->word[0]);
-        }
-    }
+    // for (int f = 0; f < N; f++)
+    // {
+    //     node *n = table[f]->next;
+    //     // printf("%i", f);
+    //     for (; n != NULL; n = n->next)
+    //     {
+    //         printf("%c", n->word[0]);
+    //     }
+    // }
     return true;
 }
 
