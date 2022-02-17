@@ -25,7 +25,7 @@ bool check(const char *word)
 {
     // TODO
     unsigned int index = hash(word);
-
+    printf("%i",index);
     for (node *n = table[index]; n != NULL; n = n->next)
     {
         char *str = malloc(LENGTH + 1);
@@ -49,7 +49,7 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     // return toupper(word[0]) - 'A';
-    int hash;
+    unsigned int hash;
     char *str = malloc(sizeof(word + 1));
     for (int i = 0; i < 2; i++)
     {
