@@ -224,7 +224,7 @@ unsigned int size(void)
 
 void free(node *n)
 {
-    if()
+    if(n == NULL)
     {
         return;
     }
