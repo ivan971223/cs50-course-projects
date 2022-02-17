@@ -33,7 +33,7 @@ bool check(const char *word)
         {
             str[j] = n->word[j];
         }
-        printf("%s", str);
+        // printf("%s", str);
 
         if (strcmp(word, str) == 0)
         {
