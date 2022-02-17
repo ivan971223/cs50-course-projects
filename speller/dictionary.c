@@ -24,58 +24,24 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+    int index = hash(word);
 
-    // int len = strlen(word);
-    // char *str = malloc(len + 1);
-    // for (int i = 0; i < len; i++)
-    // {
-    //     if (word[i] >= 'A' && word[i] <= 'Z')
-    //     {
-    //         str[i] = tolower(word[i]);
-    //     }
-    //     else
-    //     {
-    //         str[i] = word[i];
-    //     }
-    // }
+    for (node *n = table[index]; n != NULL; n = n->next)
+    {
 
-    // int word_hash = hash(word);
+    }
 
-    // if (len == 1)
-    // {
+    for (node *n = table[index]; n != NULL; n = n->next)
+    {
+        if ()
+        {
+            return true;
+        }
+    }
+}
+}
 
-    //     for (int k = 0; k < 26; k++)
-    //     {
-    //         if (table[k]->word[0] == str[0])
-    //         {
-    //             for (node *n = table[k]; n != NULL; n = n->next)
-    //             {
-    //                 if ((n->hash) == word_hash)
-    //                 {
-    //                     return true;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-    // else
-    // {
-    //     for (int k = 26; k < N; k++)
-    //     {
-    //         if (table[k]->word[0] == str[0] && table[k]->word[1] == str[1])
-    //         {
-    //             for (node *n = table[k]; n != NULL; n = n->next)
-    //             {
-    //                 if ((n->hash) == word_hash)
-    //                 {
-    //                     return true;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-    // free(str);
-    return false;
+return false;
 }
 
 // Hashes word to a number
@@ -99,14 +65,14 @@ unsigned int hash(const char *word)
     }
     if (strlen(word) == 1 || !(str[1] >= 'a' && str[1] <= 'z'))
     {
-        int dec = word[0]- 97;
+        int dec = word[0] - 97;
         hash = dec;
     }
     else
     {
-        int dec1 = word[0] - 97 + 1;//a=1, z=26
+        int dec1 = word[0] - 97 + 1; // a=1, z=26
         int dec2 = word[1] - 97 + 1;
-        hash = dec1 * 26 +dec2 - 1;
+        hash = dec1 * 26 + dec2 - 1;
     }
     return hash;
 }
