@@ -116,12 +116,12 @@ bool load(const char *dictionary)
     for (int i = 0; i < 26; i++)
     {
         printf("%i\n", i);
-        // node *tmp = malloc(sizeof(node));
-        // printf("%c",'a'+i);
-        // tmp->word[0] = 'a' + i;
-        // tmp->next = NULL;
-        // table[i] = tmp;
-        // free(tmp);
+        node *tmp = malloc(sizeof(node));
+        printf("%c",'a'+i);
+        tmp->word[0] = 'a' + i;
+        tmp->next = NULL;
+        table[i] = tmp;
+        free(tmp);
     }
     // from aa-zz
     // for (int j = 26, m = 0; m < 26; m++)
