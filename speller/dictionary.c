@@ -248,6 +248,5 @@ bool unload(void)
         node *n = table[i];
         free_memory(n);
     }
-    free(table);
     return false;
 }
