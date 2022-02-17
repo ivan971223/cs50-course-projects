@@ -83,8 +83,8 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     // return toupper(word[0]) - 'A';
-    int hash = 0;
-    char *str = malloc(sizeof(word+1));
+    int hash;
+    char *str = malloc(sizeof(word + 1));
     for (int i = 0; i < 2; i++)
     {
         int num;
@@ -97,7 +97,11 @@ unsigned int hash(const char *word)
             str[i] = word[i];
         }
     }
-    if(strlen(word)==1 || (str[1]))
+    if (strlen(word) == 1 || !(str[1] >= 'a' && str[1] <= 'z'))
+    {
+        int dec = word[0];
+        hash = dec;
+    }
     return hash;
 }
 
