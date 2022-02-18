@@ -146,13 +146,7 @@ bool load(const char *dictionary)
 
     while (fread(&c, sizeof(char), 1, file))
     {
-        if (c != '\n')
-        {
-            tmp2->word[i] = c;
-            i++;
-            len++;
-        }
-        else if (c == '\n')
+        if (c == '\n')
         {
             tmp2->next = NULL;
             if (len == 1)
@@ -195,6 +189,12 @@ bool load(const char *dictionary)
             i = 0;
             len = 0;
             tmp2 = malloc(sizeof(node));
+        }
+        else
+        {
+            tmp2->word[i] = c;
+            i++;
+            len++;
         }
     }
     free(tmp2);
