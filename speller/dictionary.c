@@ -36,6 +36,7 @@ bool check(const char *word)
             str[j] = n->word[j];
         }
         // printf("%s\n", str);
+        string n = word;
         if (strcasecmp(word, str) == 0)
         {
             // printf("yes");
