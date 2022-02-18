@@ -29,7 +29,7 @@ bool check(const char *word)
     // printf("%u", index);
     for (node *n = table[index]->next; n != NULL; n = n->next)
     {
-        char *str = malloc(strlen(word) + 1);
+        char *str = calloc(strlen(word) + 1, sizeof(char));
         // string str = NULL;
         for (int j = 0, k = strlen(word); j < k; j++)
         {
