@@ -140,6 +140,7 @@ bool load(const char *dictionary)
     int i = 0;
     int len = 0;
     node *tmp2 = malloc(sizeof(node));
+    printf("size of node:%lu",sizeof(node));
 
     while (fread(&c, sizeof(char), 1, file))
     {
