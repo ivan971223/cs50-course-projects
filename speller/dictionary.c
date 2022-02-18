@@ -137,7 +137,7 @@ bool load(const char *dictionary)
             table[j] = tmp;
         }
     }
-    free(tmp);
+    // free(tmp);
 
     int i = 0;
     int len = 0;
