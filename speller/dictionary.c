@@ -30,7 +30,7 @@ bool check(const char *word)
     for (node *n = table[index]->next; n != NULL; n = n->next)
     {
         char *str = malloc(strlen(word) + 1);
-        for (int j = 0; j < strlen(word) - 1; j++)
+        for (int j = 0, k = strlen(word); j < k; j++)
         {
             str[j] = n->word[j];
         }
