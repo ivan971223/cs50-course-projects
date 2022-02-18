@@ -152,7 +152,7 @@ bool load(const char *dictionary)
             i++;
             len++;
         }
-        else
+        else if (c == '\n')
         {
             tmp2->next = NULL;
             if (len == 1)
@@ -240,7 +240,7 @@ bool unload(void)
     for (int i = N - 1; i >= 0; i--)
     {
         node *n = table[i]->next;
-        // free_memory(n);
+        free_memory(n);
         free(table[i]);
     }
     return true;
