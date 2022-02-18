@@ -149,7 +149,7 @@ bool load(const char *dictionary)
         if (c == '\n')
         {
             tmp2->next = NULL;
-            if (len == 1 || (len>1 && (!(tmp2->word[1]>='A' && tmp->word[1]<='Z'))
+            if (len == 1 || (len > 1 && (!(tmp2->word[1] >= 'a' && tmp->word[1] <= 'z'))))
             {
                 for (int m = 0; m < 26; m++)
                 {
