@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
+#include <strings.h>
 #include <stdlib.h>
 #include "dictionary.h"
 
@@ -34,7 +35,7 @@ bool check(const char *word)
             str[j] = n->word[j];
         }
         // printf("%s\n", str);
-        if (strcmp(word, str) == 0)
+        if (strcasecmp(word, str) == 0)
         {
             // printf("yes");
             free(str);
