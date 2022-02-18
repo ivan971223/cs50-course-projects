@@ -194,6 +194,7 @@ bool load(const char *dictionary)
             tmp2 = malloc(sizeof(node));
         }
     }
+    fclose(file);
     free(file);
     return true;
 }
