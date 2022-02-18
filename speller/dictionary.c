@@ -245,10 +245,11 @@ void free_memory(node *n)
 bool unload(void)
 {
     // TODO
-    for (int i = 0; i < N; i++)
+    for (int i = N - 1; i >= 0; i--)
     {
         node *n = table[i]->next;
         free_memory(n);
+        free(table[i]);
     }
     return false;
 }
