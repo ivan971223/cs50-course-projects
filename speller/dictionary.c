@@ -26,9 +26,9 @@ bool check(const char *word)
     // TODO
     unsigned int index = hash(word);
     printf("%u", index);
-    for (node *n = table[index]->next; n != NULL; n = n->next)
+    for (node *n = table[index]; n != NULL; n = n->next)
     {
-        char *str = malloc(strlen(word) + 1);
+        char *str = malloc(sizeof(word) + 1);
         for (int j = 0; n->word[j] != '\0'; j++)
         {
             str[j] = n->word[j];
@@ -136,34 +136,34 @@ bool load(const char *dictionary)
             table[j] = tmp;
         }
     }
+    free(tmp);
 
     int i = 0;
     int len = 0;
-    node *tmp2 = malloc(sizeof(node));
-    printf("size of node:%lu",sizeof(node));
+    tmp = malloc(sizeof(node));
 
     while (fread(&c, sizeof(char), 1, file))
     {
         if (c != '\n')
         {
-            tmp2->word[i] = c;
+            tmp->word[i] = c;
             i++;
             len++;
         }
         else
         {
-            tmp2->next = NULL;
+            tmp->next = NULL;
             if (len == 1)
             {
                 for (int m = 0; m < 26; m++)
                 {
-                    if (table[m]->word[0] == tmp2->word[0])
+                    if (table[m]->word[0] == tmp->word[0])
                     {
                         for (node *n = table[m]; n != NULL; n = n->next)
                         {
                             if (n->next == NULL)
                             {
-                                n->next = tmp2;
+                                n->next = tmp;
                                 break;
                             }
                         }
@@ -175,13 +175,13 @@ bool load(const char *dictionary)
             {
                 for (int m = 26; m < N; m++)
                 {
-                    if (table[m]->word[0] == tmp2->word[0] && table[m]->word[1] == tmp2->word[1])
+                    if (table[m]->word[0] == tmp->word[0] && table[m]->word[1] == tmp->word[1])
                     {
                         for (node *n = table[m]; n != NULL; n = n->next)
                         {
                             if (n->next == NULL)
                             {
-                                n->next = tmp2;
+                                n->next = tmp;
                                 break;
                             }
                         }
@@ -192,10 +192,10 @@ bool load(const char *dictionary)
             // reinitialize the variable and allocate memory for temporary pointer
             i = 0;
             len = 0;
-            tmp2 = malloc(sizeof(node));
+            tmp = malloc(sizeof(node));
         }
     }
-    fclose(file);
+    free(tmp);
     free(file);
     return true;
 }
