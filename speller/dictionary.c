@@ -196,6 +196,7 @@ bool load(const char *dictionary)
         }
     }
     free(tmp);
+    free(file);
     return true;
 }
 
@@ -240,5 +241,5 @@ bool unload(void)
         free_memory(n);
         free(table[i]);
     }
-    return false;
+    return true;
 }
