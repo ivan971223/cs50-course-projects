@@ -53,7 +53,7 @@ unsigned int hash(const char *word)
     // TODO: Improve this hash function
     // return toupper(word[0]) - 'A';
     unsigned int hash;
-    char *str = malloc(sizeof(word) + 1);
+    char *str = malloc(strlen(word) + 1);
     for (int i = 0; i < 2; i++)
     {
         int num;
