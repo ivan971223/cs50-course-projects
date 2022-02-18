@@ -36,10 +36,12 @@ bool check(const char *word)
         printf("%s\n", str);
         if (strcmp(word, str) == 0)
         {
+            printf("yes");
             return true;
         }
         free(str);
     }
+    printf("no");
     return false;
 }
 
