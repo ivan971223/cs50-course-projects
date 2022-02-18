@@ -37,6 +37,7 @@ bool check(const char *word)
         if (strcmp(word, str) == 0)
         {
             printf("yes");
+            free(str);
             return true;
         }
         free(str);
