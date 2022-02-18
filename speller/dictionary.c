@@ -161,7 +161,7 @@ bool load(const char *dictionary)
                 {
                     if (table[m]->word[0] == tmp2->word[0])
                     {
-                        for (node *n = table[m]->next; n != NULL; n = n->next)
+                        for (node *n = table[m]; n != NULL; n = n->next)
                         {
                             if (n->next == NULL)
                             {
@@ -179,7 +179,7 @@ bool load(const char *dictionary)
                 {
                     if (table[m]->word[0] == tmp2->word[0] && table[m]->word[1] == tmp2->word[1])
                     {
-                        for (node *n = table[m]->next; n != NULL; n = n->next)
+                        for (node *n = table[m]; n != NULL; n = n->next)
                         {
                             if (n->next == NULL)
                             {
