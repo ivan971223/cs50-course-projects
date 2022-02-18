@@ -196,6 +196,7 @@ bool load(const char *dictionary)
             tmp = malloc(sizeof(node));
         }
     }
+    free(tmp);
     fclose(file);
     return true;
 }
@@ -239,7 +240,7 @@ bool unload(void)
     {
         node *n = table[i]->next;
         free_memory(n);
-        // free(table[i]);
+        free(table[i]);
     }
     return true;
 }
