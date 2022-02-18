@@ -196,6 +196,7 @@ bool load(const char *dictionary)
         }
     }
     free(tmp);
+    fclose(file);
     free(file);
     return true;
 }
