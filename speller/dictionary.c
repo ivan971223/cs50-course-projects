@@ -1,5 +1,5 @@
 // Implements a dictionary's functionality
-
+#include <cs50.h>
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -30,6 +30,7 @@ bool check(const char *word)
     for (node *n = table[index]->next; n != NULL; n = n->next)
     {
         char *str = malloc(strlen(word) + 1);
+        // string str = NULL;
         for (int j = 0, k = strlen(word); j < k; j++)
         {
             str[j] = n->word[j];
