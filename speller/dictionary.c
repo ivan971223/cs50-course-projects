@@ -141,7 +141,7 @@ bool load(const char *dictionary)
 
     int i = 0;
     int len = 0;
-    tmp = malloc(sizeof(node));
+    node *tmp = malloc(sizeof(node));
 
     while (fread(&c, sizeof(char), 1, file))
     {
