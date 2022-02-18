@@ -27,7 +27,7 @@ bool check(const char *word)
     // TODO
     unsigned int index = hash(word);
     // printf("%u", index);
-    for (node *n = table[index]; n != NULL; n = n->next)
+    for (node *n = table[index]->next; n != NULL; n = n->next)
     {
         char *str = malloc(strlen(word) + 1);
         for (int j = 0; n->word[j] != '\0'; j++)
