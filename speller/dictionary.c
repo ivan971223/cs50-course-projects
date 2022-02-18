@@ -142,30 +142,30 @@ bool load(const char *dictionary)
 
     int i = 0;
     int len = 0;
-    tmp = malloc(sizeof(node));
+    node *tmp2 = malloc(sizeof(node));
 
     while (fread(&c, sizeof(char), 1, file))
     {
         if (c != '\n')
         {
-            tmp->word[i] = c;
+            tmp2->word[i] = c;
             i++;
             len++;
         }
         else
         {
-            tmp->next = NULL;
+            tmp2->next = NULL;
             if (len == 1)
             {
                 for (int m = 0; m < 26; m++)
                 {
-                    if (table[m]->word[0] == tmp->word[0])
+                    if (table[m]->word[0] == tmp2->word[0])
                     {
                         for (node *n = table[m]; n != NULL; n = n->next)
                         {
                             if (n->next == NULL)
                             {
-                                n->next = tmp;
+                                n->next = tmp2;
                                 break;
                             }
                         }
@@ -177,13 +177,13 @@ bool load(const char *dictionary)
             {
                 for (int m = 26; m < N; m++)
                 {
-                    if (table[m]->word[0] == tmp->word[0] && table[m]->word[1] == tmp->word[1])
+                    if (table[m]->word[0] == tmp2->word[0] && table[m]->word[1] == tmp2->word[1])
                     {
                         for (node *n = table[m]; n != NULL; n = n->next)
                         {
                             if (n->next == NULL)
                             {
-                                n->next = tmp;
+                                n->next = tmp2;
                                 break;
                             }
                         }
@@ -194,10 +194,10 @@ bool load(const char *dictionary)
             // reinitialize the variable and allocate memory for temporary pointer
             i = 0;
             len = 0;
-            tmp = malloc(sizeof(node));
+            tmp2 = malloc(sizeof(node));
         }
     }
-    free(tmp);
+    free(tmp2);
     fclose(file);
     return true;
 }
