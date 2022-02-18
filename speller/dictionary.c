@@ -30,9 +30,18 @@ bool check(const char *word)
     for (node *n = table[index]->next; n != NULL; n = n->next)
     {
         char *str = malloc(strlen(word) + 1);
-        for (int j = 0; n->word[j] != '\0'; j++)
+        for (int j = 0;; j++)
         {
-            str[j] = n->word[j];
+
+            char c = n->word[j];
+            if (c != '\0')
+            {
+                str[j] = n->word[j];
+            }
+            else
+            {
+                break;
+            }
         }
         // printf("%s\n", str);
         if (strcasecmp(word, str) == 0)
