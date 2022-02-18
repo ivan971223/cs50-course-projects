@@ -32,18 +32,14 @@ bool check(const char *word)
         for (int j = 0; n->word[j] != '\0'; j++)
         {
             str[j] = n->word[j];
-            printf("%c", str[j]);
         }
-
-
+        printf("%s\n", str);
         if (strcmp(word, str) == 0)
         {
-            printf("found\n");
             return true;
         }
         free(str);
     }
-    // printf("no\n");
     return false;
 }
 
