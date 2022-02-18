@@ -83,7 +83,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     FILE *file = fopen(dictionary, "r");
-    node *tmp;
+
     char c;
 
     // TODO
@@ -97,7 +97,7 @@ bool load(const char *dictionary)
     // from a-z
     for (int i = 0; i < 26; i++)
     {
-        tmp = malloc(sizeof(node));
+        node *tmp = malloc(sizeof(node));
         if (i == 0)
         {
             tmp->word[0] = 'a';
@@ -108,6 +108,7 @@ bool load(const char *dictionary)
         }
         tmp->next = NULL;
         table[i] = tmp;
+        free(tmp);
     }
     // from aa-zz
     for (int j = 26, m = 0; m < 26; m++)
@@ -115,7 +116,7 @@ bool load(const char *dictionary)
         for (int n = 0; n < 26; n++, j++)
         {
 
-            tmp = malloc(sizeof(node));
+            node *tmp = malloc(sizeof(node));
             if (m == 0)
             {
                 tmp->word[0] = 'a';
@@ -134,9 +135,9 @@ bool load(const char *dictionary)
             }
             tmp->next = NULL;
             table[j] = tmp;
+            free(tmp);
         }
     }
-    free(tmp);
 
     int i = 0;
     int len = 0;
