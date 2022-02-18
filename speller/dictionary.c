@@ -28,7 +28,7 @@ bool check(const char *word)
     printf("%u", index);
     for (node *n = table[index]; n != NULL; n = n->next)
     {
-        char *str = malloc(sizeof(word) + 1);
+        char *str = malloc(strlen(word) + 1);
         for (int j = 0; n->word[j] != '\0'; j++)
         {
             str[j] = n->word[j];
