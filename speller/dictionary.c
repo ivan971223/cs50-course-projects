@@ -26,9 +26,12 @@ bool check(const char *word)
 {
     // TODO
     unsigned int index = hash(word);
+    printf("hi");
     for (node *n = table[index]->next; n != NULL; n = n->next)
     {
         // printf("%s",n->word);
+        printf("%s\n", n->word);
+        printf("%s\n", word);
         if (strcasecmp(word, n->word) == 0)
         {
             return true;
