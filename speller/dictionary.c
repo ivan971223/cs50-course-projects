@@ -31,22 +31,17 @@ bool check(const char *word)
     {
         char *str = calloc(strlen(word) + 1, sizeof(char));
         char *str2 = malloc(strlen(word)+1);
-        // string str = NULL;
-        for (int j = 0, k = strlen(word); j < k; j++)
-        {
-            str[j] = n->word[j];
-        }
-        // printf("%s\n", str);
-        strcpy(str2,word);
-        if (strcasecmp(str2, str) == 0)
+        // for (int j = 0, k = strlen(word); j < k; j++)
+        // {
+        //     str[j] = n->word[j];
+        // }
+        if (strcasecmp(word, str) == 0)
         {
             // printf("yes");
             free(str);
-            free(str2);
             return true;
         }
         free(str);
-        free(str2);
     }
     // printf("no");
     return false;
