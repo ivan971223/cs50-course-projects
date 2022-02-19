@@ -199,7 +199,6 @@ bool load(const char *dictionary)
         }
         else
         {
-            tmp2->next = NULL;
             tmp2->word[i] = c;
             i++;
             len++;
