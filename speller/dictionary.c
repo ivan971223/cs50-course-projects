@@ -28,10 +28,10 @@ bool check(const char *word)
     unsigned int index = hash(word);
     for (node *n = table[index]->next; n != NULL; n = n->next)
     {
-        // if (strcasecmp(word, n->word) == 0)
-        // {
-        //     return true;
-        // }
+        if (strcasecmp(word, n->word) == 0)
+        {
+            return true;
+        }
     }
     return false;
 }
