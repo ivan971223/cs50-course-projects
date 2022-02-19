@@ -34,7 +34,7 @@ bool check(const char *word)
         // {
         //     str[j] = n->word[j];
         // }
-        if (strcasecmp(word, n->word[]) == 0)
+        if (strcasecmp(word, n->word) == 0)
         {
             // printf("yes");
             // free(str);
