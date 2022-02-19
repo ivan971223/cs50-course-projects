@@ -27,11 +27,10 @@ bool check(const char *word)
     // TODO
     unsigned int index = hash(word);
     // printf("%u", index);
-    string str = NULL;
     for (node *n = table[index]->next; n != NULL; n = n->next)
     {
-        // char *str = calloc(strlen(word) + 1, sizeof(char));
-
+        char *str = calloc(strlen(word) + 1, sizeof(char));
+        // string str = NULL;
         for (int j = 0, k = strlen(word); j < k; j++)
         {
             str[j] = n->word[j];
@@ -41,10 +40,10 @@ bool check(const char *word)
         if (strcasecmp(word, str) == 0)
         {
             // printf("yes");
-            // free(str);
+            free(str);
             return true;
         }
-        // free(str);
+        free(str);
     }
     // printf("no");
     return false;
