@@ -42,6 +42,7 @@ bool check(const char *word)
         {
             // printf("yes");
             free(str);
+            free(str2);
             return true;
         }
         free(str);
