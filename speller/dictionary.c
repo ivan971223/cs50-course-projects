@@ -34,7 +34,7 @@ bool check(const char *word)
         // }
         for (int j = 0; j < strlen(word); j++)
         {
-            
+            word[j]
         }
     }
     return false;
