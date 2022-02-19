@@ -26,31 +26,17 @@ bool check(const char *word)
 {
     // TODO
     unsigned int index = hash(word);
-    printf("hi\n");
     for (node *n = table[index]->next; n != NULL; n = n->next)
     {
-        // printf("%s",n->word);
-        printf("%s\n", n->word);
-        printf("%s\n", word);
-        if (strcasecmp(word, n->word) == 0)
+        // if (strcasecmp(word, n->word) == 0)
+        // {
+        //     return true;
+        // }
+        for (int j = 0; j < strlen(word); j++)
         {
-            return true;
+            
         }
     }
-    // node *n = table[index];
-    // while (n->next != NULL)
-    // {
-    //     n = n->next;
-    //     printf("%s\n", n->word);
-    //     printf("%s\n", word);
-    //     if (strcasecmp(word, n->word) == 0)
-    //     {
-    //         return true;
-    //     }
-
-    // }
-
-    printf("bye\n");
     return false;
 }
 
