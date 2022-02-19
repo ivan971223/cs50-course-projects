@@ -137,6 +137,7 @@ bool load(const char *dictionary)
     {
         if (c == '\n')
         {
+            tmp2->word[i+1] = '\0';
             tmp2->next = NULL;
             if (len == 1 || (len > 1 && (!(tmp2->word[1] >= 'a' && tmp->word[1] <= 'z'))))
             {
