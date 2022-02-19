@@ -26,23 +26,13 @@ bool check(const char *word)
 {
     // TODO
     unsigned int index = hash(word);
-    // printf("%u", index);
     for (node *n = table[index]->next; n != NULL; n = n->next)
     {
-        // char *str = calloc(strlen(word) + 1, sizeof(char));
-        // for (int j = 0, k = strlen(word); j < k; j++)
-        // {
-        //     str[j] = n->word[j];
-        // }
         if (strcasecmp(word, n->word) == 0)
         {
-            // printf("yes");
-            // free(str);
             return true;
         }
-        // free(str);
     }
-    // printf("no");
     return false;
 }
 
