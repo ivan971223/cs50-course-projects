@@ -14,7 +14,12 @@ def main():
     # TODO: Read database file into a variable
     with open(argv[1], "r") as file:
         reader = csv.DictReader(file)
-
+        for row in reader:
+            str_tag.append(row[0:])
+            break
+        next(reader)
+        for row in reader:
+            dna_ls.update({"name":row[0], str_tag[0]:row[str_tag[0]], })
 
     # TODO: Read DNA sequence file into a variable
     with open(argv[1], "r") as file:
