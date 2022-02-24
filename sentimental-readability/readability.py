@@ -18,6 +18,6 @@ for char in text:
 
 index = round(0.0588 * num_letters/num_words*100 - 0.296 * num_sentences/num_words*100 - 15.8)
 print(f"Grade: {index}")
-print(num_letters)
-print(num_words)
-print(num_sentences)
+# print(num_letters)
+# print(num_words)
+# print(num_sentences)
