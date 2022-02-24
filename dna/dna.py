@@ -9,6 +9,7 @@ def main():
     if len(sys.argv) != 3:
         print("Error!")
         sys.exit(1)
+
     # TODO: Read database file into a variable
     with open(argv[1], "r") as file:
         reader = csv.DictReader(file)
@@ -16,13 +17,14 @@ def main():
             dna_ls
         next(reader)
         for row in reader:
-            dna_ls.update({"name":row[0], row[1] })
-    # TODO: Read DNA sequence file into a variable
+            dna_ls.update({"name":row[0], row[1]})
 
+    # TODO: Read DNA sequence file into a variable
     with open(argv[1], "r") as file:
         reader = csv.reader(file)
         for row in reader:
             sequence.append(row[0])
+
     # TODO: Find longest match of each STR in DNA sequence
 
     # TODO: Check database for matching profiles
