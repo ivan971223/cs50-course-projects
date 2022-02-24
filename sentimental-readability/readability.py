@@ -3,7 +3,7 @@ import string
 
 text = input("Text:")
 num_letters = 0
-num_words = 0
+num_words = 1
 num_sentences = 0
 alpha_ls = list(string.ascii_lowercase)
 
