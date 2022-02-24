@@ -12,6 +12,8 @@ def main():
     # TODO: Read database file into a variable
     with open(argv[1], "r") as file:
         reader = csv.DictReader(file)
+        for row in reader:
+            dna_ls
         next(reader)
         for row in reader:
             dna_ls.update({"name":row[0], row[1] })
