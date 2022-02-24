@@ -16,7 +16,7 @@ for char in text:
     elif char in alpha_ls:
         num_letters += 1
 
-index = round(0.0588 * num_letters/100 - 0.296 * num_sentences/100 - 15.8)
+index = round(0.0588 * num_letters/num_words*100 - 0.296 * num_sentences/num_words*100 - 15.8)
 a = 0.0588 * num_letters/100
 b = 0.296 * num_sentences/100
 print(a)
