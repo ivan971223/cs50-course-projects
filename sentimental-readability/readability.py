@@ -10,7 +10,7 @@ for char in text:
         num_words += 1
     elif char == "." or char=="!" or char=="?":
         num_sentences += 1
-    else:
+    elif char in ["a":"z"]:
         num_letters += 1
 
 print(num_letters)
