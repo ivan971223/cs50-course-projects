@@ -32,15 +32,15 @@ def main():
         reader = csv.reader(file)
         k = 0
         for row in reader:
-            sequence.append(row[0][k])
-            k += 1
-
-    print(sequence)
+            dna_length = len(row[0])
+            for k in range(dna_length):
+                sequence.append(row[0][k])
+                k += 1
     # TODO: Find longest match of each STR in DNA sequence
     str_match = []
     for tag in str_tag:
         str_match.append({tag: longest_match(sequence, tag)})
-    # print(str_match)
+    print(str_match)
     # TODO: Check database for matching profiles
 
     return
