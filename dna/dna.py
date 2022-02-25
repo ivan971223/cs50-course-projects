@@ -4,7 +4,7 @@ import sys
 
 def main():
     sequence = []
-    dna_ls = {}
+    dna_ls = []
     str_tag = []
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
