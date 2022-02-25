@@ -20,9 +20,9 @@ def main():
         print(str_tag)
         i = 0
         for row in reader:
-            dna_ls.update(row[0])
+            dna_ls.append(row[0])
             for j in str_tag:
-                dna_ls[i].append({tag[j]:row[j+1]})
+                dna_ls[i].update({tag[j]:row[j+1]})
             i += 1
 
     print(dna_ls)
