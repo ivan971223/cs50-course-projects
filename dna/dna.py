@@ -18,10 +18,12 @@ def main():
             str_tag = row[0:]
             break
         print(str_tag)
+        i = 0
         for row in reader:
             dna_ls.update(row[0])
-            # for tag in str_tag:
-            #     dna_ls[row[0]].update(row[0]:{tag})
+            for j in str_tag:
+                dna_ls[i].update({tag[j]:row[j+1]})
+            i += 1
 
     print(dna_ls)
 
