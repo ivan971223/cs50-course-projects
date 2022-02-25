@@ -48,7 +48,8 @@ def main():
 
     # TODO: Check database for matching profiles
     for i in range(len(dna_ls)):
-        [i]
+        for tag in str_tag:
+        dna_ls[i][tag]
 
     return
 
