@@ -36,18 +36,15 @@ def main():
             for k in range(dna_length):
                 sequence.append(row[0][k])
                 k += 1
-    print(sequence)
+
     # TODO: Find longest match of each STR in DNA sequence
     str_match = {}
     for tag in str_tag:
-        # print(tag)
-        # print(sequence)
-        # score = longest_match(sequence, tag)
-        # print(f"score:{score}")
         tag_ls = []
         for char in tag:
             tag_ls.append(char)
         str_match.update({tag: longest_match(sequence, tag_ls)})
+    print(str_match)
     # TODO: Check database for matching profiles
 
     return
@@ -78,6 +75,7 @@ def longest_match(sequence, subsequence):
             # print(sequence[start:end])
             # If there is a match in the substring
             print(sequence[start:end])
+            print(f"sub:{subsequence}")
             if sequence[start:end] == subsequence:
                 count += 1
 
