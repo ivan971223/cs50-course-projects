@@ -15,6 +15,10 @@ def main():
     with open(sys.argv[1], "r") as file:
         reader = csv.reader(file)
         for row in reader:
+            str_tag = row[1:]
+            break
+        print(str_tag)
+        for row in reader:
             dna_ls.append(row[0])
     print(dna_ls)
 
