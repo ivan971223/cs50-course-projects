@@ -51,6 +51,7 @@ def main():
         print(len(str_tag))
         for tag in str_tag:
             str_count = dna_ls[i][name_ls[i]][tag]
+            print(str_count)
             if str_count == str_match[tag]:
                 count += 1
         if count == len(str_tag):
