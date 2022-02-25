@@ -4,6 +4,7 @@ import sys
 
 def main():
     sequence = []
+    name_ls = []
     dna_ls = []
     str_tag = []
     # TODO: Check for command-line usage
@@ -17,7 +18,8 @@ def main():
         for row in reader:
             str_tag = row[1:]
             break
-        print(str_tag)
+        for row in reader:
+            name_ls.append()
         i = 0
         for row in reader:
             dict = {}
