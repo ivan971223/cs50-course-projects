@@ -47,6 +47,8 @@ def main():
     print(str_match)
 
     # TODO: Check database for matching profiles
+    for i in range(len(dna_ls)):
+        [i]
 
     return
 
