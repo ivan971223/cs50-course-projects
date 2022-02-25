@@ -20,10 +20,10 @@ def main():
         print(str_tag)
         i = 0
         for row in reader:
-            dna_ls.append({row[0]})
             dict = {}
             for j in range(len(str_tag)):
                 dict.update({str_tag[j]:row[j+1]})
+            dna_ls.append({row[0]:dict})
             i += 1
     print(dna_ls)
 
