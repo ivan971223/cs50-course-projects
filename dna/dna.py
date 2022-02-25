@@ -40,6 +40,8 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence
     str_match = []
     for tag in str_tag:
+        print(tag)
+        print(sequence)
         str_match.append({tag: longest_match(sequence, tag)})
     print(str_match)
     # TODO: Check database for matching profiles
