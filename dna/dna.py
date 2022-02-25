@@ -4,7 +4,6 @@ import sys
 
 def main():
     sequence = []
-    name_ls = []
     dna_ls = []
     str_tag = []
     # TODO: Check for command-line usage
@@ -18,8 +17,7 @@ def main():
         for row in reader:
             str_tag = row[1:]
             break
-        for row in reader:
-            name_ls.append(row[0])
+        print(str_tag)
         i = 0
         for row in reader:
             dict = {}
@@ -27,7 +25,7 @@ def main():
                 dict.update({str_tag[j]: row[j+1]})
             dna_ls.append({row[0]: dict})
             i += 1
-    print(f"dna:{dna_ls}")
+    print(dna_ls)
 
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as file:
@@ -49,10 +47,7 @@ def main():
     print(str_match)
 
     # TODO: Check database for matching profiles
-    for i in range(len(dna_ls)):
-        for tag in str_tag:
-            dna_ls[i][tag]
-
+    for guy in
     return
 
 
