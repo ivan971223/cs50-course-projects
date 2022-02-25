@@ -38,11 +38,11 @@ def main():
                 k += 1
     print(sequence)
     # TODO: Find longest match of each STR in DNA sequence
-    str_match = []
+    str_match = {}
     for tag in str_tag:
-        print(tag)
-        print(sequence)
-        str_match.append({tag: longest_match(sequence, tag)})
+        # print(tag)
+        # print(sequence)
+        str_match.update({tag: longest_match(sequence, tag)})
     print(str_match)
     # TODO: Check database for matching profiles
 
@@ -71,7 +71,10 @@ def longest_match(sequence, subsequence):
             # Adjust substring start and end
             start = i + count * subsequence_length
             end = start + subsequence_length
-
+            print(start)
+            print(end)
+            break
+            # print(sequence[start:end])
             # If there is a match in the substring
             if sequence[start:end] == subsequence:
                 count += 1
