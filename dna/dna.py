@@ -56,6 +56,8 @@ def longest_match(sequence, subsequence):
     longest_run = 0
     subsequence_length = len(subsequence)
     sequence_length = len(sequence)
+    print(subsequence_length)
+    print(sequence_length)
 
     # Check each character in sequence for most consecutive runs of subsequence
     for i in range(sequence_length):
@@ -71,9 +73,6 @@ def longest_match(sequence, subsequence):
             # Adjust substring start and end
             start = i + count * subsequence_length
             end = start + subsequence_length
-            print(start)
-            print(end)
-            break
             # print(sequence[start:end])
             # If there is a match in the substring
             if sequence[start:end] == subsequence:
