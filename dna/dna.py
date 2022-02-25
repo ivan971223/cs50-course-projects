@@ -19,8 +19,9 @@ def main():
             break
         print(str_tag)
         for row in reader:
-            for i in str_tag:
-                dna_ls.update({row[0]:{str_tag[i]:row[i]}})
+            dna_ls.update(row[0])
+            # for tag in str_tag:
+            #     dna_ls[row[0]].update(row[0]:{tag})
 
     print(dna_ls)
 
