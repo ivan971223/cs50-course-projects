@@ -27,7 +27,7 @@ def main():
                 dict.update({str_tag[j]: row[j+1]})
             dna_ls.append({row[0]: dict})
             i += 1
-    print(dna_ls)
+    print(f"dna:{dna_ls}")
 
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as file:
