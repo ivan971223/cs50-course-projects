@@ -20,6 +20,7 @@ def main():
             break
         for row in reader:
             name_ls.append(row[0])
+        print(name_ls)
         i = 0
         for row in reader:
             dict = {}
