@@ -15,16 +15,15 @@ def main():
     with open(sys.argv[1], "r") as file:
         reader = csv.reader(file)
         for row in reader:
-            str_tag = row[0:]
+            str_tag = row[1:]
             break
         print(str_tag)
         i = 0
         for row in reader:
             dna_ls.append({row[0]})
-            for j in str_tag:
-                dna_ls[i].update({tag[j]:row[j+1]})
+            for j in range(len(str_tag)):
+                dna_ls[i].update({str_tag[j]:row[j+1]})
             i += 1
-
     print(dna_ls)
 
     # TODO: Read DNA sequence file into a variable
