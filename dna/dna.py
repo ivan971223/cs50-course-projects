@@ -19,7 +19,7 @@ def main():
             str_tag = row[1:]
             break
         for row in reader:
-            name_ls.append()
+            name_ls.append(row[0])
         i = 0
         for row in reader:
             dict = {}
