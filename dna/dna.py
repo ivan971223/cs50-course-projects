@@ -22,22 +22,25 @@ def main():
         for row in reader:
             dict = {}
             for j in range(len(str_tag)):
-                dict.update({str_tag[j]:row[j+1]})
-            dna_ls.append({row[0]:dict})
+                dict.update({str_tag[j]: row[j+1]})
+            dna_ls.append({row[0]: dict})
             i += 1
     print(dna_ls)
 
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as file:
         reader = csv.reader(file)
+        k = 0
         for row in reader:
-            sequence.append(row[0])
+            sequence.append(row[0][k])
+            k += 1
 
+    print(sequence)
     # TODO: Find longest match of each STR in DNA sequence
     str_match = []
     for tag in str_tag:
-        str_match.append({tag:longest_match(sequence, tag)})
-    print(str_match)
+        str_match.append({tag: longest_match(sequence, tag)})
+    # print(str_match)
     # TODO: Check database for matching profiles
 
     return
