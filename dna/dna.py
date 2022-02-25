@@ -4,7 +4,7 @@ import sys
 
 def main():
     sequence = []
-    dna_ls = []
+    dna_ls = {}
     str_tag = []
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
@@ -19,7 +19,7 @@ def main():
             break
         print(str_tag)
         for row in reader:
-            dna_ls.append(row[0])
+            dna_ls.update({"name":row[0],str_tag[0]:row[1],str_tag[1]:row[2],str_tag[2]:row[3]})
     print(dna_ls)
 
     # TODO: Read DNA sequence file into a variable
