@@ -44,7 +44,10 @@ def main():
         # print(sequence)
         # score = longest_match(sequence, tag)
         # print(f"score:{score}")
-        str_match.update({tag: longest_match(sequence, tag)})
+        tag_ls = []
+        for char in tag:
+            tag_ls.append(char)
+        str_match.update({tag: longest_match(sequence, tag_ls)})
     # TODO: Check database for matching profiles
 
     return
@@ -72,8 +75,6 @@ def longest_match(sequence, subsequence):
             # Adjust substring start and end
             start = i + count * subsequence_length
             end = start + subsequence_length
-            print(start)
-            print(end)
             # print(sequence[start:end])
             # If there is a match in the substring
             print(sequence[start:end])
