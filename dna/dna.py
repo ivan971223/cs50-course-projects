@@ -8,21 +8,18 @@ def main():
     str_tag = []
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
-        print("Error!")
+        print("Error! Usage: python dna.py data.csv sequence.txt")
         sys.exit(1)
 
     # TODO: Read database file into a variable
-    with open(argv[1], "r") as file:
+    with open(sys.argv[1], "r") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            str_tag.append(row[0:])
             break
         next(reader)
-        for row in reader:
-            dna_ls.update({"name":row[0], str_tag[0]:row[str_tag[0]], })
 
     # TODO: Read DNA sequence file into a variable
-    with open(argv[1], "r") as file:
+    with open(sys.argv[1], "r") as file:
         reader = csv.reader(file)
         for row in reader:
             sequence.append(row[0])
