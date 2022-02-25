@@ -48,12 +48,9 @@ def main():
     # TODO: Check database for matching profiles
     for i in range(len(dna_ls)):
         count = 0
-        print(len(str_tag))
         for tag in str_tag:
             str_count = dna_ls[i][name_ls[i]][tag]
-            print(str_count)
-            print(str_match[tag])
-            if str_count == str_match[tag]:
+            if int(str_count) == int(str_match[tag]):
                 count += 1
         if count == len(str_tag):
             print(name_ls[i])
