@@ -21,8 +21,9 @@ def main():
         i = 0
         for row in reader:
             dna_ls.append({row[0]})
+            dict = {}
             for j in range(len(str_tag)):
-                dna_ls[i].update({str_tag[j]:row[j+1]})
+                dict.update({str_tag[j]:row[j+1]})
             i += 1
     print(dna_ls)
 
