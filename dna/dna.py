@@ -36,6 +36,7 @@ def main():
             for k in range(dna_length):
                 sequence.append(row[0][k])
                 k += 1
+    print(sequence)
     # TODO: Find longest match of each STR in DNA sequence
     str_match = []
     for tag in str_tag:
