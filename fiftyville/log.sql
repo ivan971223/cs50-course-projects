@@ -8,4 +8,7 @@ SELECT * FROM crime_scene_reports WHERE year = "2021" and month = "7" and day = 
 --interviews
 -- within 10mins of theft, security parking lot
 -- Leggett Street, thief ,ATM, withdraw money before 10:15am
+-- earliest flight tomorrow 1 min call after 10:15am
+-- came in for half an hour
+-- EMMA's bakery
 SELECT * FROM interviews WHERE year = "2021" and month = "7" and day= "28";
