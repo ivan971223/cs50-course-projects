@@ -23,3 +23,16 @@ SELECT * FROM atm_transactions WHERE year = "2021" and month  = "7" and day = "2
 --phone calls
 -- duration is 38mins which would match the entrance and exit record
 SELECT * FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration <= 40;
+
+--airports
+-- origin_flight_id = 8
+SELECT * FROM airports;
+
+--flights
+--flight from Fiftyville and in the morning
+--destination_airport_id = 4 or 1
+SELECT * FROM flights WHERE year = "2021" and month = "7" and day = "29" and origin_airport_id = 8 and hour < 12;
+
+--get tel no. caller : (031) 555-6622, receiver: (910) 555-3251
+SELECT * FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration = 38;
+
