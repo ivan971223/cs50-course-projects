@@ -47,3 +47,11 @@ SELECT * FROM people WHERE phone_number IN (SELECT receiver FROM phone_calls WHE
 
 -- find the transactions with bank account number to get the person_id
 SELECT person_id FROM bank_accounts WHERE account_number IN (SELECT account_number FROM atm_transactions WHERE year = "2021" and month  = "7" and day = "28" and transaction_type = "withdraw" and atm_location = "Leggett Street");
+--  686048    |
+-- | 514354    |
+-- | 458378    |
+-- | 395717    |
+-- | 396669    |
+-- | 467400    |
+-- | 449774    |
+-- | 438727
