@@ -38,3 +38,12 @@ SELECT * FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" an
 
 --people, query by phone number
 SELECT * FROM people WHERE phone_number IN (SELECT caller FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration = 38);
+SELECT * FROM people WHERE phone_number IN (SELECT receiver FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration = 38);
+-- id   |  name  |  phone_number  | passport_number | license_plate
+-- 907148 | Carina | (031) 555-6622 | 9628244268      | Q12B3Z3
+
+--receiver:
+--712712 | Jacqueline | (910) 555-3251 |                 | 43V0R5D
+
+-- find the transactions with bank account number and person_id
+SELECT * FROM atm_transactions WHERE year = "2021" and month  = "7" and day = "28" and transaction_type = "withdraw" and atm_location = "Leggett Street";
