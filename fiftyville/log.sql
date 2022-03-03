@@ -69,6 +69,9 @@ SELECT * FROM people WHERE phone_number IN (SELECT receiver FROM phone_calls WHE
 -- | 686048 | Bruce  | (367) 555-5533 | 5773159633      | 94KL13X       |<<<
 -- | 907148 | Carina | (031) 555-6622 | 9628244268      | Q12B3Z3       |
 
+--Taylor and Bruce match the caller table and atm withdrawal table
+
+--receiver
 -- +--------+------------+----------------+-----------------+---------------+
 -- |   id   |    name    |  phone_number  | passport_number | license_plate |
 -- +--------+------------+----------------+-----------------+---------------+
@@ -85,3 +88,5 @@ SELECT * FROM passengers WHERE passport_number = "1988161715" or passport_number
 | 36        | 5773159633      | 4A   |
 | 36        | 1988161715      | 6D   |
 +-----------+-----------------+------+
+
+SELECT * FROM flipassengersghts WHERE year = "2021" and month = "7" and day = "29" and origin_airport_id = 8 and hour < 12;
