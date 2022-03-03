@@ -1,2 +1,1 @@
-SELECT title FROM movies WHERE year = "2010";
-SELECT rating FROM ratings WHERE movie_id IN (SELECT id from movies WHERE year = "2010");
+SELECT title, rating FROM movies, ratings WHERE movies.id = ratings.movie_id AND movie_id IN (SELECT id from movies WHERE year = "2010");
