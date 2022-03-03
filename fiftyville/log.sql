@@ -6,4 +6,5 @@ SELECT * FROM bakery_security_logs WHERE month = "7" and day = "28";
 SELECT * FROM crime_scene_reports WHERE year = "2021" and month = "7" and day = "28" and street = "Humphrey Street";
 
 --interviews
+-- within 10mins of theft, security
 SELECT * FROM interviews WHERE year = "2021" and month = "7" and day= "28";
