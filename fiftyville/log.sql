@@ -61,3 +61,6 @@ SELECT * FROM people WHERE phone_number IN (SELECT caller FROM phone_calls WHERE
 -- | 560886 | Kelsey | (499) 555-9472 | 8294398571      | 0NTHK55       |
 -- | 686048 | Bruce  | (367) 555-5533 | 5773159633      | 94KL13X       |
 -- | 907148 | Carina | (031) 555-6622 | 9628244268      | Q12B3Z3       |
+
+--passengers
+SELECT * FROM passengers WHERE passport_number = "1988161715" or passport_number="5773159633";
