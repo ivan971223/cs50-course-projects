@@ -1,0 +1,1 @@
+SELECT COUNT(title) FROM movies WHERE id in (SELECT movie_id from ratings WHERE rating = 10.0);
