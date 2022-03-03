@@ -89,4 +89,17 @@ SELECT * FROM passengers WHERE passport_number = "1988161715" or passport_number
 | 36        | 1988161715      | 6D   |
 +-----------+-----------------+------+
 
-SELECT * FROM flipassengersghts WHERE year = "2021" and month = "7" and day = "29" and origin_airport_id = 8 and hour < 12;
+--passengers who take the flight of flight_id = 36
+SELECT * FROM passengers WHERE flight_id = 36;
++-----------+-----------------+------+
+| flight_id | passport_number | seat |
++-----------+-----------------+------+
+| 36        | 7214083635      | 2A   |
+| 36        | 1695452385      | 3B   |
+| 36        | 5773159633      | 4A   |
+| 36        | 1540955065      | 5C   |
+| 36        | 8294398571      | 6C   |
+| 36        | 1988161715      | 6D   |
+| 36        | 9878712108      | 7A   |
+| 36        | 8496433585      | 7B   |
++-----------+-----------------+------+
