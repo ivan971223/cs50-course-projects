@@ -1,1 +1,1 @@
-SELECT title, rating from movies WHERE year = "2010"
+SELECT title, rating FROM ratings WHERE id in (SELECT id from movies WHERE year = "2010");
