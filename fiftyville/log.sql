@@ -56,12 +56,20 @@ SELECT person_id FROM bank_accounts WHERE account_number IN (SELECT account_numb
 -- | 449774    |
 -- | 438727
 SELECT * FROM people WHERE phone_number IN (SELECT caller FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration >=20 and duration <= 45);
-SELECT * FROM people WHERE phone_number IN (SELECT caller FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration >=20 and duration <= 45);
+SELECT * FROM people WHERE phone_number IN (SELECT receiver FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration >=20 and duration <= 45);
 -- |   id   |  name  |  phone_number  | passport_number | license_plate |
---  449774 | Taylor | (286) 555-6063 | 1988161715      | 1106N58       |
+--  449774 | Taylor | (286) 555-6063 | 1988161715      | 1106N58       | <<<
 -- | 560886 | Kelsey | (499) 555-9472 | 8294398571      | 0NTHK55       |
--- | 686048 | Bruce  | (367) 555-5533 | 5773159633      | 94KL13X       |
+-- | 686048 | Bruce  | (367) 555-5533 | 5773159633      | 94KL13X       |<<<
 -- | 907148 | Carina | (031) 555-6622 | 9628244268      | Q12B3Z3       |
+
+-- +--------+------------+----------------+-----------------+---------------+
+-- |   id   |    name    |  phone_number  | passport_number | license_plate |
+-- +--------+------------+----------------+-----------------+---------------+
+-- | 250277 | James      | (676) 555-6554 | 2438825627      | Q13SVG6       |
+-- | 251693 | Larry      | (892) 555-8872 | 2312901747      | O268ZZ0       |
+-- | 712712 | Jacqueline | (910) 555-3251 |                 | 43V0R5D       |
+-- | 864400 | Robin      | (375) 555-8161 |                 | 4V16VO0       |
 
 --passengers
 SELECT * FROM passengers WHERE passport_number = "1988161715" or passport_number="5773159633";
