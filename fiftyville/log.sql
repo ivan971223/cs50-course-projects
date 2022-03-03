@@ -21,4 +21,5 @@ SELECT * FROM interviews WHERE year = "2021" and month = "7" and day= "28";
 SELECT * FROM atm_transactions WHERE year = "2021" and month  = "7" and day = "28" and transaction_type = "withdraw" and atm_location = "Leggett Street";
 
 --phone calls
+-- duration is 38mins which would match the entrance and exit record
 SELECT * FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration <= 40;
