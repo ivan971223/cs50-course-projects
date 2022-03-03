@@ -22,7 +22,7 @@ SELECT * FROM atm_transactions WHERE year = "2021" and month  = "7" and day = "2
 
 --phone calls
 -- duration is 38mins which would match the entrance and exit record
-SELECT * FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration <= 40;
+SELECT * FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration <= 45;
 
 --airports
 -- origin_flight_id = 8
