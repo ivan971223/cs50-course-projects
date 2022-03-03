@@ -49,6 +49,17 @@ SELECT person_id FROM bank_accounts WHERE account_number IN (SELECT account_numb
 -- | 467400    |
 -- | 449774    |
 -- | 438727
+
+SELECT * FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration <= 45;
+-- +-----+----------------+----------------+------+-------+-----+----------+
+-- | id  |     caller     |    receiver    | year | month | day | duration |
+-- +-----+----------------+----------------+------+-------+-----+----------+
+-- | 224 | (499) 555-9472 | (892) 555-8872 | 2021 | 7     | 28  | 36       |
+-- | 233 | (367) 555-5533 | (375) 555-8161 | 2021 | 7     | 28  | 45       |
+-- | 254 | (286) 555-6063 | (676) 555-6554 | 2021 | 7     | 28  | 43       |
+-- | 261 | (031) 555-6622 | (910) 555-3251 | 2021 | 7     | 28  | 38       |
+-- +-----+----------------+----------------+------+-------+-----+----------+
+
 SELECT * FROM people WHERE phone_number IN (SELECT caller FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration >=20 and duration <= 45);
 SELECT * FROM people WHERE phone_number IN (SELECT receiver FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration >=20 and duration <= 45);
 -- |   id   |  name  |  phone_number  | passport_number | license_plate |
