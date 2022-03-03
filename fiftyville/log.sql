@@ -56,6 +56,7 @@ SELECT person_id FROM bank_accounts WHERE account_number IN (SELECT account_numb
 -- | 449774    |
 -- | 438727
 SELECT * FROM people WHERE phone_number IN (SELECT caller FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration >=20 and duration <= 45);
+SELECT * FROM people WHERE phone_number IN (SELECT caller FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration >=20 and duration <= 45);
 -- |   id   |  name  |  phone_number  | passport_number | license_plate |
 --  449774 | Taylor | (286) 555-6063 | 1988161715      | 1106N58       |
 -- | 560886 | Kelsey | (499) 555-9472 | 8294398571      | 0NTHK55       |
@@ -64,3 +65,9 @@ SELECT * FROM people WHERE phone_number IN (SELECT caller FROM phone_calls WHERE
 
 --passengers
 SELECT * FROM passengers WHERE passport_number = "1988161715" or passport_number="5773159633";
++-----------+-----------------+------+
+| flight_id | passport_number | seat |
++-----------+-----------------+------+
+| 36        | 5773159633      | 4A   |
+| 36        | 1988161715      | 6D   |
++-----------+-----------------+------+
