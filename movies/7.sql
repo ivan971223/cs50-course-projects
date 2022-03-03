@@ -1,0 +1,1 @@
+SELECT title, rating from movies WHERE year = "2010"
