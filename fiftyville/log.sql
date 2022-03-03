@@ -19,3 +19,6 @@ SELECT * FROM interviews WHERE year = "2021" and month = "7" and day= "28";
 --ATM transactions
 -- get all transactions with the date, transaction_type and atm_location
 SELECT * FROM atm_transactions WHERE year = "2021" and month  = "7" and day = "28" and transaction_type = "withdraw" and atm_location = "Leggett Street";
+
+--phone calls
+SELECT * FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28";
