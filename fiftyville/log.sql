@@ -46,4 +46,4 @@ SELECT * FROM people WHERE phone_number IN (SELECT receiver FROM phone_calls WHE
 --712712 | Jacqueline | (910) 555-3251 |                 | 43V0R5D
 
 -- find the transactions with bank account number and person_id
-SELECT * FROM atm_transactions WHERE year = "2021" and month  = "7" and day = "28" and transaction_type = "withdraw" and atm_location = "Leggett Street";
+SELECT person_id FROM bank_accounts WHERE account_number IN (SELECT account_number FROM atm_transactions WHERE year = "2021" and month  = "7" and day = "28" and transaction_type = "withdraw" and atm_location = "Leggett Street");
