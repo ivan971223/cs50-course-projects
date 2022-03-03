@@ -36,3 +36,5 @@ SELECT * FROM flights WHERE year = "2021" and month = "7" and day = "29" and ori
 --get tel no. caller : (031) 555-6622, receiver: (910) 555-3251
 SELECT * FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration = 38;
 
+--people, query by phone number
+SELECT * FROM people WHERE phone_number IN (SELECT * FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration = 38);
