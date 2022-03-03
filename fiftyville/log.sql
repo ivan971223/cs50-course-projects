@@ -32,6 +32,12 @@ SELECT * FROM airports;
 --flight from Fiftyville and in the morning
 --destination_airport_id = 4 or 1
 SELECT * FROM flights WHERE year = "2021" and month = "7" and day = "29" and origin_airport_id = 8 and hour < 12;
+-- +----+-------------------+------------------------+------+-------+-----+------+--------+
+-- | id | origin_airport_id | destination_airport_id | year | month | day | hour | minute |
+-- +----+-------------------+------------------------+------+-------+-----+------+--------+
+-- | 36 | 8                 | 4                      | 2021 | 7     | 29  | 8    | 20     |
+-- | 43 | 8                 | 1                      | 2021 | 7     | 29  | 9    | 30     |
+-- +----+-------------------+------------------------+------+-------+-----+------+--------+
 
 --get tel no. caller : (031) 555-6622, receiver: (910) 555-3251
 SELECT * FROM phone_calls WHERE year = "2021" and month  = "7" and day = "28" and duration = 38;
