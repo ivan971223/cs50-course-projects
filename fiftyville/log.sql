@@ -38,6 +38,7 @@ SELECT * FROM flights WHERE year = "2021" and month = "7" and day = "29" and ori
 -- | 36 | 8                 | 4                      | 2021 | 7     | 29  | 8    | 20     |
 -- | 43 | 8                 | 1                      | 2021 | 7     | 29  | 9    | 30     |
 -- +----+-------------------+------------------------+------+-------+-----+------+--------+
+--earliest > id = 36
 
 -- find the transactions with bank account number to get the person_id
 SELECT person_id FROM bank_accounts WHERE account_number IN (SELECT account_number FROM atm_transactions WHERE year = "2021" and month  = "7" and day = "28" and transaction_type = "withdraw" and atm_location = "Leggett Street");
