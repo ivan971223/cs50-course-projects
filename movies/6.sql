@@ -1,0 +1,1 @@
+SELECT AVG(rating) from ratings WHERE year = "2012";
