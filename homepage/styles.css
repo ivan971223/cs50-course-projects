@@ -5,7 +5,12 @@ ul{
 li{
     display: inline;
 }
-
+li a{
+    display: block;
+    color: #005f60;
+    padding: 14px 16px;
+    text-decoration: none;
+}
 li a:hover{
     background-color: #f78104;
 }
