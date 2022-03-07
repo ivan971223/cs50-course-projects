@@ -33,7 +33,7 @@
                 <h3>Which country produces the most coffee in the world?</h3>
                 <p id='q2'></p>
                 <input autocomplete="off" type="text" id="answer"></input>
-                <button id = "onclick="checkq2()">Check Answer</button>
+                <button onclick="checkq2()">Check Answer</button>
             </div>
         </div>
     </body>
@@ -55,12 +55,14 @@
             function checkq2()
             {
                 let ans2 = document.querySelector("#answer").value;
-                if (ans2 == "Brazil")
+                if (ans2 == "Brazil" || ans2 == "brazil")
                 {
                     document.querySelector('#q2').innerHTML = "Correct!";
+                    document.querySelector("#answer").style.backgroundColor = 'Green'
                 }
                 else{
                     document.querySelector('#q2').innerHTML = "Incorrect";
+                    document.querySelector("#answer").style.backgroundColor = 'Red'
                 }
             }
     </script>
