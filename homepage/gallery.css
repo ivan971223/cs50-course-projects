@@ -22,3 +22,6 @@ ul {
     background-color: #f78104;
     color: #000000;
   }
+  .active {
+    background-color: #f78104;
+  }
