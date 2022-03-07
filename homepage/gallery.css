@@ -26,3 +26,10 @@ ul {
     background-color: #f78104;
     color: #000000;
   }
+  .gallery_frame{
+    padding: 20px;
+  }
+  .heading{
+    font-weight: bold;
+    color: #005f60;
+}
