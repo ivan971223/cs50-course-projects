@@ -20,9 +20,9 @@
                 <h3>How many McDonalds restaurants are there in the world?</h3>
                 <p id="check"></p>
                 <button type="button" id="btn1" onclick="isCorrect()">Less than 15000</button>
-                <button type="button" id="btn2" >15000 - 30000</button>
-                <button type="button" id="btn3" >30000 - 45000</button>
-                <button type="button" id="btn4" >More than 50000</button>
+                <button type="button" id="btn2" onclick="isNotCorrect()">15000 - 30000</button>
+                <button type="button" id="btn3" onclick="isNotCorrect()">30000 - 45000</button>
+                <button type="button" id="btn4" onclick="isNotCorrect()">More than 50000</button>
 
             </div>
 
@@ -42,11 +42,9 @@
 
             function isCorrect() {
                 document.querySelector('#check').innerHTML = "Correct";
-                btn1.style.background-color = '#FFFFFF';
             }
-            function incorrect() {
+            function isNotCorrect() {
                 document.querySelector('#check').innerHTML = "Incorrect";
-                button.style.color = 'red';
             }
     </script>
 </html>
