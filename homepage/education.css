@@ -1,4 +1,4 @@
-ul {
+  ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -26,4 +26,13 @@ ul {
   .education_btn{
     background-color: #f78104;
     color: #000000;
+  }
+
+  .heading{
+      font-weight: bold;
+      color: #005f60;
+  }
+
+  .frame{
+    padding: 20px
   }
