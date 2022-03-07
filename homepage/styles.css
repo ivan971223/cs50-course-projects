@@ -1,7 +1,11 @@
-li
-{
+ul{
+    background-color: #faab36;
+}
+
+li{
     display: inline;
 }
+
 li a:hover{
     background-color: #111;
 }
