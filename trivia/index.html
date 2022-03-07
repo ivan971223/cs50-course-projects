@@ -31,9 +31,9 @@
                 <hr>
                 <!-- TODO: Add free response question here -->
                 <h3>Which country produces the most coffee in the world?</h3>
-                <p id='checkq2'></p>
+                <p id='q2'></p>
                 <input autocomplete="off" type="text" id="answer"></input>
-                <button>Check Answer</button>
+                <button id = "onclick="checkq2()">Check Answer</button>
             </div>
         </div>
     </body>
@@ -45,18 +45,23 @@
             let btn4 = document.querySelector('#btn4');
 
             function isCorrect(element) {
-                document.querySelector('#checkq1').innerHTML = "Correct";
+                document.querySelector('#checkq1').innerHTML = "Correct!";
                 element.style.backgroundColor = 'Green';
             }
             function isNotCorrect(element) {
                 document.querySelector('#checkq1').innerHTML = "Incorrect";
                 element.style.backgroundColor = 'Red';
             }
-
-            let ans2 = document.querySelector("#answer").value;
             function checkq2()
             {
-                if (ans2)
+                let ans2 = document.querySelector("#answer").value;
+                if (ans2 == "Brazil")
+                {
+                    document.querySelector('#q2').innerHTML = "Correct!";
+                }
+                else{
+                    document.querySelector('#q2').innerHTML = "Incorrect";
+                }
             }
     </script>
 </html>
