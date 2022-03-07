@@ -18,7 +18,7 @@
                 <hr>
                 <!-- TODO: Add multiple choice question here -->
                 <h3>How many McDonalds restaurants are there in the world?</h3>
-                <p id="check"></p>
+                <p id="checkq1"></p>
                 <button type="button" id="btn1" onclick="isNotCorrect(this)">Less than 15000</button>
                 <button type="button" id="btn2" onclick="isNotCorrect(this)">15000 - 30000</button>
                 <button type="button" id="btn3" onclick="isCorrect(this)">30000 - 45000</button>
@@ -30,7 +30,10 @@
                 <h2>Part 2: Free Response</h2>
                 <hr>
                 <!-- TODO: Add free response question here -->
-                <h3></h3>
+                <h3>Which country produces the most coffee in the world?</h3>
+                <p id='checkq2'></p>
+                <input autocomplete="off"></input>
+                <button>Check Answer</button>
             </div>
         </div>
     </body>
@@ -42,11 +45,11 @@
             let btn4 = document.querySelector('#btn4');
 
             function isCorrect(element) {
-                document.querySelector('#check').innerHTML = "Correct";
+                document.querySelector('#checkq1').innerHTML = "Correct";
                 element.style.backgroundColor = 'Green';
             }
             function isNotCorrect(element) {
-                document.querySelector('#check').innerHTML = "Incorrect";
+                document.querySelector('#checkq1').innerHTML = "Incorrect";
                 element.style.backgroundColor = 'Red';
             }
     </script>
