@@ -8,14 +8,14 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
-            let btn1 = document.querySelector('#btn1');
+            {# let btn1 = document.querySelector('#btn1');
             let btn2 = document.querySelector('#btn2');
             let btn3 = document.querySelector('#btn3');
             let btn4 = document.querySelector('#btn4');
             btn1.addEventListener("click", incorrect());
             btn2.addEventListener("click", incorrect());
             btn3.addEventListener("click", correct());
-            btn4.addEventListener("click", incorrect());
+            btn4.addEventListener("click", incorrect()); #}
 
             function correct() {
                 btn1.style.color = 'green';
@@ -39,7 +39,7 @@
                 <!-- TODO: Add multiple choice question here -->
                 <h3>How many McDonalds restaurants are there in the world?</h3>
                 <p id="check"></p>
-                <button type="button" id="btn1" class="btn btn-outline-primary">Less than 15000</button>
+                <button type="button" id="btn1" class="btn btn-outline-primary" onClick="correct()">Less than 15000</button>
                 <button type="button" id="btn2" class="btn btn-outline-primary">15000 - 30000</button>
                 <button type="button" id="btn3" class="btn btn-outline-primary">30000 - 45000</button>
                 <button type="button" id="btn4" class="btn btn-outline-primary">More than 50000</button>
