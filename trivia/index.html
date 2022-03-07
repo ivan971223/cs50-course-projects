@@ -13,8 +13,12 @@
             btn3 = document.querySelector('#btn3');
             btn4 = document.querySelector('#btn4');
             btn1.addEventListener("click", incorrect());
+            btn2.addEventListener("click", incorrect());
+            btn3.addEventListener("click", correct());
+            btn4.addEventListener("click", incorrect());
 
             function correct() {
+                btn1
                 document.querySelector('#check').innerHTML = "Correct";
             }
             function incorrect() {
