@@ -27,8 +27,11 @@ ul {
     background-color: #f78104;
     color: #000000;
   }
-  .name{
-    text-align: center;
-    font-weight: bold;
+  h1{
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
     color: #249ea0;
   }
