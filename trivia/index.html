@@ -20,10 +20,10 @@
                 <!-- TODO: Add multiple choice question here -->
                 <h3>How many McDonalds restaurants are there in the world?</h3>
                 <p id="check"></p>
-                <button type="button" id="btn1" onclick="isCorrect()">Less than 15000</button>
-                <button type="button" id="btn2" class="btn btn-outline-primary">15000 - 30000</button>
-                <button type="button" id="btn3" class="btn btn-outline-primary">30000 - 45000</button>
-                <button type="button" id="btn4" class="btn btn-outline-primary">More than 50000</button>
+                <button type="button" id="btn1" onclick="isCorrect();">Less than 15000</button>
+                <button type="button" id="btn2" >15000 - 30000</button>
+                <button type="button" id="btn3" >30000 - 45000</button>
+                <button type="button" id="btn4" >More than 50000</button>
 
             </div>
 
@@ -41,9 +41,9 @@
             let btn3 = document.querySelector('#btn3');
             let btn4 = document.querySelector('#btn4');
 
-            function isCorrect(element) {
+            function isCorrect() {
                 document.querySelector('#check').innerHTML = "Correct";
-                element.style.background-color = 'green';
+                btn1.style.background-color = '#FFFFFF';
             }
             function incorrect() {
                 document.querySelector('#check').innerHTML = "Incorrect";
