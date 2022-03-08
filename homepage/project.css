@@ -38,6 +38,9 @@ ul {
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
 }
+.card-body{
+  transition: transform .2s;
+}
 .card-body: hover{
-  transform
+  transform: scale(1.5);
 }
