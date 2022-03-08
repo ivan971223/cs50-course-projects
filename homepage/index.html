@@ -7,14 +7,7 @@
         <link href="styles.css" rel="stylesheet">
         <meta name="viewport" content="initial-scale=1, width=device-width">
         <title>Louis Page</title>
-        <script>
-            let img = document.getElementById("carousel-img");
-            let container = document.getElementById("word-container");
-            img.addEventListener("mouseover", function(){
-                container.innerHTML = I am Louis.;
-            })
 
-        </script>
     </head>
     <body>
         <div class="container-fluid">
@@ -58,4 +51,14 @@
             <h1 id="word-container"></h1>
         </div>
     </body>
+    <script>
+            let img = document.getElementById("carousel-img");
+            let container = document.getElementById("word-container");
+            img.addEventListener("click", function(){
+                alert("hi");
+                container.innerHTML = I am Louis.;
+
+            })
+
+        </script>
 </html>
