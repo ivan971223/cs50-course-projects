@@ -3,13 +3,13 @@
   text-align: center;
   padding: 20px;
   font-weight: bold;
-}
-.h1{
-  font-family: "Lucida Console", "Courier New", monospace;
-}
 
+}
 .quote{
+  display: block;
   font-style:italic;
+  text-align: center;
+  padding: 20px;
 }
 
 ul {
@@ -53,6 +53,9 @@ ul {
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
+}
+.card-text{
+  word-wrap: break-word;
 }
 .col{
   margin: 0 auto;
