@@ -35,3 +35,6 @@ ul {
 .skill_frame{
   padding: 20px;
 }
+.checked {
+  color: orange;
+}
