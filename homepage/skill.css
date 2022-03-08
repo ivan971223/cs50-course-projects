@@ -1,3 +1,18 @@
+.header {
+  background-color: #fcd59a;
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+  color: black;
+}
+.quote{
+  display: block;
+  font-style: oblique;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
