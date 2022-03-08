@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="container-fluid">
-            <div id="carousel" class="header">
+            <div class="header">
                 <p class="quote">“The way to get started is to quit talking and begin doing.” -Walt Disney</p>
             </div>
             <ul class="menu">
@@ -28,7 +28,7 @@
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-                    <div   class="carousel-item active">
+                    <div id="carousel" class="carousel-item active">
                     <img src="\3.jpg" class="d-block w-100" alt="forest">
                     </div>
                     <div class="carousel-item">
@@ -54,9 +54,8 @@
     <script>
             let img = document.getElementById("carousel");
             let text = document.getElementById("word-container");
-            img.addEventListener("click", function(){
-                alert("hi");
-                text.innerHTML = hihihihihihi;
+            img.addEventListener("mouseover", function(){
+                text.innerHTML = "I am Louis.";
             });
     </script>
 </html>
