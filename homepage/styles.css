@@ -50,3 +50,6 @@ ul {
     transform: translate(-50%, -50%);
     color: #249ea0;
   }
+.carousel-inner{
+  height: 500px;
+}
