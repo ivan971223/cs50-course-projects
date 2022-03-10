@@ -56,7 +56,7 @@ def buy():
         qdict = lookup(symbol)
         if symbol is None or qdict is None:
             return apology("Invalid symbol")
-        if not is_integer(shares) or shares <= 0:
+        if not shares.is_integer() or shares <= 0:
             return apology("Invalid number of shares")
         price = qdict["price"]
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
