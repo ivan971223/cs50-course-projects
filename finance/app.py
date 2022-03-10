@@ -111,6 +111,8 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
+    quote = request.form.get("quote")
+    qdict = lookup(quote)
     
     return apology("TODO")
 
