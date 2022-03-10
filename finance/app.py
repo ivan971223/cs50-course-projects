@@ -80,7 +80,7 @@ def buy():
             return apology("Not enough cash")
         else:
             shares = int(shares)
-            db.execute("INSERT INTO transactions (user_id, year, month, day, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, shares)
+            db.execute("INSERT INTO transactions (user_id, date, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, shares)
             cash -= price * shares
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, sessions["user_id"])
             return render_template("buy.html")
