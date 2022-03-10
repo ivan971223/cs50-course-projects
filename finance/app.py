@@ -121,7 +121,9 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         hash_password = generate_password_hash(password)
-        db.execute("INSERT INTO ")
+        db.execute("INSERT INTO user (username, hash) VALUES(?,?)", username, hash_password)
+
+        if(username)
     return apology("TODO")
 
 
