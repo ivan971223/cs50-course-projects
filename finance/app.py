@@ -48,7 +48,7 @@ def index():
     for symbol in symbols:
         qdict = lookup(symbol)
         symbol["total"] = int(symbol["sum_shares"])*qdict["price"]
-        symbol["name"] = qdict["price"]
+        symbol["name"] = qdict["name"]
     return render_template("index.html", symbols = symbols)
 
 

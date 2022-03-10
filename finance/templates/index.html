@@ -9,17 +9,23 @@
             <tr>
                 <th>Symbol</th>
                 <th>Name</th>
+                <th>Shares</th>
                 <th>Price</th>
+                <th>Total</th>
             </tr>
+
         </thead>
         <tbody>
             {% for symbol in symbols %}
             <tr>
                 <td>{{symbol}}</td>
-                <td>{{name}}</td>
-                <td>{{price}}</td>
+                <td>{{symbol["name"]}}</td>
+                <td>{{symbol["shares"]}}</td>
             </tr>
             {% endfor %}
+            <tr>
+                <td>Cash</td>
+            </tr>
         </tbody>
     </table>
 
