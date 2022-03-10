@@ -55,7 +55,7 @@ def buy():
         shares = request.form.get("shares")
         if symbol is None or lookup(symbol) is None:
             return apology("Invalid symbol")
-        if shares 
+        if shares :
     return apology("TODO")
 
 
