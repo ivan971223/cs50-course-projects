@@ -120,7 +120,8 @@ def register():
     if request.method = "POST":
         username = request.form.get("username")
         password = request.form.get("password")
-
+        hash_password = generate_password_hash(password)
+        
     return apology("TODO")
 
 
