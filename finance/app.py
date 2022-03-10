@@ -121,6 +121,7 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         hash_password = generate_password_hash(password)
+        
         if username in db.execute("SELECT username FROM users") or username is None:
             return apology("Username is invalid")
         elif hash_password != db.execute("SELECT hash FROM users WHERE username = (?)", username) or password is None:
