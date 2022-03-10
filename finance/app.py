@@ -114,9 +114,9 @@ def quote():
     if request.method == "POST":
         quote = request.form.get("quote")
         qdict = lookup(quote)
-        return render_template("/quoted",name=qdict["name"], price=qdict["price"], symbol=qdict["symbol"])
+        return render_template("quoted.html",name=qdict["name"], price=qdict["price"], symbol=qdict["symbol"])
     else:
-        return render_template("/quote")
+        return render_template("quote.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
