@@ -82,7 +82,7 @@ def buy():
             shares = int(shares)
             db.execute("INSERT INTO transactions (user_id, year, month, day, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, shares)
             cash -= price * shares
-            db.execute("UPDATE transactions SET cash = ? WHERE id = ?", cash, sessions["user_id"])
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, sessions["user_id"])
             return render_template("buy.html")
     else:
         return render_template("buy.html")
@@ -202,7 +202,7 @@ def sell():
         shares = int(shares)
         db.execute("INSERT INTO transactions (user_id, year, month, day, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, -shares)
         cash += price * shares
-        db.execute("UPDATE transactions SET cash = ? WHERE id = ?", cash, session["user_id"])
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
         return render_template("sell.html")
     else:
         return render_template("sell.html")
