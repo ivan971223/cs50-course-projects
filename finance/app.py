@@ -57,6 +57,7 @@ def buy():
             return apology("Invalid symbol")
         if shares != int(shares) or shares <= 0:
             return apology("Invalid number of shares")
+        cash = db.execute("SELECT price )
     return apology("TODO")
 
 
