@@ -96,6 +96,8 @@ def history():
     for transaction in transactions:
         qdict = lookup(transaction["symbol"])
         transaction["name"] = qdict["name"]
+        transaction["total"] = int(transaction["shares"])*qdict["price"]
+
     return render_template("history.html", transactions = transactions)
 
 
