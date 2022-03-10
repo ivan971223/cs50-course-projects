@@ -46,7 +46,7 @@ def index():
     symbols = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
     cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
     for symbol in symbols:
-        qdict = lookup(symbol)
+        qdict = lookup(symbol["symbol"])
         symbol["price"] = qdict["price"]
         symbol["total"] = int(symbol["sum_shares"])*qdict["price"]
         symbol["name"] = qdict["name"]
