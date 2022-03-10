@@ -52,7 +52,7 @@ def index():
         symbol["name"] = qdict["name"]
 
 
-    return render_template("index.html", symbols = symbols, cash = cash["cash"])
+    return render_template("index.html", symbols = symbols, cash = cash[0]["cash"])
 
 
 @app.route("/buy", methods=["GET", "POST"])
