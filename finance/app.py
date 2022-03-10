@@ -67,7 +67,7 @@ def buy():
         if cash < (price*shares):
             return apology("Not enough cash")
         else:
-            db.execute("")
+            db.execute("INSERT INTO history (id, ), VALUES(?,?)")
 
     return apology("TODO")
 
