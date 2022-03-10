@@ -70,7 +70,7 @@ def buy():
         else:
             shares = int(shares)
             db.execute("INSERT INTO transactions (user_id, year, month, day, price) VALUES(?,?,?,?,?)", session["user_id"], year, month, day, price)
-
+            return render_template("buy.html")
     else:
         return render_template("buy.html")
 
