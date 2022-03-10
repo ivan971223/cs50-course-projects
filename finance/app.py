@@ -53,11 +53,16 @@ def buy():
     if request.method == "POST":
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
-        if symbol is None or lookup(symbol) is None:
+        qdict = lookup(symbol)
+        if symbol is None or qdict is None:
             return apology("Invalid symbol")
         if shares != int(shares) or shares <= 0:
             return apology("Invalid number of shares")
-        cash = db.execute("SELECT cash FROM users WHERE username = ?", )
+        price = qdict["price"]
+        cash = db.execute("SELECT cash FROM users WHERE username = ?", username)
+
+
+
     return apology("TODO")
 
 
