@@ -43,8 +43,8 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    symbols = db.execute("SELECT DISTINCT(symbol) FROM transactions WHERE user_id = ?", session["user_id"])
-    shares = db.execute("SELECT SUM(shares) FROM transactions WHERE symbol IN ?", symbols)
+    # symbols = db.execute("SELECT DISTINCT(symbol) FROM transactions WHERE user_id = ?", session["user_id"])
+    # shares = db.execute("SELECT SUM(shares) FROM transactions WHERE symbol IN ?", symbols)
 
 
     return render_template("index.html")
