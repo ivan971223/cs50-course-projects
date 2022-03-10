@@ -123,12 +123,12 @@ def register():
         hash_password = generate_password_hash(password)
         if username in db.execute("SELECT name FROM user") or username is None:
             return apology("Username is invalid")
-        elif hash
+        elif hash_password != db.execute("SELECT hash FROM user WHERE name = (?)", username) or password is None:
+            return apology("Password is invalid")
+
         db.execute("INSERT INTO user (username, hash) VALUES(?,?)", username, hash_password)
 
-
-    return apology("TODO")
-
+    return render_template("register.html")
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
