@@ -179,12 +179,14 @@ def sell():
     if request.method == "POST":
         symbol = request.form.get("symbol").upper()
         shares = float(request.form.get("shares"))
+        db.execute("SELECT ")
         qdict = lookup(symbol)
         if symbol is None or qdict is None:
             return apology("Invalid symbol")
         elif not shares.is_integer() or shares <= 0:
             return apology("Invalid number of shares")
-        elif 
+        elif
+
         price = qdict["price"]
         rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = rows[0]["cash"]
@@ -192,13 +194,11 @@ def sell():
         year = date.year
         month = date.month
         day = date.day
-        if float(cash) < (price*shares):
-            return apology("Not enough cash")
-        else:
-            shares = int(shares)
-            db.execute("INSERT INTO transactions (user_id, year, month, day, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, shares)
-            cash += price * shares
-            db.execute("UPDATE transactions SET cash = ? WHERE id = ?", cash, sessions["user_id"])
-            return render_template("sell.html")
+
+        shares = int(shares)
+        db.execute("INSERT INTO transactions (user_id, year, month, day, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, shares)
+        cash += price * shares
+        db.execute("UPDATE transactions SET cash = ? WHERE id = ?", cash, sessions["user_id"])
+        return render_template("sell.html")
     else:
         return render_template("sell.html")
