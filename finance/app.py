@@ -5,7 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
-
+import datetime
 from helpers import apology, login_required, lookup, usd
 
 # Configure application
@@ -60,10 +60,14 @@ def buy():
             return apology("Invalid number of shares")
         price = qdict["price"]
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        date = datetime.datetime.now()
+        year = date.year
+        month = date.month
+        day = date.day
         if cash < (price*shares):
             return apology("Not enough cash")
         else:
-            
+            db.execute("")
 
     return apology("TODO")
 
