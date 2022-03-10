@@ -59,8 +59,8 @@ def buy():
         if shares != int(shares) or shares <= 0:
             return apology("Invalid number of shares")
         price = qdict["price"]
-        cash = db.execute("SELECT cash FROM users WHERE username = ?", username)
-
+        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        
 
 
     return apology("TODO")
