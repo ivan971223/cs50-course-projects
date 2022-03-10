@@ -199,8 +199,8 @@ def sell():
         month = date.month
         day = date.day
 
-        shares = -int(shares)
-        db.execute("INSERT INTO transactions (user_id, year, month, day, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, shares)
+        shares = int(shares)
+        db.execute("INSERT INTO transactions (user_id, year, month, day, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, -shares)
         cash += price * shares
         db.execute("UPDATE transactions SET cash = ? WHERE id = ?", cash, session["user_id"])
         return render_template("sell.html")
