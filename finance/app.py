@@ -127,6 +127,7 @@ def register():
             return apology("Password is invalid")
 
         db.execute("INSERT INTO user (username, hash) VALUES(?,?)", username, hash_password)
+        return render_template("login.html")
 
     return render_template("register.html")
 
