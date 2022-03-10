@@ -1,4 +1,4 @@
-{% extend "layout.html" %}
+{% extends "layout.html" %}
 
 {% block title %}
     Register
@@ -7,8 +7,12 @@
 {% block main %}
 
     <form action="/register", method="POST">
-        <input autocomplete="off" class="form-control mx-auto w-auto" autofocus name="Username" placeholder="username" type="text">
-        <input autocomplete="off" class="form-control mx-auto w-auto" autofocus name="Password" placeholder="password" type="password">
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" autofocus name="username" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" autofocus name="password" placeholder="Password" type="password">
+        </div>
         <button class="btn btn-primary" type="submit">Register</button>
     </form>
 

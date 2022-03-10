@@ -121,12 +121,12 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         hash_password = generate_password_hash(password)
-        if username in db.execute("SELECT name FROM user") or username is None:
+        if username in db.execute("SELECT username FROM users") or username is None:
             return apology("Username is invalid")
-        elif hash_password != db.execute("SELECT hash FROM user WHERE name = (?)", username) or password is None:
+        elif hash_password != db.execute("SELECT hash FROM users WHERE username = (?)", username) or password is None:
             return apology("Password is invalid")
 
-        db.execute("INSERT INTO user (username, hash) VALUES(?,?)", username, hash_password)
+        db.execute("INSERT INTO users (username, hash) VALUES(?,?)", username, hash_password)
         return render_template("login.html")
     else:
         return render_template("register.html")
