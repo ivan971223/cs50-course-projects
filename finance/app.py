@@ -59,15 +59,15 @@ def buy():
         if not shares.is_integer() or shares <= 0:
             return apology("Invalid number of shares")
         price = qdict["price"]
-        shares = int(shares)
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         date = datetime.datetime.now()
         year = date.year
         month = date.month
         day = date.day
-        if cash < (price*shares):
+        if float(cash) < (price*shares):
             return apology("Not enough cash")
         else:
+            shares = int(shares)
             db.execute("INSERT INTO transactions (id, year, month, day, price), VALUES(?,?,?,?,?)", session["user_id"], year, month, day, price)
 
     else:
