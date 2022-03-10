@@ -71,7 +71,7 @@ def buy():
             return apology("Not enough cash")
         else:
             shares = int(shares)
-            db.execute("INSERT INTO transactions (user_id, year, month, day, price, shares) VALUES(?,?,?,?,?,?)", session["user_id"], year, month, day, price, shares)
+            db.execute("INSERT INTO transactions (user_id, year, month, day, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, shares)
             return render_template("buy.html")
     else:
         return render_template("buy.html")
