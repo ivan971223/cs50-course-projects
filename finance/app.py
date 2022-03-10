@@ -73,14 +73,11 @@ def buy():
         rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = rows[0]["cash"]
         date = datetime.datetime.now()
-        year = date.year
-        month = date.month
-        day = date.day
         if float(cash) < (price*shares):
             return apology("Not enough cash")
         else:
             shares = int(shares)
-            db.execute("INSERT INTO transactions (user_id, date, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, shares)
+            db.execute("INSERT INTO transactions (user_id, date, symbol, price, shares) VALUES(?,?,?,?,?)", session["user_id"], date, symbol, price, shares)
             cash -= price * shares
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, sessions["user_id"])
             return render_template("buy.html")
@@ -195,12 +192,9 @@ def sell():
         rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = rows[0]["cash"]
         date = datetime.datetime.now()
-        year = date.year
-        month = date.month
-        day = date.day
 
         shares = int(shares)
-        db.execute("INSERT INTO transactions (user_id, year, month, day, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, -shares)
+        db.execute("INSERT INTO transactions (user_id, date, symbol, price, shares) VALUES(?,?,?,?,?)", session["user_id"], date, symbol, price, -shares)
         cash += price * shares
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
         return render_template("sell.html")
