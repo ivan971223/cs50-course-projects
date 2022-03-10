@@ -186,7 +186,7 @@ def sell():
 
         if porfolio == []:
             return apology("You do not own any share")
-        elif  num_shares < porfolio[0]["sum_shares"]:
+        elif  porfolio[0]["sum_shares"] < shares:
             return apology("You do not own enough share")
 
         price = qdict["price"]
