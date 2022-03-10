@@ -92,7 +92,7 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    transactions = db.execute("SELECT * FROM transactions WHERE user_id = ?", session["user_id"])
+    transactions = db.execute("SELECT * FROM transactions WHERE user_id = ? ORDER BY date DESC", session["user_id"])
     for transaction in transactions:
         qdict = lookup(transaction["symbol"])
         transaction["name"] = qdict["name"]
