@@ -44,7 +44,9 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     rows = db.execute("SELECT price, shares, symbol FROM transactions WHERE user_id = ?", session["user_id"])
-
+    symbol_list = []
+    for row in rows:
+        
     return render_template("index.html")
 
 
