@@ -44,7 +44,8 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     symbols = db.execute("SELECT DISTINCT(symbol) FROM transactions WHERE user_id = ?", session["user_id"])
-    shares = db.execute("SELECT SUM(shares) FROM transactions WHERE symbol IN ?", symbols)
+    for symbol in symbols:
+        sum_of_shares = db.execute("SELECT SUM(shares) FROM transactions WHERE user_id = ? and symbol = ?", session["user_id"], symbol)
 
 
     return render_template("index.html")
