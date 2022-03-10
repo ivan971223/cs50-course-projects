@@ -52,13 +52,14 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         symbol = request.form.get("symbol")
-        shares = request.form.get("shares")
+        shares = float(request.form.get("shares"))
         qdict = lookup(symbol)
         if symbol is None or qdict is None:
             return apology("Invalid symbol")
         if not shares.is_integer() or shares <= 0:
             return apology("Invalid number of shares")
         price = qdict["price"]
+        shares = int(shares)
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         date = datetime.datetime.now()
         year = date.year
