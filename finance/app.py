@@ -62,9 +62,9 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        if request.form.get(shares) is None or request.form.get("symbol") is None:
+        if request.form.get("shares") is None or request.form.get("symbol") is None:
             return apology("Missing input")
-            
+
         symbol = request.form.get("symbol").upper()
         shares = float(request.form.get("shares"))
         qdict = lookup(symbol)
@@ -178,7 +178,7 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
-        if request.form.get(shares) is None or request.form.get("symbol") is None:
+        if request.form.get("shares") is None or request.form.get("symbol") is None:
             return apology("Missing input")
 
         symbol = request.form.get("symbol").upper()
