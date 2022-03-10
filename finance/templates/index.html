@@ -13,9 +13,13 @@
             </tr>
         </thead>
         <tbody>
-            <td>{{symbol}}</td>
-            <td>{{name}}</td>
-            <td>{{price}}</td>
+            {% for symbol in symbols %}
+            <tr>
+                <td>{{symbol}}</td>
+                <td>{{name}}</td>
+                <td>{{price}}</td>
+            </tr>
+            {% endfor %}
         </tbody>
     </table>
 
