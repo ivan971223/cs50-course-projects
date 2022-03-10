@@ -43,10 +43,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    symbols = db.execute("SELECT DISTINCT(symbol) FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
-    for symbol in symbols:
-        sum_of_shares = db.execute("SELECT SUM(shares) FROM transactions WHERE user_id = ? and symbol = ? GROUP BY symbol", session["user_id"], symbol)
-
+    symbols = db.execute("SELECT symbol, count(shares) FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
 
     return render_template("index.html")
 
