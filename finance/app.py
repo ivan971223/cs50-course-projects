@@ -117,12 +117,13 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    if request.method = "POST":
+    if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
         hash_password = generate_password_hash(password)
-        if username in db.execute("SELECT name FROM user") or username is None:
-            
+        if username in db.execute("SELECT name FROM user") or not username:
+            return apology("")
+        elif 
         db.execute("INSERT INTO user (username, hash) VALUES(?,?)", username, hash_password)
 
 
