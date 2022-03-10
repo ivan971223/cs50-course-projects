@@ -43,8 +43,8 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    db.execute("SELECT DISTINCT(name) FROM transactions WHERE id = ?", session["user_id"])
-    db.execute("SELECT SUM() FROM transactions")
+    # db.execute("SELECT DISTINCT(name) FROM transactions WHERE id = ?", session["user_id"])
+    # db.execute("SELECT SUM() FROM transactions")
     return render_template("index.html")
 
 
@@ -53,7 +53,7 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        symbol = request.form.get("symbol")
+        symbol = request.form.get("symbol").upper()
         shares = float(request.form.get("shares"))
         qdict = lookup(symbol)
         if symbol is None or qdict is None:
