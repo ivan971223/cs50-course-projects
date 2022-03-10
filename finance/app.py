@@ -179,13 +179,17 @@ def sell():
     if request.method == "POST":
         symbol = request.form.get("symbol").upper()
         shares = float(request.form.get("shares"))
-        db.execute("SELECT ")
+        porfolio = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY ?", session["user_id"], symbol)
+        num_shares = porfolio[0]["sum_shares"]
         qdict = lookup(symbol)
         if symbol is None or qdict is None:
             return apology("Invalid symbol")
         elif not shares.is_integer() or shares <= 0:
             return apology("Invalid number of shares")
-        elif
+        elif num_shares is None:
+            return apology("You do not own any share")
+        elif  num_shares < shares:
+            return apology("You do not own enough share")
 
         price = qdict["price"]
         rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
