@@ -62,7 +62,7 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        if request.form.get("shares") is None or request.form.get("symbol") is None:
+        if not request.form.get("shares") or not request.form.get("symbol"):
             return apology("Missing input")
 
         symbol = request.form.get("symbol").upper()
@@ -178,7 +178,7 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
-        if request.form.get("shares") is None or request.form.get("symbol") is None:
+        if not request.form.get("shares") or not request.form.get("symbol"):
             return apology("Missing input")
 
         symbol = request.form.get("symbol").upper()
