@@ -44,12 +44,13 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     symbols = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
-    cash = db.execute("SELECT cash FROM transactions WHERE user_id = ?", session["user_id"])
+    cash = db.execute("SELECT cash FROM transactions WHERE id = ?", session["user_id"])
     for symbol in symbols:
         qdict = lookup(symbol)
         symbol["price"] = qdict["price"]
         symbol["total"] = int(symbol["sum_shares"])*qdict["price"]
         symbol["name"] = qdict["name"]
+
     return render_template("index.html", symbols = symbols)
 
 

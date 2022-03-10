@@ -17,13 +17,13 @@
         </thead>
         <tbody>
             {% for symbol in symbols %}
-            <tr>
-                <td>{{symbol["symbol"]}}</td>
-                <td>{{symbol["name"]}}</td>
-                <td>{{symbol["shares"]}}</td>
-                <td>{{symbol["price"]}}</td>
-                <td>{{symbol["total"]}}</td>
-            </tr>
+                <tr>
+                    <td>{{symbol["symbol"]}}</td>
+                    <td>{{symbol["name"]}}</td>
+                    <td>{{symbol["shares"]}}</td>
+                    <td>{{symbol["price"]}}</td>
+                    <td>{{symbol["total"]}}</td>
+                </tr>
             {% endfor %}
             <tr>
                 <td>Cash</td>
