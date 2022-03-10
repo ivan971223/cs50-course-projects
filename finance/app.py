@@ -60,8 +60,10 @@ def buy():
             return apology("Invalid number of shares")
         price = qdict["price"]
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-        
-
+        if cash < (price*shares):
+            return apology("Not enough cash")
+        else:
+            
 
     return apology("TODO")
 
