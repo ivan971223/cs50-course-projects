@@ -50,9 +50,9 @@ def index():
         symbol["price"] = qdict["price"]
         symbol["total"] = int(symbol["sum_shares"])*qdict["price"]
         symbol["name"] = qdict["name"]
-        symbol["cash"] = cash
 
-    return render_template("index.html", symbols = symbols)
+
+    return render_template("index.html", symbols = symbols, cash = cash)
 
 
 @app.route("/buy", methods=["GET", "POST"])
