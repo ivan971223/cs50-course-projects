@@ -69,7 +69,8 @@ def buy():
         else:
             db.execute("INSERT INTO transactions (id, year, month, day, price), VALUES(?,?,?,?,?)", session["user_id"], year, month, day, price)
 
-    return apology("TODO")
+    else:
+        return render_template("buy.html")
 
 
 @app.route("/history")
