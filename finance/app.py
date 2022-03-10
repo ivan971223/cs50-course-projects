@@ -62,6 +62,9 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
+        if request.form.get(shares) is None or request.form.get("symbol") is None:
+            return apology("Missing input")
+            
         symbol = request.form.get("symbol").upper()
         shares = float(request.form.get("shares"))
         qdict = lookup(symbol)
@@ -175,6 +178,9 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
+        if request.form.get(shares) is None or request.form.get("symbol") is None:
+            return apology("Missing input")
+
         symbol = request.form.get("symbol").upper()
         shares = float(request.form.get("shares"))
         porfolio = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY ?", session["user_id"], symbol)
