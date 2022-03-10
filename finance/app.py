@@ -43,8 +43,12 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    symbols = db.execute("SELECT symbol, SUM(shares) FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
-
+    symbols = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
+    cash = db.execute("SELECT cash FROM transactions WHERE user_id = ?", session["user_id"])
+    for symbol in symbols:
+        qdict = lookup(symbol)
+        symbol["total"] = int(symbol["sum_shares"])*qdict["price"]
+        symbol["name"] = qdict["price"]
     return render_template("index.html", symbols = symbols)
 
 
@@ -72,6 +76,8 @@ def buy():
         else:
             shares = int(shares)
             db.execute("INSERT INTO transactions (user_id, year, month, day, symbol, price, shares) VALUES(?,?,?,?,?,?,?)", session["user_id"], year, month, day, symbol, price, shares)
+            cash -= price * shares
+            db.execute("UPDATE transactions SET cash = ? WHERE id = ?", cash, sessions["user_id"])
             return render_template("buy.html")
     else:
         return render_template("buy.html")
