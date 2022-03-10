@@ -111,12 +111,13 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
-    quote = request.form.get("quote")
-    qdict = lookup(quote)
-    
-    return apology("TODO")
-
-
+    if request.method = "POST":
+        quote = request.form.get("quote")
+        qdict = lookup(quote)
+        return render_template("/quoted",name=qdict["name"], price=qdict["price"], symbol=qdict["symbol"])
+    else:
+        return render_template("/quote")
+        
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""

@@ -3,7 +3,18 @@
 {% block title %}
     Quote
 {% endblock %}
-
+    <table>
+        <thead>
+            <tr>Symbol</tr>
+            <tr>Name</tr>
+            <tr>Price</tr>
+        </thead>
+        <tbody>
+            <tr>{{symbol}}</tr>
+            <tr>{{name}}</tr>
+            <tr>{{price}}</tr>
+        </tbody>
+    </table>
 {% block main %}
 
 {% endblock %}
