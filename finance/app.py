@@ -43,8 +43,9 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    symbol_list = db.execute("SELECT DISTINCT(symbol) FROM transactions WHERE id = ?", session["user_id"])
-    db.execute("SELECT SUM() FROM transactions")
+    rows = db.execute("SELECT price, shares, symbol FROM transactions WHERE id = ?", session["user_id"])
+    for row in rows:
+        row[""]
     return render_template("index.html")
 
 
