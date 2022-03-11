@@ -64,11 +64,15 @@ def buy():
     if request.method == "POST":
         if not request.form.get("shares") or not request.form.get("symbol"):
             return apology("Missing input")
-        if request.form.get("shares")!=type(int()) or request.form.get("shares") < 1:
+        try:
+            shares = float(request.form.get("shares"))
+        except:
+            return apology("Invalid number of shares")
+
+        if shares < 1:
             return apology("Invalid number of shares")
 
         symbol = request.form.get("symbol").upper()
-        shares = float(request.form.get("shares"))
         qdict = lookup(symbol)
         if symbol is None or qdict is None:
             return apology("Invalid symbol")
@@ -191,16 +195,21 @@ def sell():
     if request.method == "POST":
         if not request.form.get("shares") or not request.form.get("symbol"):
             return apology("Missing input")
+        try:
+            shares = float(request.form.get("shares"))
+        except:
+            return apology("Invalid input of shares")
+
+        if shares < 1:
+            return apology("Invalid input of shares")
 
         symbol = request.form.get("symbol").upper()
         shares = float(request.form.get("shares"))
         porfolio = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY ?", session["user_id"], symbol)
         qdict = lookup(symbol)
+
         if symbol is None or qdict is None:
             return apology("Invalid symbol")
-        elif not shares.is_integer() or shares <= 0:
-            return apology("Invalid number of shares")
-
         if porfolio == []:
             return apology("You do not own any share")
         elif  porfolio[0]["sum_shares"] < shares:
