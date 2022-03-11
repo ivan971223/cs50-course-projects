@@ -204,13 +204,13 @@ def sell():
             return apology("Invalid number of shares")
 
         symbol = request.form.get("symbol").upper()
-        shares = float(request.form.get("shares"))
+        shares = int(request.form.get("shares"))
         porfolio = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY ?", session["user_id"], symbol)
         qdict = lookup(symbol)
 
-        if symbol is None or qdict is None:
+        if symbol is None or not qdict:
             return apology("Invalid symbol")
-        if porfolio == []:
+        if not porfolio:
             return apology("You do not own any share")
         elif  porfolio[0]["sum_shares"] < shares:
             return apology("You do not own enough share")
