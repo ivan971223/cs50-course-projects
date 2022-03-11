@@ -72,7 +72,7 @@ def buy():
         qdict = lookup(symbol)
         if symbol is None or qdict is None:
             return apology("Invalid symbol")
-        
+
         price = qdict["price"]
         rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = rows[0]["cash"]
@@ -84,7 +84,7 @@ def buy():
             db.execute("INSERT INTO transactions (user_id, date, symbol, price, shares) VALUES(?,?,?,?,?)", session["user_id"], date, symbol, price, shares)
             cash -= price * shares
             db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
-            return render_template("buy.html")
+            return render_template("bought.html")
     else:
         return render_template("buy.html")
 
