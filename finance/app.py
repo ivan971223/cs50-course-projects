@@ -228,8 +228,8 @@ def sell():
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
         return redirect("/")
     else:
-        porfolio = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? and symbol=? GROUP BY ?", session["user_id"], symbol)
-        for symbol in porfolio:
+        symbols = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
+        for symbol in symbols:
             if symbol["sum_shares"]==0:
-                porfolio.remove(symbol)
-        return render_template("sell.html", symbol = porfolio)
+                symbols.remove(symbol)
+        return render_template("sell.html", symbols = symbols)
