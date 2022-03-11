@@ -74,7 +74,7 @@ def buy():
 
         symbol = request.form.get("symbol").upper()
         qdict = lookup(symbol)
-        if symbol is None or qdict is None:
+        if symbol is None or not qdict:
             return apology("Invalid symbol")
 
         price = int(qdict["price"])
