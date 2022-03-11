@@ -49,7 +49,7 @@ def index():
     total = 0
     for symbol in symbols:
         qdict = lookup(symbol["symbol"])
-        symbol["price"] = qdict["price"]
+        symbol["price"] = format(qdict["price"],'.2f')
         symbol["total"] = format(symbol["sum_shares"]*qdict["price"],'.2f')
         symbol["name"] = qdict["name"]
         total += float(symbol["total"])
