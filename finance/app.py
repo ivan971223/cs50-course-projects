@@ -54,7 +54,7 @@ def index():
         symbol["name"] = qdict["name"]
         total += float(symbol["total"])
     total += cash
-    return render_template("index.html", symbols = symbols, cash = cash, total = total)
+    return render_template("index.html", symbols = symbols, cash = format(cash,'.2f'), total = total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
