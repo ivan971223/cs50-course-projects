@@ -76,7 +76,7 @@ def buy():
         qdict = lookup(symbol)
         if symbol is None or not qdict:
             return apology("Invalid symbol")
-
+        print(symbol)
         price = int(qdict["price"])
         rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = rows[0]["cash"]
