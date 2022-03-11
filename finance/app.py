@@ -224,6 +224,6 @@ def sell():
         db.execute("INSERT INTO transactions (user_id, date, symbol, price, shares) VALUES(?,?,?,?,?)", session["user_id"], date, symbol, price, -shares)
         cash += price * shares
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
-        return render_template("sell.html", symbol = symbol, shares = shares, price = "{:.2f}".format(price), name = qdict["name"])
+        return redirect("/")
     else:
         return render_template("sell.html")
