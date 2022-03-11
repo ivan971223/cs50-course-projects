@@ -226,4 +226,5 @@ def sell():
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
         return redirect("/")
     else:
+        db.execute("SELECT DISTINCT(symbol) FROM transactions")
         return render_template("sell.html")
