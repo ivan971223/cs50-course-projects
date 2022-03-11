@@ -52,7 +52,7 @@ def index():
         symbol["price"] = qdict["price"]
         symbol["total"] = format(symbol["sum_shares"]*qdict["price"],'.2f')
         symbol["name"] = qdict["name"]
-        total += symbol["total"]
+        total += float(symbol["total"])
     total += cash
     return render_template("index.html", symbols = symbols, cash = cash, total = total)
 
