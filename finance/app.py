@@ -153,6 +153,8 @@ def logout():
 def quote():
     """Get stock quote."""
     if request.method == "POST":
+        if not request.form.get("symbol") or not qdict:
+            return apology("Missing Input")
         quote = request.form.get("symbol")
         qdict = lookup(quote)
         return render_template("quoted.html",name=qdict["name"], price=qdict["price"], symbol=qdict["symbol"])
