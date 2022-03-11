@@ -43,20 +43,22 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    symbols = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
-    cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+    symbols = db.execute(
+        "SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
+    cash = db.execute("SELECT cash FROM users WHERE id = ?",
+                      session["user_id"])
     cash = cash[0]["cash"]
     total = 0
     for symbol in symbols:
         if symbol["sum_shares"] == 0:
             symbols.remove(symbol)
         qdict = lookup(symbol["symbol"])
-        symbol["price"] = format(qdict["price"],'.2f')
-        symbol["total"] = format(symbol["sum_shares"]*qdict["price"],'.2f')
+        symbol["price"] = format(qdict["price"], '.2f')
+        symbol["total"] = format(symbol["sum_shares"]*qdict["price"], '.2f')
         symbol["name"] = qdict["name"]
         total += float(symbol["total"])
     total += cash
-    return render_template("index.html", symbols = symbols, cash = format(cash,'.2f'), total = total)
+    return render_template("index.html", symbols=symbols, cash=format(cash, '.2f'), total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -80,16 +82,19 @@ def buy():
             return apology("Invalid symbol")
         print(symbol)
         price = int(qdict["price"])
-        rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        rows = db.execute(
+            "SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = rows[0]["cash"]
         date = datetime.datetime.now()
         if float(cash) < (price*shares):
             return apology("Not enough cash")
         else:
             shares = int(shares)
-            db.execute("INSERT INTO transactions (user_id, date, symbol, price, shares) VALUES(?,?,?,?,?)", session["user_id"], date, symbol, price, shares)
+            db.execute("INSERT INTO transactions (user_id, date, symbol, price, shares) VALUES(?,?,?,?,?)",
+                       session["user_id"], date, symbol, price, shares)
             cash -= price * shares
-            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+            db.execute("UPDATE users SET cash = ? WHERE id = ?",
+                       cash, session["user_id"])
             return redirect("/")
     else:
         return render_template("buy.html")
@@ -99,13 +104,14 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    transactions = db.execute("SELECT * FROM transactions WHERE user_id = ? ORDER BY date DESC", session["user_id"])
+    transactions = db.execute(
+        "SELECT * FROM transactions WHERE user_id = ? ORDER BY date DESC", session["user_id"])
     for transaction in transactions:
         qdict = lookup(transaction["symbol"])
         transaction["name"] = qdict["name"]
         transaction["total"] = int(transaction["shares"])*qdict["price"]
 
-    return render_template("history.html", transactions = transactions)
+    return render_template("history.html", transactions=transactions)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -127,7 +133,8 @@ def login():
             return apology("must provide password", 403)
 
         # Query database for username
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        rows = db.execute("SELECT * FROM users WHERE username = ?",
+                          request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
@@ -164,10 +171,11 @@ def quote():
             return apology("Missing Input")
         quote = request.form.get("symbol")
         qdict = lookup(quote)
-        price =  "{:.2f}".format(qdict["price"])
-        return render_template("quoted.html",name=qdict["name"], price=price, symbol=qdict["symbol"])
+        price = "{:.2f}".format(qdict["price"])
+        return render_template("quoted.html", name=qdict["name"], price=price, symbol=qdict["symbol"])
     else:
         return render_template("quote.html")
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -185,10 +193,12 @@ def register():
         elif confirmation != password:
             return apology("Password is invalid")
 
-        db.execute("INSERT INTO users (username, hash) VALUES(?,?)", username, hash_password)
+        db.execute("INSERT INTO users (username, hash) VALUES(?,?)",
+                   username, hash_password)
         return render_template("login.html")
     else:
         return render_template("register.html")
+
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
@@ -207,29 +217,34 @@ def sell():
 
         symbol = request.form.get("symbol").upper()
         shares = int(request.form.get("shares"))
-        porfolio = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY ?", session["user_id"], symbol)
+        porfolio = db.execute(
+            "SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY ?", session["user_id"], symbol)
         qdict = lookup(symbol)
 
         if symbol is None or not qdict:
             return apology("Invalid symbol")
         if not porfolio:
             return apology("You do not own any share")
-        elif  porfolio[0]["sum_shares"] < shares:
+        elif porfolio[0]["sum_shares"] < shares:
             return apology("You do not own enough share")
 
         price = qdict["price"]
-        rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        rows = db.execute(
+            "SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = rows[0]["cash"]
         date = datetime.datetime.now()
 
         shares = int(shares)
-        db.execute("INSERT INTO transactions (user_id, date, symbol, price, shares) VALUES(?,?,?,?,?)", session["user_id"], date, symbol, price, -shares)
+        db.execute("INSERT INTO transactions (user_id, date, symbol, price, shares) VALUES(?,?,?,?,?)",
+                   session["user_id"], date, symbol, price, -shares)
         cash += price * shares
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
+        db.execute("UPDATE users SET cash = ? WHERE id = ?",
+                   cash, session["user_id"])
         return redirect("/")
     else:
-        symbols = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
+        symbols = db.execute(
+            "SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY symbol", session["user_id"])
         for symbol in symbols:
-            if symbol["sum_shares"]==0:
+            if symbol["sum_shares"] == 0:
                 symbols.remove(symbol)
-        return render_template("sell.html", symbols = symbols)
+        return render_template("sell.html", symbols=symbols)
