@@ -66,7 +66,10 @@ def buy():
             return apology("Missing input")
 
         symbol = request.form.get("symbol").upper()
-        shares = float(request.form.get("shares"))
+        try:
+            shares = float(request.form.get("shares"))
+        except:
+            return apology("Invalid input of shares")
         qdict = lookup(symbol)
         if symbol is None or qdict is None:
             return apology("Invalid symbol")
