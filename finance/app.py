@@ -65,11 +65,11 @@ def buy():
         if not request.form.get("shares") or not request.form.get("symbol"):
             return apology("Missing input")
         try:
-            float(shares).is_integer()
+            float(shares)
         except:
             return apology("Invalid number of shares")
 
-        if shares < 1 or shares!=int(shares):
+        if shares < 1 or not float(n).is_integer():
             return apology("Invalid number of shares")
 
         symbol = request.form.get("symbol").upper()
