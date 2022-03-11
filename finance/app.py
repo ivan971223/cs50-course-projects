@@ -153,7 +153,7 @@ def logout():
 def quote():
     """Get stock quote."""
     if request.method == "POST":
-        if not request.form.get("symbol") or not qdict:
+        if not request.form.get("symbol") or not lookup(request.form.get("symbol")):
             return apology("Missing Input")
         quote = request.form.get("symbol")
         qdict = lookup(quote)
