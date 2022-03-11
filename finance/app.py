@@ -170,7 +170,7 @@ def register():
         confirmation = request.form.get("confirmation")
         hash_password = generate_password_hash(password)
         user = db.execute("SELECT * FROM users WHERE username = ?", username)
-        if not user:
+        if user:
             return apology("Username is invalid")
         elif confirmation != password:
             return apology("Password is invalid")
