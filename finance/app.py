@@ -48,8 +48,8 @@ def index():
     cash = cash[0]["cash"]
     total = 0
     for symbol in symbols:
-        if symbol["sum_shares"]==0:
-            
+        if symbol["sum_shares"] == 0:
+            symbols.remove(symbol)
         qdict = lookup(symbol["symbol"])
         symbol["price"] = format(qdict["price"],'.2f')
         symbol["total"] = format(symbol["sum_shares"]*qdict["price"],'.2f')
@@ -229,4 +229,7 @@ def sell():
         return redirect("/")
     else:
         porfolio = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? and symbol=? GROUP BY ?", session["user_id"], symbol)
-        return render_template("sell.html")
+        for symbol in porfolio:
+            if symbol["sum_shares"]==0:
+                porfolio.remove(symbol)
+        return render_template("sell.html", symbol = porfolio)
