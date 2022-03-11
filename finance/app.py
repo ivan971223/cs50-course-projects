@@ -157,7 +157,8 @@ def quote():
             return apology("Missing Input")
         quote = request.form.get("symbol")
         qdict = lookup(quote)
-        return render_template("quoted.html",name=qdict["name"], price=qdict["price"], symbol=qdict["symbol"])
+        price = round(qdict["price"], 2)
+        return render_template("quoted.html",name=qdict["name"], price=price, symbol=qdict["symbol"])
     else:
         return render_template("quote.html")
 
