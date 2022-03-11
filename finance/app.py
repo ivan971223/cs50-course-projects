@@ -65,13 +65,15 @@ def buy():
         if not request.form.get("shares") or not request.form.get("symbol"):
             return apology("Missing input")
 
+        if not request.form.get("shares").is_integer() or not request.form.get("shares") > 0:
+            return apology("Invalid number of shares")
+
         symbol = request.form.get("symbol").upper()
         shares = float(request.form.get("shares"))
         qdict = lookup(symbol)
-        if symbol is None or qdict is None:
+        if symbol is None or not qdict:
             return apology("Invalid symbol")
-        if not shares.is_integer() or not shares > 0:
-            return apology("Invalid number of shares")
+
         price = qdict["price"]
         rows = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = rows[0]["cash"]
