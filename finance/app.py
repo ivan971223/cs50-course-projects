@@ -226,5 +226,5 @@ def sell():
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash, session["user_id"])
         return redirect("/")
     else:
-        db.execute("SELECT DISTINCT(symbol) FROM transactions")
+        porfolio = db.execute("SELECT symbol, SUM(shares) AS sum_shares FROM transactions WHERE user_id = ? GROUP BY ?", session["user_id"], symbol)
         return render_template("sell.html")
