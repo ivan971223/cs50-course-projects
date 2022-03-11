@@ -69,7 +69,7 @@ def buy():
         except:
             return apology("Invalid number of shares")
 
-        if shares < 1:
+        if shares < 1 or shares!=int(shares):
             return apology("Invalid number of shares")
 
         symbol = request.form.get("symbol").upper()
