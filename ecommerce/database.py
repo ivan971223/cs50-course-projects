@@ -12,4 +12,4 @@ with open("shop.csv", "r") as file:
     for row in reader:
         name = row["name"].strip()
         price = row["price"]
-        db.execute("INSERT INTO food (name, price) VALUES(?,?)", name)
+        db.execute("INSERT INTO food (name, price) VALUES(?,?)", name, price)
