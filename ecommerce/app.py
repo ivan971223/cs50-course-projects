@@ -123,7 +123,7 @@ def logout():
 
 
 
-@app.route("/cart", methods=["GET", "POST"])
-@login_required
-def cart():
+# @app.route("/cart", methods=["GET", "POST"])
+# @login_required
+# def cart():
 
