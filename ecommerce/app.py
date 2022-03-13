@@ -40,16 +40,16 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/buy", methods=["GET", "POST"])
-@login_required
-def buy():
-    return
+# @app.route("/buy", methods=["GET", "POST"])
+# @login_required
+# def buy():
+#     return
 
 
-@app.route("/history")
-@login_required
-def history():
-    return render_template("history.html", transactions=transactions)
+# @app.route("/history")
+# @login_required
+# def history():
+#     return render_template("history.html", transactions=transactions)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -119,21 +119,6 @@ def logout():
 
     # Redirect user to login form
     return redirect("/")
-
-
-@app.route("/quote", methods=["GET", "POST"])
-@login_required
-def quote():
-    """Get stock quote."""
-    if request.method == "POST":
-        if not request.form.get("symbol") or not lookup(request.form.get("symbol")):
-            return apology("Missing Input")
-        quote = request.form.get("symbol")
-        qdict = lookup(quote)
-        price = "{:.2f}".format(qdict["price"])
-        return render_template("quoted.html", name=qdict["name"], price=price, symbol=qdict["symbol"])
-    else:
-        return render_template("quote.html")
 
 
 
