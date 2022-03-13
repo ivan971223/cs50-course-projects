@@ -11,4 +11,5 @@ with open("food.csv", "r") as file:
     reader = csv.DictReader(file)
     for row in reader:
         name = row["name"].strip()
-        db.execute("INSERT INTO food (")
+        price = row["price"]
+        db.execute("INSERT INTO food (name, price) VALUES(?,?)", name)
