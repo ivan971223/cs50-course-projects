@@ -7,15 +7,17 @@
  <div class="container">
       <div class="row hidden-md-up">
       {{%for food in foods%}}}
-        <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <img src="./static/{{food["name"]}}.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{food["name"]}}</h5>
-                    <p class="card-text">${{food["price"]}}</p>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="./static/{{food["name"]}}.jpg" class="card-img-top" alt="{{food["name"]}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{food["name"]}}</h5>
+                        <p class="card-text">${{food["price"]}}</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
                 </div>
             </div>
-        </div>
+
         {{%endfor%}}}
 {% endblock %}
