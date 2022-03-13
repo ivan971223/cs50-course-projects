@@ -37,8 +37,8 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    name = db.execute("SELECT)
-    return render_template("index.html")
+    foods = db.execute("SELECT name, price FROM shop")
+    return render_template("index.html", foods = foods)
 
 
 # @app.route("/buy", methods=["GET", "POST"])
