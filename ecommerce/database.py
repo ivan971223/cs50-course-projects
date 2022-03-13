@@ -10,6 +10,6 @@ db.execute("CREATE TABLE food (id INTEGER, name TEXT NOT NULL, price REAL NOT NU
 with open("shop.csv", "r") as file:
     reader = csv.DictReader(file)
     for row in reader:
-        name = row["name"].strip()
+        name = row["name"]
         price = row["price"]
         db.execute("INSERT INTO food (name, price) VALUES(?,?)", name, price)
