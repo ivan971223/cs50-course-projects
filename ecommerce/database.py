@@ -11,4 +11,4 @@ with open("food.csv", "r") as file:
     reader = csv.DictReader(file)
     for row in reader:
         name = row["name"].strip()
-        food_id = 
+        db.execute("INSERT INTO food (")
