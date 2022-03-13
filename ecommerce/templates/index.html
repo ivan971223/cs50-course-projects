@@ -4,43 +4,12 @@
     Quote
 {% endblock %}
 {% block main %}
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Symbol</th>
-                <th>Name</th>
-                <th>Shares</th>
-                <th>Price</th>
-                <th>TOTAL</th>
-            </tr>
-
-        </thead>
-        <tbody>
-            {% for symbol in symbols %}
-                <tr>
-                    <td>{{symbol["symbol"]}}</td>
-                    <td>{{symbol["name"]}}</td>
-                    <td>{{symbol["sum_shares"]}}</td>
-                    <td>{{symbol["price"]}}</td>
-                    <td>{{symbol["total"]}}</td>
-                </tr>
-            {% endfor %}
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Cash</td>
-                <td>{{cash}}</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>TOTAL</td>
-                <td>{{total}}</td>
-            </tr>
-        </tbody>
-    </table>
-
-
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+    </div>
 {% endblock %}
