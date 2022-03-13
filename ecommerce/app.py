@@ -23,7 +23,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///finance.db")
+db = SQL("sqlite:///shop.db")
 
 @app.after_request
 def after_request(response):
@@ -37,7 +37,7 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    return render_template("index.html", symbols=symbols, cash=format(cash, '.2f'), total=total)
+    return render_template("index.html")
 
 
 @app.route("/buy", methods=["GET", "POST"])
