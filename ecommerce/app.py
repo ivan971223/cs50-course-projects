@@ -103,7 +103,7 @@ def order():
             for food_id in session["cart"].keys():
                 food_id = food_id
                 number = session["cart"][f"{food_id}"]
-                order_date = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+                order_date = datetime.datetime.now()
                 total = total
                 row = db.execute("SELECT name FROM food WHERE id = ?", food_id)
                 name = row[0]["name"]
@@ -114,7 +114,7 @@ def order():
             return redirect("/order")
 
     orders = db.execute(
-        "SELECT * FROM orders WHERE user_id = ? GROUP BY orderDate", session["user_id"])
+        "SELECT * FROM orders WHERE user_id = ? GROUP BY orderDate ORDER BY orderDate", session["user_id"])
     for order in orders:
         rows = db.execute(
             "SELECT name, number FROM orders WHERE user_id = ? and orderDate = ?", session["user_id"], order["orderDate"])
