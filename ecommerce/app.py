@@ -111,7 +111,6 @@ def order():
                            order_date, session["user_id"], food_id, name, number, total)
             session["cart"] = {}
             session["cart_item"] = []
-            return redirect("/order")
         else:
             return redirect("/cart")
     orders = db.execute(
