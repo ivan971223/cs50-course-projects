@@ -14,7 +14,7 @@
       {% for food in foods %}
             <div class="col-md-4 mb-4">
                 <div class="card" style="width: 18rem;">
-                    <img src=="{{url_for('static', filename='{{food}}.jpg')}}" /> class="img--cover" alt="{{food["name"]}}">
+                    <img src="./static/food/{{food}}.jpg" /> class="img--cover" alt="{{food["name"]}}">
                     <div class="card-body">
                         <h5 class="card-title">{{food["name"]}}</h5>
                         <p class="card-text">${{food["price"]}}</p>
