@@ -114,7 +114,7 @@ def order():
             return redirect("/order")
 
     orders = db.execute(
-        "SELECT * FROM orders WHERE user_id = ? GROUP BY orderDate ORDER BY orderDate", session["user_id"])
+        "SELECT * FROM orders WHERE user_id = ? GROUP BY orderDate ORDER BY orderDate Desc", session["user_id"])
     for order in orders:
         rows = db.execute(
             "SELECT name, number FROM orders WHERE user_id = ? and orderDate = ?", session["user_id"], order["orderDate"])
