@@ -120,8 +120,8 @@ def order():
         for row in rows:
             name = row["name"]
             number = row["number"]
-            description += f"{name}*{number},"
-        order["description"] = description
+            description += f"{name}*{number}, "
+        order["description"] = description[:-2]
     return render_template("order.html", orders=orders)
 
 
