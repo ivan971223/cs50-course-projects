@@ -4,7 +4,7 @@
     Cart
 {% endblock %}
 {% block main %}
-    <table class="table">
+    <table class="table tablestriped">
         <thead>
             <tr>
                 <th></th>
@@ -34,11 +34,9 @@
         </tbody>
        <tfoot>
             <tr>
-                <td class="border-0 fw-bold text-end" colspan="3">TOTAL</td>
+                <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
                 <td class="border-0 w-bold text-end">{{total}}</td>
-            </tr>
-            <tr>
-                <td colspan="4">
+                <td>
                     <form action="/order" method="post">
                         <input name="id" type="hidden" value="{{foods}}">
                         <button class="btn btn-primary" type="submit">Place Order</button>
