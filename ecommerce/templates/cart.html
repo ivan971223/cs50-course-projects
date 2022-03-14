@@ -17,8 +17,9 @@
         <tbody>
             {% for food in foods %}
                 <tr>
-                    <td><img src="./static/food/{{food["name"]}}.jpg" class="img--cover" alt="{{food["name"]}}"></td>
-
+                    <td><img src="./static/food/{{food["name"]}}.jpg" class="img--thumbnail" alt="{{food["name"]}}"></td>
+                    <td>{{food["name"]}}</td>
+                    <td></td>
                 </tr>
             {% endfor %}
         </tbody>
