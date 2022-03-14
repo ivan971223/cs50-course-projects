@@ -59,8 +59,10 @@ def cart():
         return redirect("/cart")
 
     foods = db.execute("SELECT * FROM food WHERE id in (?)", session["cart"])
+    index = 0
     for food in foods:
-        food["number"] = number
+        food["number"] = session["item_count"][index]
+        index += 1
     return render_template("cart.html", foods=foods)
 
 
