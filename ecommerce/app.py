@@ -94,10 +94,13 @@ def cart():
     return render_template("cart.html", foods=foods, total=total, is_added=False)
 
 
-# @app.route("/history")
-# @login_required
-# def history():
-#     return render_template("history.html", transactions=transactions)
+@app.route("/order", methods=["GET", "POST"])
+@login_required
+def order():
+    if request.method == "POST":
+        
+    orders = db.execute("SELECT * FROM order WHERE user_id = ?",session["user_id"])
+    return render_template("order.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
