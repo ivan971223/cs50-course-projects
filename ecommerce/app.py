@@ -65,7 +65,7 @@ def cart():
     total = 0
     for food in foods:
         food["number"] = session["cart"][f'{food["id"]}']
-        total += food["price"]
+        total += food["price"]*food["number"]
         food["price"] = usd(food["price"])
         index += 1
     total = usd(total)
