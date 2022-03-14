@@ -91,7 +91,7 @@ def cart():
         food["price"] = usd(food["price"])
         index += 1
     total = total
-    return render_template("cart.html", foods=foods, total=total, is_added=False)
+    return render_template("cart.html", foods=foods, total=total)
 
 
 @app.route("/order", methods=["GET", "POST"])
