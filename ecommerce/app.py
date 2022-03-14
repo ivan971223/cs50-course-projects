@@ -37,12 +37,16 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
-    if request.method == "POST":
-        
+    foods = db.execute("SELECT id, name, price FROM food")
+    return render_template("index.html", foods = foods)
 
-    else:
-        foods = db.execute("SELECT id, name, price FROM food")
-        return render_template("index.html", foods = foods)
+
+@app.route("/cart", methods=["GET", "POST"])
+@login_required
+def cart():
+
+    # Ensure cart exists
+    
 
 # @app.route("/history")
 # @login_required
@@ -118,9 +122,4 @@ def logout():
     # Redirect user to login form
     return redirect("/")
 
-
-
-# @app.route("/cart", methods=["GET", "POST"])
-# @login_required
-# def cart():
 
