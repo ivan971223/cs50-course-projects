@@ -58,7 +58,7 @@ def cart():
         try:
             number = int(request.form.get("number"))
         except:
-            
+            number = 0
         action = request.form.get("action")
         if id and number > 0:
             session["cart_item"].append(id)
