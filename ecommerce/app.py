@@ -56,6 +56,7 @@ def cart():
     if request.method == "POST":
         id = request.form.get("id")
         number = int(request.form.get("number"))
+        action = request.form.get("action")
         if id and number > 0:
             session["cart_item"].append(id)
             session["cart"][f'{id}'] = number
@@ -69,7 +70,7 @@ def cart():
                 food["price"] = usd(food["price"])
                 index += 1
             total = usd(total)
-        else:
+        elif action == "delete":
             db.execute("")
         return render_template("cart.html", foods=foods, total=total, success=True)
 
