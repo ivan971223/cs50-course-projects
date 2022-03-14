@@ -115,7 +115,7 @@ def order():
         "SELECT * FROM orders WHERE user_id = ? GROUP BY orderDate", session["user_id"])
     for order in orders:
         rows = db.execute(
-            "SELECT name, number FROM orders WHERE id = ? and user_id = ?", order["id"], session["user_id"])
+            "SELECT name, number FROM orders WHERE user_id = ? and orderDate = ?", session["user_id"], order["orderDate"])
         description = ""
         for row in rows:
             name = row["name"]
