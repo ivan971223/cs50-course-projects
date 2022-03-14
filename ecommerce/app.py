@@ -112,7 +112,8 @@ def order():
             session["cart"] = {}
             session["cart_item"] = []
             return redirect("/order")
-
+        else:
+            return redirect("/cart")
     orders = db.execute(
         "SELECT * FROM orders WHERE user_id = ? GROUP BY orderDate ORDER BY orderDate Desc", session["user_id"])
     for order in orders:
