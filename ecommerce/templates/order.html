@@ -1,9 +1,14 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Cart
+    Order
 {% endblock %}
 {% block main %}
+{% if is_placed %}
+        <header>
+            <div class="alert alert-success mb-0 text-center" role="alert"><strong>Success! </strong>Order is placed!</div>
+        </header>
+{% endif %}
     <table class="table tablestriped">
         <thead>
             <tr>

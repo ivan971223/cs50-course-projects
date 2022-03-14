@@ -97,6 +97,8 @@ def cart():
 @app.route("/order", methods=["GET", "POST"])
 @login_required
 def order():
+    
+    session["is_placed"] = False
     if request.method == "POST":
         total = float(request.form.get("total"))
         if total > 0:
@@ -111,6 +113,7 @@ def order():
                            order_date, session["user_id"], food_id, name, number, total)
             session["cart"] = {}
             session["cart_item"] = []
+            session["is_placed"] = True
         else:
             return redirect("/cart")
     orders = db.execute(
@@ -124,7 +127,7 @@ def order():
             number = row["number"]
             description += f"{name}*{number}, "
         order["description"] = description[:-2]
-    return render_template("order.html", orders=orders)
+    return render_template("order.html", orders=orders, is_placed=session["is_placed"])
 
 
 @app.route("/register", methods=["GET", "POST"])
