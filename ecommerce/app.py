@@ -55,7 +55,7 @@ def cart():
         id = request.form.get("id")
         number = request.form.get("number")
         if id and number:
-            session["cart"].append({"id": id, "number": number})
+            session["cart"][id] = number
         return redirect("/cart")
 
     foods = db.execute("SELECT * FROM food WHERE id in (?)", session["cart"])
