@@ -77,7 +77,7 @@ def cart():
         elif action == "delete":
             session["cart_item"].remove(id)
             session["cart"].pop(f"{id}")
-            return redirect("/")
+            return redirect("/cart")
 
     # GET
     foods = db.execute("SELECT * FROM food WHERE id in (?)",
