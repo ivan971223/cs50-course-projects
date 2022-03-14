@@ -26,6 +26,12 @@
                     <td>{{food["name"]}}</td>
                     <td>{{food["price"]}}</td>
                     <td>{{food["number"]}}</td>
+                    <td>
+                        <form action="/cart" method="post">
+                            <input name="id" type="hidden" value="{{id}}">
+                            <button class="btn btn-primary" type="submit">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             {% endfor %}
             <tr>
