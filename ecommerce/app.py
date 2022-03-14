@@ -70,9 +70,10 @@ def cart():
                 food["price"] = usd(food["price"])
                 index += 1
             total = usd(total)
+            return render_template("cart.html", foods=foods, total=total, success=True)
         elif action == "delete":
-            db.execute("")
-        return render_template("cart.html", foods=foods, total=total, success=True)
+            session["cart_item"].remove(id)
+            session["cart"]
 
     # GET
     foods = db.execute("SELECT * FROM food WHERE id in (?)",
