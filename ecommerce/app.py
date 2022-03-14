@@ -98,6 +98,7 @@ def cart():
 @login_required
 def order():
     if request.method == "POST":
+        total = request.form.get("total")
         for food_id in session["cart"].keys():
             food_id = food_id
             number = session["cart"][f"{food_id}"]
