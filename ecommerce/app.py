@@ -39,7 +39,7 @@ def after_request(response):
 @login_required
 def index():
     foods = db.execute("SELECT id, name, price FROM food")
-    return render_template("index.html", foods=foods)
+    return render_template("index.html", foods=foods, is_added=False)
 
 
 @app.route("/cart", methods=["GET", "POST"])
@@ -73,7 +73,7 @@ def cart():
                 food["price"] = usd(food["price"])
                 index += 1
             total = usd(total)
-            return render_template("index.html", is_added=True)
+            return render_template("index.html", foods=foods, is_added=True)
         elif action == "delete":
             session["cart_item"].remove(id)
             session["cart"].pop(f"{id}")
