@@ -28,8 +28,8 @@
                     <td>{{food["number"]}}</td>
                     <td>
                         <form action="/cart" method="post">
-                            <input name="id" type="hidden" value="{{id}}">
-                            <button class="btn btn-primary" type="submit">Delete</button>
+                            <input name="id" type="hidden" value="{{food["id"]}}">
+                            <button class="btn btn-danger" type="submit">Delete</button>
                         </form>
                     </td>
                 </tr>
