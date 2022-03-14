@@ -111,7 +111,7 @@ def order():
         return redirect("/order")
 
     orders = db.execute(
-        "SELECT * FROM orders WHERE user_id = ?", session["user_id"])
+        "SELECT * FROM orders WHERE user_id = ? GROUP BY orderDate", session["user_id"])
     return render_template("order.html", orders=orders)
 
 
