@@ -109,8 +109,8 @@ def order():
                 name = row[0]["name"]
                 db.execute("INSERT INTO orders (orderDate, user_id, food_id, name, number, total) VALUES(?,?,?,?,?,?)",
                            order_date, session["user_id"], food_id, name, number, total)
-                session["cart"] = {}
-                session["cart_item"] = []
+            session["cart"] = {}
+            session["cart_item"] = []
             return redirect("/order")
 
     orders = db.execute(
