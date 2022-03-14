@@ -7,28 +7,16 @@
     <table class="table tablestriped">
         <thead>
             <tr>
-                <th></th>
-                <th>Food Name</th>
-                <th>Price</th>
-                <th>Amount</th>
-                <th></th>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Paid</th>
             </tr>
 
         </thead>
         <tbody>
-            {% for food in foods %}
+            {% for order in orders %}
                 <tr>
-                    <td><img src="/static/food/{{food["name"]}}.jpg" class="img--thumbnail" alt="{{food["name"]}}"></td>
-                    <td>{{food["name"]}}</td>
-                    <td>{{food["price"]}}</td>
-                    <td>{{food["number"]}}</td>
-                    <td>
-                        <form action="/cart" method="post">
-                            <input name="id" type="hidden" value="{{food["id"]}}">
-                            <input name="action" type="hidden" value="delete">
-                            <button class="btn btn-danger" type="submit">Delete</button>
-                        </form>
-                    </td>
+                    <td></td>
                 </tr>
             {% endfor %}
         </tbody>
