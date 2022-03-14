@@ -51,8 +51,8 @@ def cart():
 
     # POST
     if request.method == "POST":
-        id = request.method.get("id")
-        number = request.method.get("number")
+        id = request.form.get("id")
+        number = request.form.get("number")
         if id:
             session["cart"].append(id)
         return redirect("/cart")
