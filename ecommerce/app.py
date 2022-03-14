@@ -73,7 +73,8 @@ def cart():
             return render_template("cart.html", foods=foods, total=total, success=True)
         elif action == "delete":
             session["cart_item"].remove(id)
-            session["cart"]
+            session["cart"].pop(f"{id}")
+            return redirect("/")
 
     # GET
     foods = db.execute("SELECT * FROM food WHERE id in (?)",
