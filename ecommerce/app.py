@@ -35,9 +35,28 @@ def after_request(response):
     return response
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
+
+    if "cart_item" not in session:
+        session["cart_item"] = []
+    if "cart" not in session:
+        session["cart"] = {}
+
+    if request.method == "POST":
+        id = request.form.get("id")
+        try:
+            number = int(request.form.get("number"))
+        except:
+            number = 0
+        action = request.form.get("action")
+        if id and number > 0:
+            session["cart_item"].append(id)
+            session["cart"][f'{id}'] = number
+            foods = db.execute("SELECT id, name, price FROM food")
+            return render_template("index.html", foods=foods, is_added=True)
+
     foods = db.execute("SELECT id, name, price FROM food")
     return render_template("index.html", foods=foods, is_added=False)
 
@@ -60,12 +79,7 @@ def cart():
         except:
             number = 0
         action = request.form.get("action")
-        if id and number > 0:
-            session["cart_item"].append(id)
-            session["cart"][f'{id}'] = number
-            foods = db.execute("SELECT id, name, price FROM food")
-            return render_template("index.html", foods=foods, is_added=True)
-        elif action == "delete":
+        if action == "delete":
             session["cart_item"].remove(id)
             session["cart"].pop(f"{id}")
             return redirect("/cart")
