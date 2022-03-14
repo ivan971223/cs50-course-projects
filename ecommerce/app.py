@@ -57,13 +57,13 @@ def cart():
         number = int(request.form.get("number"))
         if id and number > 0:
             session["cart_item"].append(id)
-            session["cart"][f"{id}"] = number
+            session["cart"][f'{id}'] = number
         return redirect("/cart")
 
     foods = db.execute("SELECT * FROM food WHERE id in (?)", session["cart_item"])
     index = 0
     for food in foods:
-        food["number"] = session["cart"][f"{food["id"]}"]
+        food["number"] = session["cart"][f'{food["id"]}']
         index += 1
     return render_template("cart.html", foods=foods)
 
