@@ -23,10 +23,17 @@
                     <td>{{food["number"]}}</td>
                 </tr>
             {% endfor %}
-            <form action="/order" method="post">
-                <input name="id" type="hidden" value="{{ food['id'] }}">
-                <button class="btn btn-primary" type="submit">Place Order</button>
-            </form>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <form action="/order" method="post">
+                        <input name="id" type="hidden" value="{{foods}}">
+                        <button class="btn btn-primary" type="submit">Place Order</button>
+                    </form>
+                </td>
+            </tr>
         </tbody>
     </table>
 
