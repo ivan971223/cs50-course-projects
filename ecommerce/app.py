@@ -48,7 +48,7 @@ def cart():
 
     # Ensure cart exists
     if "cart" not in session:
-        session["cart"] = []
+        session["cart"] = {}
 
     # POST
     if request.method == "POST":
