@@ -98,7 +98,7 @@ def cart():
 @login_required
 def order():
     if request.method == "POST":
-        total = int(request.form.get("total"))
+        total = float(request.form.get("total"))
         if total > 0:
             for food_id in session["cart"].keys():
                 food_id = food_id
@@ -115,7 +115,8 @@ def order():
         "SELECT * FROM orders WHERE user_id = ? GROUP BY orderDate", session["user_id"])
     for order in orders:
         rows = db.execute(
-            "SELECT name, number FROM order WHERE id = ? and user_id = ?", order["id"], session["user_id"])
+            "SELECT name, number FROM orders WHERE id = ? and user_id = ?", order["id"], session["user_id"])
+        description
         for row in rows:
             name = row["name"]
             number = row["number"]
