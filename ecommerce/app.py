@@ -104,8 +104,10 @@ def order():
             number = session["cart"][f"{food_id}"]
             order_date = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
             total = total
-            name = db.execute("SELECT name FROM food WHERE id = ?",food_id)
-            db.execute("INSERT INTO order (orderDate, user_id, food_id, number, total) VALUES(?,?,?,?,?)", order_date, session["user_id"], food_id, number, total)
+            row = db.execute("SELECT name FROM food WHERE id = ?",food_id)
+            name = row[0]["name"]
+            db.execute("INSERT INTO order (orderDate, user_id, food_id, name, number, total) VALUES(?,?,?,?,?,?)", order_date, session["user_id"], food_id, name, number, total)
+        return redirect("/order")
 
     orders = db.execute("SELECT * FROM order WHERE user_id = ?",session["user_id"])
     return render_template("order.html", orders=orders)
