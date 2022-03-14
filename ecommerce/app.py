@@ -103,7 +103,7 @@ def order():
             for food_id in session["cart"].keys():
                 food_id = food_id
                 number = session["cart"][f"{food_id}"]
-                order_date = datetime.datetime.now()
+                order_date = (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime("%Y/%m/%d %H:%M:%S")
                 total = total
                 row = db.execute("SELECT name FROM food WHERE id = ?", food_id)
                 name = row[0]["name"]
