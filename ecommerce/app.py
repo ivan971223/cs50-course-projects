@@ -114,9 +114,12 @@ def order():
     orders = db.execute(
         "SELECT * FROM orders WHERE user_id = ? GROUP BY orderDate", session["user_id"])
     for order in orders:
-        rows = db.execute("SELECT name, number FROM order WHERE id = ?", order["id"])
+        rows = db.execute("SELECT name, number FROM order WHERE id = ? and user_id = ?", order["id"], session["user_id"])
         for row in rows:
+            name = row["name"]
+            number = row["number"]
             description += f"{name}*{number}"
+        order["description"] = description
     return render_template("order.html", orders=orders)
 
 
