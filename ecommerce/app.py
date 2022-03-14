@@ -55,7 +55,10 @@ def cart():
     # POST
     if request.method == "POST":
         id = request.form.get("id")
-        number = int(request.form.get("number"))
+        try:
+            number = int(request.form.get("number"))
+        except:
+            
         action = request.form.get("action")
         if id and number > 0:
             session["cart_item"].append(id)
