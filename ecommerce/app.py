@@ -62,10 +62,13 @@ def cart():
 
     foods = db.execute("SELECT * FROM food WHERE id in (?)", session["cart_item"])
     index = 0
+    total = 0
     for food in foods:
         food["number"] = session["cart"][f'{food["id"]}']
+        total += food["price"]
         index += 1
-    return render_template("cart.html", foods=foods)
+    total = usd(total)
+    return render_template("cart.html", foods=foods, total = total)
 
 
 # @app.route("/history")
