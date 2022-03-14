@@ -50,6 +50,8 @@ def cart():
         session["cart_item"] = []
     if "cart" not in session:
         session["cart"] = {}
+    if "add_success" not in session:
+        session["add_success"] = false
 
     # POST
     if request.method == "POST":
@@ -58,6 +60,7 @@ def cart():
         if id and number > 0:
             session["cart_item"].append(id)
             session["cart"][f'{id}'] = number
+            session["add_success"] = true
         return redirect("/")
 
     foods = db.execute("SELECT * FROM food WHERE id in (?)", session["cart_item"])
