@@ -46,11 +46,7 @@ def index():
 
     if request.method == "POST":
         id = request.form.get("id")
-        try:
-            number = int(request.form.get("number"))
-        except:
-            number = 0
-        action = request.form.get("action")
+        number = int(request.form.get("number"))
         if id and number > 0:
             session["cart_item"].append(id)
             session["cart"][f'{id}'] = number
