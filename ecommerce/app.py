@@ -98,7 +98,10 @@ def cart():
 @login_required
 def order():
     if request.method == "POST":
-        total = request.form.get("total")
+        try:
+            total = int(request.form.get("total"))
+        except:
+            return redirect("/cart")
         if total > 0:
             for food_id in session["cart"].keys():
                 food_id = food_id
