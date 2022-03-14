@@ -90,7 +90,7 @@ def cart():
         total += food["price"]*food["number"]
         food["price"] = usd(food["price"])
         index += 1
-    total = usd(total)
+    total = total
     return render_template("cart.html", foods=foods, total=total, is_added=False)
 
 
@@ -114,7 +114,8 @@ def order():
     orders = db.execute(
         "SELECT * FROM orders WHERE user_id = ? GROUP BY orderDate", session["user_id"])
     for order in orders:
-        rows = db.execute("SELECT name, number FROM order WHERE id = ? and user_id = ?", order["id"], session["user_id"])
+        rows = db.execute(
+            "SELECT name, number FROM order WHERE id = ? and user_id = ?", order["id"], session["user_id"])
         for row in rows:
             name = row["name"]
             number = row["number"]
