@@ -4,10 +4,11 @@
     Food
 {% endblock %}
 {% block main %}
-<header id="header">
-    
-</header>
-
+{% if is_added %}
+        <header>
+            <div class="alert alert-success mb-0 text-center" role="alert"><strong>Success! </strong>Item added to cart!</div>
+        </header>
+{% endif %}
  <div class="container">
       <div class="row hidden-md-up">
       {% for food in foods %}
@@ -20,7 +21,7 @@
                         <form action="/" method="post">
                             <input name="id" type="hidden" value="{{ food['id'] }}">
                             <input name="number" type="number" value="0" min="0" max="20" step="1"/>
-                            <button class="btn btn-primary" id="addtocart" type="submit">Add to Cart</button>
+                            <button class="btn btn-primary" type="submit">Add to Cart</button>
                         </form>
                     </div>
                 </div>
