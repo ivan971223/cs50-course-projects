@@ -18,7 +18,7 @@
         <tbody>
             {% for food in foods %}
                 <tr>
-                    <td><img src="./static/food/{{food["name"]}}.jpg" class="img--thumbnail" alt="{{food["name"]}}"></td>
+                    <td><img src="./static/{{food["name"]}}.jpg" class="img--thumbnail" alt="{{food["name"]}}"></td>
                     <td>{{food["name"]}}</td>
                     <td>{{food["price"]}}</td>
                     <td>{{food["number"]}}</td>
@@ -39,7 +39,7 @@
                 <td class="border-0">
                     <form action="/order" method="post">
                         <input name="id" type="hidden" value="{{foods}}">
-                        <button class="btn btn-primary" type="submit">Place Order</button>
+                        <button class="btn btn-success" type="submit">Place Order</button>
                     </form>
                 </td>
             </tr>
