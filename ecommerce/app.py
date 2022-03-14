@@ -58,7 +58,7 @@ def cart():
         if id and number > 0:
             session["cart_item"].append(id)
             session["cart"][f'{id}'] = number
-        return render_template("cart.html", foods=foods, total = total, success=true)
+        return redirect("/")
 
     foods = db.execute("SELECT * FROM food WHERE id in (?)", session["cart_item"])
     index = 0
@@ -69,7 +69,7 @@ def cart():
         food["price"] = usd(food["price"])
         index += 1
     total = usd(total)
-    return render_template("cart.html", foods=foods, total = total, success=false)
+    return render_template("cart.html", foods=foods, total = total)
 
 
 # @app.route("/history")
