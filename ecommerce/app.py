@@ -59,7 +59,7 @@ def cart():
         return redirect("/cart")
 
     foods = db.execute("SELECT * FROM food WHERE id in (?)", session["cart"])
-    return render_template("cart.html", foods=foods, number=)
+    return render_template("cart.html", foods=foods)
 
 
 # @app.route("/history")
