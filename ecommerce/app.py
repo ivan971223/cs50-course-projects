@@ -34,18 +34,15 @@ def after_request(response):
     return response
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
-    foods = db.execute("SELECT id, name, price FROM food")
-    return render_template("index.html", foods = foods)
+    if request.method == "POST":
+        
 
-
-# @app.route("/buy", methods=["GET", "POST"])
-# @login_required
-# def buy():
-#     return
-
+    else:
+        foods = db.execute("SELECT id, name, price FROM food")
+        return render_template("index.html", foods = foods)
 
 # @app.route("/history")
 # @login_required
