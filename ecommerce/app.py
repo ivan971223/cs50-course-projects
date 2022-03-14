@@ -98,7 +98,7 @@ def cart():
 @login_required
 def order():
     if request.method == "POST":
-        
+        session["cart"]
     orders = db.execute("SELECT * FROM order WHERE user_id = ?",session["user_id"])
     return render_template("order.html")
 
