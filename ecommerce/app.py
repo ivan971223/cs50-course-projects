@@ -46,7 +46,19 @@ def index():
 def cart():
 
     # Ensure cart exists
-    
+    if "cart" not in session:
+        session["cart"] = []
+
+    # POST
+    if request.method == "POST":
+        id = request.method.get("id")
+        if id:
+            session["cart"].append(id)
+        return redirect("/cart")
+
+    foods = db.execute("SELECT * FROM food WHERE id in (?)", session["cart"])
+    return render_template("cart.html", foods=foods)
+
 
 # @app.route("/history")
 # @login_required
