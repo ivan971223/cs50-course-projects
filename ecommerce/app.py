@@ -51,7 +51,7 @@ def index():
             session["cart_item"].append(id)
             session["cart"][f'{id}'] = number
             foods = db.execute("SELECT id, name, price FROM food")
-            return redirect("/")
+            return None
     else:
         foods = db.execute("SELECT id, name, price FROM food")
         return render_template("index.html", foods=foods)
