@@ -63,16 +63,7 @@ def cart():
         if id and number > 0:
             session["cart_item"].append(id)
             session["cart"][f'{id}'] = number
-            foods = db.execute(
-                "SELECT * FROM food WHERE id in (?)", session["cart_item"])
-            index = 0
-            total = 0
-            for food in foods:
-                food["number"] = session["cart"][f'{food["id"]}']
-                total += food["price"]*food["number"]
-                food["price"] = usd(food["price"])
-                index += 1
-            total = usd(total)
+            foods = db.execute("SELECT id, name, price FROM food")
             return render_template("index.html", foods=foods, is_added=True)
         elif action == "delete":
             session["cart_item"].remove(id)
