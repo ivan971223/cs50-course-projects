@@ -69,6 +69,8 @@ def cart():
                 food["price"] = usd(food["price"])
                 index += 1
             total = usd(total)
+        else:
+            db.execute("")
         return render_template("cart.html", foods=foods, total=total, success=True)
 
     foods = db.execute("SELECT * FROM food WHERE id in (?)",
