@@ -1,8 +1,8 @@
 .img--thumbnail {
     display: block;
     border: none !important;
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
     object-position: 50% top;
     object-fit: cover;
     padding: 0rem 0 !important;
