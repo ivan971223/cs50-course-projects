@@ -53,7 +53,7 @@ def cart():
     if request.method == "POST":
         id = request.form.get("id")
         number = request.form.get("number")
-        if id and number:
+        if id and number > 0:
             session["cart"].append(id)
             session["item_count"].append(number)
         return redirect("/cart")
