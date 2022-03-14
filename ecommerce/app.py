@@ -51,7 +51,8 @@ def index():
             session["cart_item"].append(id)
             session["cart"][f'{id}'] = number
             foods = db.execute("SELECT id, name, price FROM food")
-    elif request.method == "GET":
+            return render_template("index.html", foods=foods)
+    else:
         foods = db.execute("SELECT id, name, price FROM food")
         return render_template("index.html", foods=foods)
 
