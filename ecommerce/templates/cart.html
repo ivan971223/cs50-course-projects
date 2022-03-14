@@ -4,11 +4,11 @@
     Cart
 {% endblock %}
 {% block main %}
-    {% if success%}
+    {% if {{success}} %}
         <header>
             <div class="alert alert-success mb-0 text-center" role="alert"><strong>Success!</strong>Items added to cart!</div>
         </header>
-    {% endif %}}
+    {% endif %}
     <table class="table">
         <thead>
             <tr>

@@ -69,7 +69,7 @@ def cart():
                 food["price"] = usd(food["price"])
                 index += 1
             total = usd(total)
-        return render_template("cart.html", foods=foods, total=total, success=true)
+        return render_template("cart.html", foods=foods, total=total, success=True)
 
     foods = db.execute("SELECT * FROM food WHERE id in (?)",
                        session["cart_item"])
@@ -81,7 +81,7 @@ def cart():
         food["price"] = usd(food["price"])
         index += 1
     total = usd(total)
-    return render_template("cart.html", foods=foods, total=total, success=false)
+    return render_template("cart.html", foods=foods, total=total, success=False)
 
 
 # @app.route("/history")
