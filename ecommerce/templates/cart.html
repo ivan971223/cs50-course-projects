@@ -7,30 +7,18 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Buy/Sell</th>
-                <th>Symbol</th>
-                <th>Name</th>
-                <th>Shares</th>
+                <th></th>
+                <th>Food Name</th>
                 <th>Price</th>
-                <th>Cash</th>
+                <th>Number</th>
             </tr>
 
         </thead>
         <tbody>
-            {% for transaction in transactions %}
+            {% for food in foods %}
                 <tr>
-                    <td>{{transaction["date"]}}</td>
-                    {% if transaction["shares"] > 0 %}
-                        <td>Buy</td>
-                    {% else %}
-                        <td>Sell</td>
-                    {% endif %}
-                    <td>{{transaction["symbol"]}}</td>
-                    <td>{{transaction["name"]}}</td>
-                    <td>{{transaction["shares"]}}</td>
-                    <td>{{transaction["price"]}}</td>
-                    <td>{{transaction["total"]}}</td>
+                    <td><img src="./static/food/{{food["name"]}}.jpg" class="img--cover" alt="{{food["name"]}}"></td>
+
                 </tr>
             {% endfor %}
         </tbody>
