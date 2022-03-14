@@ -35,21 +35,24 @@
                     </td>
                 </tr>
             {% endfor %}
-            <tr>
-                <td></td>
-                <td>Total:</td>
-                <td>{{total}}</td>
-                <td>
-                    <form action="/order" method="post">
-                        <input name="id" type="hidden" value="{{foods}}">
-                        <button class="btn btn-primary" type="submit">Place Order</button>
-                    </form>
-                </td>
-            </tr>
         </tbody>
     </table>
-    <footer class="mb-5 small text-center text-muted">
-            Data provided by <a href="https://iexcloud.io/">IEX</a>
-    </footer>
+{% endblock %}
 
+{% block footer %}
+    <table class="table">
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>Total:</td>
+                        <td>{{total}}</td>
+                        <td>
+                            <form action="/order" method="post">
+                                <input name="id" type="hidden" value="{{foods}}">
+                                <button class="btn btn-primary" type="submit">Place Order</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 {% endblock %}
