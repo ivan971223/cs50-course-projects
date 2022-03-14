@@ -99,7 +99,10 @@ def cart():
 def order():
     if request.method == "POST":
         for food_id in session["cart"].keys():
-            
+            food_id = food_id
+            number = session["cart"][f"{food_id}"]
+            order_date = date
+            db.execute("INSERT INTO order (orderDate, user_id, food_id, number) VALUES(?,?,?,?)",)
     orders = db.execute("SELECT * FROM order WHERE user_id = ?",session["user_id"])
     return render_template("order.html")
 
