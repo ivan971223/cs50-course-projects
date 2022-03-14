@@ -34,7 +34,7 @@ def after_request(response):
     return response
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 @login_required
 def index():
     foods = db.execute("SELECT id, name, price FROM food")
