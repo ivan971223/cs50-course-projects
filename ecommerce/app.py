@@ -1,7 +1,7 @@
 import os
 
 from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, render_template, request, session, jsonify
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -51,7 +51,7 @@ def index():
             session["cart_item"].append(id)
             session["cart"][f'{id}'] = number
             foods = db.execute("SELECT id, name, price FROM food")
-            return None
+            return jsonify(message=f'Hello')
     else:
         foods = db.execute("SELECT id, name, price FROM food")
         return render_template("index.html", foods=foods)
