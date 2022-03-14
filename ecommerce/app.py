@@ -73,6 +73,7 @@ def cart():
             db.execute("")
         return render_template("cart.html", foods=foods, total=total, success=True)
 
+    # GET
     foods = db.execute("SELECT * FROM food WHERE id in (?)",
                        session["cart_item"])
     index = 0
