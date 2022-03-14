@@ -73,7 +73,7 @@ def cart():
                 food["price"] = usd(food["price"])
                 index += 1
             total = usd(total)
-            return render_template("cart.html", foods=foods, total=total, is_added=True)
+            return render_template("index.html", is_added=True)
         elif action == "delete":
             session["cart_item"].remove(id)
             session["cart"].pop(f"{id}")

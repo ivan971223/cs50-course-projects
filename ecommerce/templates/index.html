@@ -4,6 +4,11 @@
     Food
 {% endblock %}
 {% block main %}
+{% if is_added %}
+        <header>
+            <div class="alert alert-success mb-0 text-center" role="alert"><strong>Success! </strong>Item added to cart!</div>
+        </header>
+{% endif %}
  <div class="container">
       <div class="row hidden-md-up">
       {% for food in foods %}
