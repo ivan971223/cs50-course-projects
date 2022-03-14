@@ -17,9 +17,8 @@
             {% for order in orders %}
                 <tr>
                     <td>{{order["orderDate"]}}</td>
-                    <td>{{order["orderDate"]}}</td>
+                    <td class="small text-muted">{{order["id"]}}</td>
                     <td>{{order["total"]}}</td>
-                    <td>{{order["orderDate"]}}</td>
                 </tr>
             {% endfor %}
         </tbody>
