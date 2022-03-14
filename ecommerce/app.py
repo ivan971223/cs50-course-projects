@@ -25,6 +25,7 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///shop.db")
 
+
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
@@ -38,7 +39,7 @@ def after_request(response):
 @login_required
 def index():
     foods = db.execute("SELECT id, name, price FROM food")
-    return render_template("index.html", foods = foods)
+    return render_template("index.html", foods=foods)
 
 
 @app.route("/cart", methods=["GET", "POST"])
@@ -53,9 +54,8 @@ def cart():
     if request.method == "POST":
         id = request.form.get("id")
         number = request.form.get("number")
-        if id:
-            session["cart"].append(id)
-            session["cart"].append(number)
+        if id and number:
+            session["cart"].append({"id": id, "number": number})
         return redirect("/cart")
 
     foods = db.execute("SELECT * FROM food WHERE id in (?)", session["cart"])
@@ -88,6 +88,7 @@ def register():
         return render_template("login.html")
     else:
         return render_template("register.html")
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -135,5 +136,3 @@ def logout():
 
     # Redirect user to login form
     return redirect("/")
-
-
