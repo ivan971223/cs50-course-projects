@@ -99,21 +99,22 @@ def cart():
 def order():
     if request.method == "POST":
         total = request.form.get("total")
-        for food_id in session["cart"].keys():
-            food_id = food_id
-            number = session["cart"][f"{food_id}"]
-            order_date = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
-            total = total
-            row = db.execute("SELECT name FROM food WHERE id = ?", food_id)
-            name = row[0]["name"]
-            db.execute("INSERT INTO orders (orderDate, user_id, food_id, name, number, total) VALUES(?,?,?,?,?,?)",
-                       order_date, session["user_id"], food_id, name, number, total)
-        return redirect("/order")
+        if total > 0:
+            for food_id in session["cart"].keys():
+                food_id = food_id
+                number = session["cart"][f"{food_id}"]
+                order_date = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+                total = total
+                row = db.execute("SELECT name FROM food WHERE id = ?", food_id)
+                name = row[0]["name"]
+                db.execute("INSERT INTO orders (orderDate, user_id, food_id, name, number, total) VALUES(?,?,?,?,?,?)",
+                           order_date, session["user_id"], food_id, name, number, total)
+            return redirect("/order")
 
     orders = db.execute(
         "SELECT * FROM orders WHERE user_id = ? GROUP BY orderDate", session["user_id"])
     for order in orders:
-        
+
     return render_template("order.html", orders=orders)
 
 
