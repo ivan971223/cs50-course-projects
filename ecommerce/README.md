@@ -23,8 +23,40 @@ For function `login()`, it gets the input username and password from user reques
 
 For function `logout()`, it clears the session and return to `login.html`.
 
+>helper.py
+
+It includes some helper functions including a decorated function `login_required` for checking login session or status, a function `apology()` to display error message and a function `usd()` to convert the money value to usd format.
+
+
 ## Database
 
 >database.py
 
-This file is to open the database `shop.db` and create a table named users for storing username, password hash, a table named food for storing food id, food name and food price and a table named orders for storing order datetime, user id, food id, food amount, 
+This file is to open the database `shop.db` and create a table named users for storing username, password hash, a table named food for storing food id, food name and food price and a table named orders for storing order datetime, user id, food id, food name and food amount. Besides, it also read the csv file `shop.csv` and insert the food items to the database.
+
+## Others
+
+>requirement.txt
+
+This text file stores all libraries that the application depends.
+
+## Frontend development
+
+## Templates
+
+ >./templates
+
+ This folders store all of the html files. `layout.html` is the file for the template of other file. It contains the head tag and navigation tag so that other html files can inherit those syntax from this template.
+
+## Static files
+
+>./static
+
+This folder stores the CSS stylesheet files, food images and webstie icon.
+
+## Sessions
+
+>./flask_session
+
+This folder save all the sessions of each user.
+
