@@ -148,7 +148,7 @@ def register():
 
         db.execute("INSERT INTO users (username, hash) VALUES(?,?)",
                    username, hash_password)
-        return render_template("login.html", is_registered = True)
+        return redirect("/login")
     else:
         return render_template("register.html")
 
@@ -187,7 +187,7 @@ def login():
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
-        return render_template("login.html", is_registered = False)
+        return render_template("login.html")
 
 
 @app.route("/logout")
