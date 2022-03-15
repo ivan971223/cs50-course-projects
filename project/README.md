@@ -44,19 +44,19 @@ This text file stores all libraries that the application depends.
 ## Frontend development
 
 
-## Templates
+#### Templates
 
  >./templates
 
  This folders store all of the html files. `layout.html` is the file for the template of other file. It contains the head tag and navigation tag so that other html files can inherit those syntax from this template.
 
-## Static files
+#### Static files
 
 >./static
 
 This folder stores the CSS stylesheet files, food images and webstie icon.
 
-## Sessions
+#### Sessions
 
 >./flask_session
 
