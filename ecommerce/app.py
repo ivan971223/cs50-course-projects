@@ -97,7 +97,7 @@ def cart():
 @app.route("/order", methods=["GET", "POST"])
 @login_required
 def order():
-    
+
     session["is_placed"] = False
     if request.method == "POST":
         total = float(request.form.get("total"))
@@ -148,7 +148,7 @@ def register():
 
         db.execute("INSERT INTO users (username, hash) VALUES(?,?)",
                    username, hash_password)
-        return render_template("login.html")
+        return render_template("login.html", is_registered = True)
     else:
         return render_template("register.html")
 
@@ -187,7 +187,7 @@ def login():
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
-        return render_template("login.html")
+        return render_template("login.html", is_registered = False)
 
 
 @app.route("/logout")
