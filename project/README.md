@@ -40,7 +40,9 @@ This file is to open the database `shop.db` and create a table named users for s
 
 This text file stores all libraries that the application depends.
 
+
 ## Frontend development
+
 
 ## Templates
 
