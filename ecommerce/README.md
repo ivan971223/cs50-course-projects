@@ -7,28 +7,5 @@ Users can order food from the restaurant online. They can choose food from menu 
 
 >app.py
 
-This file is where the backend server starts. It contains all the functions for registration, login, logout, menu, shopping cart and order history.
+This file is where the backend server starts. It contains all the functions for registration, login, logout, menu, shopping cart and order history. For index()
 
-```
-@app.route("/", methods=["GET", "POST"])
-@login_required
-def index():
-
-    if "cart_item" not in session:
-        session["cart_item"] = []
-    if "cart" not in session:
-        session["cart"] = {}
-
-    if request.method == "POST":
-        id = request.form.get("id")
-        number = int(request.form.get("number"))
-        if id and number > 0:
-            session["cart_item"].append(id)
-            session["cart"][f'{id}'] = number
-            foods = db.execute("SELECT id, name, price FROM food")
-            return render_template("index.html", foods=foods, is_added=True)
-
-    foods = db.execute("SELECT id, name, price FROM food")
-    return render_template("index.html", foods=foods, is_added=False)
-```
->index()
