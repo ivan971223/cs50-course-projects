@@ -6,4 +6,4 @@
 Users can order food from the restaurant online. They can choose food from menu and add to the cart. Then, they can go through the items at the cart and place an order. After order is placed, they can review their order history at the Order page.
 
 >app.py
-This is the backend server which handles 
+This file is the backend server which contain functions
