@@ -7,5 +7,5 @@ Users can order food from the restaurant online. They can choose food from menu 
 
 >app.py
 
-This file is where the backend server starts. It contains all the functions for registration, login, logout, menu, shopping cart and order history. For function `index()`, it handles the post request from users when adding a food item to cart and gets the food_id and amount from users and store to list and dictionary in session. It also extract data from food SQL table for the display of menu at `. For function `cart`, it  queries for the food items with the food_ids stored in session and displays them at the `cart.html`.
+This file is where the backend server starts. It contains all the functions for registration, login, logout, menu, shopping cart and order history. For function `index()`, it handles the post request from users when adding a food item to cart and gets the food_id and amount from users and store to list and dictionary in session. It also extract data from food SQL table for the display of menu at `index.html`. For function `cart()`, it queries for the food items with the food_ids stored in session and displays them at the `cart.html`. When user send a request for removal of an item from the cart, the function will remove that particular id and number stored in session. For function `order()`, it will insert the order 
 
