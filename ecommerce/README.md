@@ -7,7 +7,7 @@ Users can order food from the restaurant online. They can choose food from menu 
 
 >app.py
 
-This file is where the backend server starts. It contains all the functions for registration, login, logout, menu, shopping cart and order history.
+This file is where the backend server starts. It contains all the functions for registration, login, logout, menu, shopping cart and order history. It stores most of the data at the SQL database `shop.db`.
 
 For function `index()`, it handles the post request from users when adding a food item to cart and gets the food_id and amount from users and store to list and dictionary in session. It also extract data from food SQL table for the display of menu at `index.html`.
 
@@ -17,4 +17,6 @@ For function `order()`, it will insert the order data to the SQL database accord
 
 For function `register()`, it gets the username and password from user request at the page `register.html` and stored the hashed password to the database.
 
-For function 
+For function `login()`, it gets the input username and password from user request at the page `login.html` and extract the hashed password from the database and compare to that input password for login permission.
+
+For function `logout()`, it clears the session and return to `login.html`.
