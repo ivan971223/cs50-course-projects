@@ -90,7 +90,7 @@ def cart():
         total += food["price"]*food["number"]
         food["price"] = usd(food["price"])
         index += 1
-    total = total
+    total = total.format()
     return render_template("cart.html", foods=foods, total=total)
 
 
