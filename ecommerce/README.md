@@ -32,4 +32,3 @@ def index():
     return render_template("index.html", foods=foods, is_added=False)
 ```
 >index()
-It 
